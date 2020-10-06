@@ -11,6 +11,12 @@
 */
 
 class APIConnector : JSONWorker {
+
+private:
+    sf::Http http;
+    JSONCPP_STRING err;
+    Json::Value root;
+
 public:
 
     /**
@@ -20,11 +26,7 @@ public:
     * @return - Token for Player Class to continue communication with api
     * 
     */
-    void getAuthToken() {
-        // Create a new HTTP client
-        sf::Http http;
-        JSONCPP_STRING err;
-        Json::Value root;
+    auto getAuthToken() {
         // Host for localhost, REMBEMER to turn on Django API
         http.setHost("127.0.0.1", 8000);
         // Prepare request for auth
@@ -37,11 +39,16 @@ public:
         {
             const std::string rawJson = response.getBody();
             // Pass the response to json_worker class
-            std::cout << getJsonTokenFromString(rawJson) << std::endl;
+            const std::string token = getJsonTokenFromString(rawJson);
+            return token;
         }
         else
         {
             std::cout << "Error " << status << std::endl;
         }
+    }
+
+    void sendPlayerInformation() {
+
     }
 };

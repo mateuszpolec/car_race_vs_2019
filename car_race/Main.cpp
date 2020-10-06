@@ -8,10 +8,12 @@ int main()
 {
     // create the window
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
-
-    Player player(1, 1);
     APIConnector api;
-    api.getAuthToken();
+    const std::string token = api.getAuthToken();
+
+    Player player(1, 1, token);
+    player.getMyToken();
+
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -32,6 +34,7 @@ int main()
         // window.draw(...);
 
         // end the current frame
+        window.draw(player.getMySpriteObject());
         window.display();
     }
 
