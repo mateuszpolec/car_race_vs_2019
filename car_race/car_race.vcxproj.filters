@@ -19,6 +19,9 @@
     <Filter Include="Pliki nagłówkowe\Sockets">
       <UniqueIdentifier>{154020c7-459c-4d9e-af33-63de6b171427}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\JsonWorker">
+      <UniqueIdentifier>{ee8da216-bd0f-4281-af93-2aa95adb97fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
       <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="json_worker.h">
+      <Filter>Pliki nagłówkowe\JsonWorker</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

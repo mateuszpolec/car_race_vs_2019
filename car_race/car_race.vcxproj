@@ -156,6 +156,7 @@
     <ClInclude Include="api_connector.h" />
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h" />
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h" />
+    <ClInclude Include="json_worker.h" />
     <ClInclude Include="player_class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
