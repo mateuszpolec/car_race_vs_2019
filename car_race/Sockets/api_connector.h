@@ -2,13 +2,12 @@
 #include <SFML/Network/Http.hpp>
 #include <iostream>
 #include <json/json.h>
-#include "json_worker.h"
+#include "JsonWorker/json_worker.h"
 
 
 /**
 * Class APIConnector - Inherits from JSONWorker
 * Made it possible to communicate with API
-* 
 */
 
 class APIConnector : JSONWorker {

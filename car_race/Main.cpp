@@ -1,8 +1,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
-#include "player_class.h"
-#include "api_connector.h"
+#include "Player/player_class.h"
+#include "Sockets/api_connector.h"
 
 int main()
 {

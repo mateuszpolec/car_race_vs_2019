@@ -16,9 +16,6 @@
     <Filter Include="Pliki nagłówkowe\Player">
       <UniqueIdentifier>{f73e5156-208f-41c6-a24f-e0012e1c56bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pliki nagłówkowe\Sockets">
-      <UniqueIdentifier>{154020c7-459c-4d9e-af33-63de6b171427}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Pliki nagłówkowe\JsonWorker">
       <UniqueIdentifier>{ee8da216-bd0f-4281-af93-2aa95adb97fc}</UniqueIdentifier>
     </Filter>
@@ -32,20 +29,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="player_class.h">
-      <Filter>Pliki nagłówkowe\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="api_connector.h">
-      <Filter>Pliki nagłówkowe\Sockets</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="json_worker.h">
+    <ClInclude Include="JsonWorker\json_worker.h">
       <Filter>Pliki nagłówkowe\JsonWorker</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\player_class.h">
+      <Filter>Pliki nagłówkowe\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Sockets\api_connector.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
