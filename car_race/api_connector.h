@@ -3,12 +3,14 @@
 #include <iostream>
 #include <json/json.h>
 
+
 class APIConnector {
 public:
 
     void getAuthToken() {
         // Create a new HTTP client
         sf::Http http;
+        Json::Value root;
         // Host for localhost, REMBEMER to turn on Django API
         http.setHost("127.0.0.1", 8000);
         // Prepare request for auth
