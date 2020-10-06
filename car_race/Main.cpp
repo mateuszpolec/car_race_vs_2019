@@ -10,9 +10,8 @@ int main()
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
 
     Player player(1, 1);
-    //APIConnector api;
-    // player.getMyPosition();
-    //api.test();
+    APIConnector api;
+    api.getAuthToken();
 
     // run the program as long as the window is open
     while (window.isOpen())
