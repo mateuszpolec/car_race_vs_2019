@@ -13,10 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Player">
+      <UniqueIdentifier>{f73e5156-208f-41c6-a24f-e0012e1c56bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Sockets">
+      <UniqueIdentifier>{154020c7-459c-4d9e-af33-63de6b171427}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="player_class.h">
+      <Filter>Pliki nagłówkowe\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="api_connector.h">
+      <Filter>Pliki nagłówkowe\Sockets</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
