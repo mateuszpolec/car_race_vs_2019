@@ -36,8 +36,8 @@ public:
     /**
     * getMySpriteObject
     * Function returns player sprite object, like shape, color
-    * @param - 
-    * @return - SFML CircleShape player object
+    * @param -
+    * @return player - SFML CircleShape player object
     */
     sf::CircleShape getMySpriteObject() {
         player.setRadius(10);
@@ -81,10 +81,10 @@ public:
 
     /**
     * getMyToken
-    * Function for tests to print player token
-    * void function no params
+    * Function that returns auth token for API
+    * @return token - hashed API Token for Player
     */
-    inline void getMyToken() {
-        std::cout << "My token is: " << token << std::endl;
+    inline std::string getMyToken() {
+        return token;
     }
 };

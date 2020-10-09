@@ -153,6 +153,7 @@
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileWorker\file_worker.h" />
     <ClInclude Include="Sockets\api_connector.h" />
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h" />
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h" />

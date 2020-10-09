@@ -8,7 +8,7 @@
 int main()
 {
     // create the window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
     APIConnector api;
     const std::string token = api.getAuthToken();
 
