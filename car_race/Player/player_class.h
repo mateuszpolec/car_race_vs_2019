@@ -7,11 +7,12 @@
 */
 class Player {
     std::string token;
-    sf::Vector2f playerPosition = { 1, 1 };
-    sf::Vector2f playerVelocity = { 1, 1 }; //To remember, Vector2f dont use notation like arrays but notation like Cartesian system
-    sf::Vector2f playerAcceleration = { 2500, 2500 };
+    /* To remember, Vector2f describes data like math cartesian system*/
+    sf::Vector2f playerPosition = { 1, 1 }; // Player position at start
+    sf::Vector2f playerVelocity = { 1, 1 }; // How fast player moves atm
+    sf::Vector2f playerAcceleration = { 2500, 2500 }; // Player Acceleration
     sf::CircleShape player; //Generate player object
-    sf::Clock clock;
+    sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
 
 public:
     /**
@@ -28,7 +29,7 @@ public:
     * Function created only for test, to check how fast player moves
     * void function, no params
     */
-    void getMyVelocity() {
+    inline void getMyVelocity() {
         std::cout << "My position is: " << playerVelocity.x << " " << playerVelocity.y << std::endl;
     }
 
@@ -44,6 +45,10 @@ public:
         return player;
     }
 
+    /**
+    * listenPlayerMove
+    * Function listen for keyboard key press, increment the speed of player and acceleration
+    */
     void listenPlayerMove() {
         float deltaTime = clock.restart().asSeconds();
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
@@ -64,9 +69,12 @@ public:
         }
     }
 
+    /**
+    * movePlayer
+    * Function that is called every frame refresh in Main.cpp, allow player to move with given velocity and acceleration
+    */
     void movePlayer() {
         float deltaTime = clock.restart().asSeconds();
-        std::cout << "Player velocity is: " << playerVelocity.x << ", " << playerVelocity.y << std::endl;
         playerPosition += playerVelocity * deltaTime;
         this->player.setPosition(playerPosition);
     }
@@ -76,7 +84,7 @@ public:
     * Function for tests to print player token
     * void function no params
     */
-    void getMyToken() {
+    inline void getMyToken() {
         std::cout << "My token is: " << token << std::endl;
     }
 };
