@@ -48,7 +48,12 @@ public:
         }
     }
 
+    /**
+    * TODO: Create function, that pass player positon to API
+    */
     void sendPlayerInformation() {
+        http.setHost("127.0.0.1", 8000);
+        //sf::Http::Request request("/api/player", sf::Http::Request::Put);
 
     }
 };

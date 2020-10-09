@@ -53,19 +53,19 @@ public:
         float deltaTime = clock.restart().asSeconds();
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
             playerVelocity.y -= playerAcceleration.y * deltaTime;
-            playerAcceleration.y += 5;
+            playerAcceleration.y += 3;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             playerVelocity.y += playerAcceleration.y * deltaTime;
-            playerAcceleration.y += 5;
+            playerAcceleration.y += 3;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
             playerVelocity.x -= playerAcceleration.x * deltaTime;
-            playerAcceleration.x += 5;
+            playerAcceleration.x += 3;
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
             playerVelocity.x += playerAcceleration.x * deltaTime;
-            playerAcceleration.x += 5;
+            playerAcceleration.x += 3;
         }
     }
 

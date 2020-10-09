@@ -32,10 +32,7 @@ int main()
         // clear the window with black color
         window.clear(sf::Color::Black);
 
-        // draw everything here...
-        // window.draw(...);
 
-        // end the current frame
         window.draw(player.getMySpriteObject());
         player.listenPlayerMove();
         player.movePlayer();
