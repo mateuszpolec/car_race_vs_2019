@@ -150,7 +150,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D:\Programs\Projekty\jsoncpp\dist\jsoncpp.cpp" />
+    <ClCompile Include="FileWorker\FileWorker.cpp" />
+    <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Player\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileWorker\file_worker.h" />

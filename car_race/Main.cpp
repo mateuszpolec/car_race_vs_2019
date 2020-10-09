@@ -14,7 +14,6 @@ int main()
 
 
     Player player(token);
-    player.getMyToken();
 
 
     // run the program as long as the window is open
