@@ -4,6 +4,7 @@
 #include "Player/player_class.h"
 #include "Sockets/api_connector.h"
 
+
 int main()
 {
     // create the window
@@ -11,7 +12,8 @@ int main()
     APIConnector api;
     const std::string token = api.getAuthToken();
 
-    Player player(1, 1, token);
+
+    Player player(token);
     player.getMyToken();
 
 
@@ -35,6 +37,8 @@ int main()
 
         // end the current frame
         window.draw(player.getMySpriteObject());
+        player.listenPlayerMove();
+        player.movePlayer();
         window.display();
     }
 
