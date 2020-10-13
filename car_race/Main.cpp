@@ -3,6 +3,7 @@
 #include <SFML/Network.hpp>
 #include "Player/player_class.h"
 #include "Sockets/api_connector.h"
+#include "FileWorker/map_worker.h"
 
 
 int main()
