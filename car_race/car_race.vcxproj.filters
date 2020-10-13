@@ -36,6 +36,9 @@
     <ClCompile Include="Player\Player.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Sockets\ApiConnector.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h">
@@ -44,16 +47,16 @@
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="JsonWorker\json_worker.h">
-      <Filter>Pliki nagłówkowe\JsonWorker</Filter>
-    </ClInclude>
-    <ClInclude Include="Player\player_class.h">
-      <Filter>Pliki nagłówkowe\Player</Filter>
-    </ClInclude>
     <ClInclude Include="Sockets\api_connector.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="FileWorker\file_worker.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="JsonWorker\json_worker.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Player\player_class.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

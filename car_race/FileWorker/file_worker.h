@@ -1,5 +1,5 @@
-#pragma once
 #include <iostream>
+
 /**
 * Class FileWorker - makes it easier to work with token file
 */
