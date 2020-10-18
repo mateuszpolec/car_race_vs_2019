@@ -1,4 +1,5 @@
-#include "tileson.hpp"
+#include "tmxlite/Config.hpp"
+#include "tmxlite/Map.hpp"
 
 class MapWorker {
 	public:

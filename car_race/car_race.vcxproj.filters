@@ -42,11 +42,41 @@
     <ClCompile Include="FileWorker\MapWorker.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Map.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Object.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\ObjectGroup.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Property.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\TileLayer.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.c">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\FreeFuncs.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\ImageLayer.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\LayerGroup.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -68,5 +98,17 @@
     <ClInclude Include="FileWorker\map_worker.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugiconfig.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="racemap2.json" />
   </ItemGroup>
 </Project>

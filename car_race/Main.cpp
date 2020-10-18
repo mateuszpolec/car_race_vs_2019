@@ -12,9 +12,12 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
 
     APIConnector api;
+    MapWorker mapworker;
+
     const std::string token = api.getAuthToken();
 
     Player player(token);
+    mapworker.loadMapFromJson();
 
     // run the program as long as the window is open
     while (window.isOpen())

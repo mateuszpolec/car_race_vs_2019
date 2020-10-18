@@ -86,10 +86,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include;d:\Programs\Projekty\tileson\single_include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,9 +104,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,10 +121,10 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include;d:\Programs\Projekty\tileson\single_include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,9 +139,10 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,6 +154,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="D:\Programs\Projekty\jsoncpp\dist\jsoncpp.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\FreeFuncs.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\ImageLayer.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\LayerGroup.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Map.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.c" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Object.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\ObjectGroup.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Property.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\TileLayer.cpp" />
+    <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="FileWorker\FileWorker.cpp" />
     <ClCompile Include="FileWorker\MapWorker.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
@@ -161,13 +174,18 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\tileson\single_include\tileson.hpp" />
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugiconfig.hpp" />
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp" />
+    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="FileWorker\file_worker.h" />
     <ClInclude Include="FileWorker\map_worker.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Player\player_class.h" />
     <ClInclude Include="Sockets\api_connector.h" />
-    <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h" />
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="racemap2.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
