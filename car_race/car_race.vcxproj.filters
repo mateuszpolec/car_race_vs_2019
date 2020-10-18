@@ -39,6 +39,9 @@
     <ClCompile Include="Sockets\ApiConnector.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="FileWorker\MapWorker.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json-forwards.h">

@@ -3,7 +3,7 @@
 class MapWorker {
 	public:
 
-		int loadMapFromJson() {
-			tson::Tileson parser;
-		}
+
+		//TODO: Create function for loading map
+		void loadMapFromJson();
 };

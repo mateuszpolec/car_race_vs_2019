@@ -10,12 +10,11 @@ int main()
 {
     // create the window
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
+
     APIConnector api;
     const std::string token = api.getAuthToken();
 
-
     Player player(token);
-
 
     // run the program as long as the window is open
     while (window.isOpen())
