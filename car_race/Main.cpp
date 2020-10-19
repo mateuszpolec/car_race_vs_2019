@@ -17,7 +17,7 @@ int main()
     const std::string token = api.getAuthToken();
 
     Player player(token);
-    mapworker.loadMapFromJson();
+    mapworker.loadMapFromTMX();
 
     // run the program as long as the window is open
     while (window.isOpen())

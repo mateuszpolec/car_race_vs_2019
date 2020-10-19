@@ -107,6 +107,9 @@
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="FileWorker\sfml_layer_loader.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="racemap2.json" />

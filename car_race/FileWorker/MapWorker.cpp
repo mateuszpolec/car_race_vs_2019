@@ -1,5 +1,6 @@
 #include "map_worker.h"
 
 
-void MapWorker::loadMapFromJson() {
+void MapWorker::loadMapFromTMX() {
+	tmx::Map map;
 }

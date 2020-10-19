@@ -179,6 +179,7 @@
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="FileWorker\file_worker.h" />
     <ClInclude Include="FileWorker\map_worker.h" />
+    <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Player\player_class.h" />
     <ClInclude Include="Sockets\api_connector.h" />

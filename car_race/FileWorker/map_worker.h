@@ -6,5 +6,5 @@ class MapWorker {
 
 
 		//TODO: Create function for loading map
-		void loadMapFromJson();
+		void loadMapFromTMX();
 };
