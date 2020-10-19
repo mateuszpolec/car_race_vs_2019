@@ -50,7 +50,7 @@ are implemented.
 #include <cmath>
 
 
-class MapLayer final : public sf::Drawable
+class MapLayer : public sf::Drawable
 {
 public:
 

@@ -39,9 +39,6 @@
     <ClCompile Include="Sockets\ApiConnector.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="FileWorker\MapWorker.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Map.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -95,9 +92,6 @@
     <ClInclude Include="D:\Programs\Projekty\tileson\single_include\tileson.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="FileWorker\map_worker.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -112,6 +106,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="racemap2.json" />
+    <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
+    <None Include="Assets\racemap2.tmx" />
+    <None Include="Assets\grass.tsx" />
+    <None Include="Assets\192 racetrack Divided (1).tsx" />
   </ItemGroup>
 </Project>
