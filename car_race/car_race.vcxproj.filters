@@ -110,5 +110,14 @@
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\192 racetrack Divided (1).tsx" />
+    <None Include="Assets\192 racetrack Divided.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\pixil-frame-0.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\192 racetrack Divided.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
   </ItemGroup>
 </Project>

@@ -28,6 +28,8 @@ class Player {
     */
     inline void getMyVelocity();
 
+    sf::Vector2f getMyPosition();
+
     /**
     * getMySpriteObject
     * Function returns player sprite object, like shape, color

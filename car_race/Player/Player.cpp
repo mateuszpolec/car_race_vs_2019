@@ -8,6 +8,7 @@ inline void Player::getMyVelocity() {
 	std::cout << "My position is: " << playerVelocity.x << " " << playerVelocity.y << std::endl;
 }
 
+
 sf::CircleShape Player::getMySpriteObject() {
     player.setRadius(10);
     player.setFillColor(sf::Color::Green);
@@ -38,6 +39,10 @@ void Player::movePlayer() {
     float deltaTime = clock.restart().asSeconds();
     playerPosition += playerVelocity * deltaTime;
     this->player.setPosition(playerPosition);
+}
+
+sf::Vector2f Player::getMyPosition() {
+    return playerPosition;
 }
 
 std::string Player::getMyToken() {

@@ -12,6 +12,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
 
     APIConnector api;
+    sf::View followPlayer;
     tmx::Map map;
     map.load("./Assets/racemap2.tmx");
     MapLayer layerZero(map, 0);
@@ -20,6 +21,7 @@ int main()
     const std::string token = api.getAuthToken();
 
     Player player(token);
+    followPlayer.setSize(1200.f, 800.f);
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -37,9 +39,12 @@ int main()
         window.clear(sf::Color::Black);
 
  
-        window.draw(player.getMySpriteObject());
         player.listenPlayerMove();
         window.draw(layerZero);
+        window.draw(layerOne);
+        window.draw(player.getMySpriteObject());
+        window.setView(followPlayer);
+        followPlayer.setCenter(player.getMyPosition());
         player.movePlayer();
         window.display();
     }
