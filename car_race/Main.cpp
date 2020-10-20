@@ -5,6 +5,7 @@
 #include "Sockets/api_connector.h"
 #include "FileWorker/sfml_layer_loader.h"
 #include "FileWorker/map_worker.h"
+#include "Player/player_camera.h"
 
 
 int main()
@@ -12,15 +13,17 @@ int main()
     // create the window
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
 
+
+    //Load all classes that works with enviroment
     APIConnector api;
     MapWorker mapworker;
-    sf::View followPlayer;
 
 
     const std::string token = api.getAuthToken();
 
+    //Load all classes that works with player
     Player player(token);
-    followPlayer.setSize(1200.f, 800.f);
+    PlayerCamera playercamera;
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -40,8 +43,7 @@ int main()
         player.listenPlayerMove();
         mapworker.drawMapOnWindow(window);
         window.draw(player.getMySpriteObject());
-        window.setView(followPlayer);
-        followPlayer.setCenter(player.getMyPosition());
+        playercamera.cameraFollowPlayer(window, player.getMyPosition());
         player.movePlayer();
         window.display();
     }
