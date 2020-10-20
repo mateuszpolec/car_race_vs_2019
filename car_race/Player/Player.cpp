@@ -5,44 +5,44 @@ Player::Player(std::string authtoken) {
 }
 
 inline void Player::getMyVelocity() {
-	std::cout << "My position is: " << playerVelocity.x << " " << playerVelocity.y << std::endl;
+	std::cout << "My position is: " << m_playerVelocity.x << " " << m_playerVelocity.y << std::endl;
 }
 
 
 sf::CircleShape Player::getMySpriteObject() {
-    player.setRadius(10);
-    player.setFillColor(sf::Color::Green);
-    return player;
+    m_player.setRadius(10);
+    m_player.setFillColor(sf::Color::Green);
+    return m_player;
 }
 
 void Player::listenPlayerMove() {
     float deltaTime = clock.restart().asSeconds();
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        playerVelocity.y -= playerAcceleration.y * deltaTime;
-        playerAcceleration.y += 3;
+        m_playerVelocity.y -= m_playerAcceleration.y * deltaTime;
+        m_playerAcceleration.y += 3;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        playerVelocity.y += playerAcceleration.y * deltaTime;
-        playerAcceleration.y += 3;
+        m_playerVelocity.y += m_playerAcceleration.y * deltaTime;
+        m_playerAcceleration.y += 3;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        playerVelocity.x -= playerAcceleration.x * deltaTime;
-        playerAcceleration.x += 3;
+        m_playerVelocity.x -= m_playerAcceleration.x * deltaTime;
+        m_playerAcceleration.x += 3;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        playerVelocity.x += playerAcceleration.x * deltaTime;
-        playerAcceleration.x += 3;
+        m_playerVelocity.x += m_playerAcceleration.x * deltaTime;
+        m_playerAcceleration.x += 3;
     }
 }
 
 void Player::movePlayer() {
     float deltaTime = clock.restart().asSeconds();
-    playerPosition += playerVelocity * deltaTime;
-    this->player.setPosition(playerPosition);
+    m_playerPosition += m_playerVelocity * deltaTime;
+    this->m_player.setPosition(m_playerPosition);
 }
 
 sf::Vector2f Player::getMyPosition() {
-    return playerPosition;
+    return m_playerPosition;
 }
 
 std::string Player::getMyToken() {

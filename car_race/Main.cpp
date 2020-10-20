@@ -4,6 +4,7 @@
 #include "Player/player_class.h"
 #include "Sockets/api_connector.h"
 #include "FileWorker/sfml_layer_loader.h"
+#include "FileWorker/map_worker.h"
 
 
 int main()
@@ -12,11 +13,9 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1200, 800), "My window");
 
     APIConnector api;
+    MapWorker mapworker;
     sf::View followPlayer;
-    tmx::Map map;
-    map.load("./Assets/racemap2.tmx");
-    MapLayer layerZero(map, 0);
-    MapLayer layerOne(map, 1);
+
 
     const std::string token = api.getAuthToken();
 
@@ -37,11 +36,9 @@ int main()
 
         // clear the window with black color
         window.clear(sf::Color::Black);
-
  
         player.listenPlayerMove();
-        window.draw(layerZero);
-        window.draw(layerOne);
+        mapworker.drawMapOnWindow(window);
         window.draw(player.getMySpriteObject());
         window.setView(followPlayer);
         followPlayer.setCenter(player.getMyPosition());

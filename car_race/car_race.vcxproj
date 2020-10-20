@@ -166,6 +166,7 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\TileLayer.cpp" />
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="FileWorker\FileWorker.cpp" />
+    <ClCompile Include="FileWorker\MapWorker.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Player\Player.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp" />
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="FileWorker\file_worker.h" />
+    <ClInclude Include="FileWorker\map_worker.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Player\player_class.h" />
@@ -185,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\192 racetrack Divided (1).tsx" />
-    <None Include="Assets\192 racetrack Divided.svg" />
+    <None Include="Assets\192 racetrack Divided.tsx" />
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
