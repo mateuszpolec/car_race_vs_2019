@@ -17,7 +17,7 @@ sf::CircleShape Player::getMySpriteObject() {
 
 void Player::listenPlayerMove() {
 	float deltaTime = clock.restart().asSeconds();
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 		//Checking if player velocity is not too high
 		if (m_playerVelocity.y > -Options::playerMaxVelocityYAxis) {
 			m_playerVelocity.y -= m_playerAcceleration.x * deltaTime;
@@ -26,7 +26,7 @@ void Player::listenPlayerMove() {
 			m_playerAcceleration.y += 3;
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 		if (m_playerVelocity.y < Options::playerMaxVelocityYAxis) {
 			m_playerVelocity.y += m_playerAcceleration.x * deltaTime;
 		}				
@@ -34,7 +34,7 @@ void Player::listenPlayerMove() {
 			m_playerAcceleration.y += 3;
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		if (m_playerVelocity.x > -Options::playerMaxVelocityXAxis) {
 			m_playerVelocity.x -= m_playerAcceleration.x * deltaTime;
 		}		
@@ -42,7 +42,7 @@ void Player::listenPlayerMove() {
 			m_playerAcceleration.x += 3;
 		}
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		if (m_playerVelocity.x < Options::playerMaxVelocityXAxis) {
 			m_playerVelocity.x += m_playerAcceleration.x * deltaTime;
 		}

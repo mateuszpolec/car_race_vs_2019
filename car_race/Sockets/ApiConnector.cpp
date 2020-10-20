@@ -23,7 +23,7 @@ std::string APIConnector::getAuthToken() {
         }
         else
         {
-            std::cout << "Error " << status << std::endl;
+            return "";
         }
     }
 }
