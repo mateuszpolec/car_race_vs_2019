@@ -45,6 +45,7 @@ int main()
         window.draw(player.getMySpriteObject());
         playercamera.cameraFollowPlayer(window, player.getMyPosition());
         player.movePlayer();
+        player.getMyVelocity();
         window.display();
     }
 

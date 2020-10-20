@@ -1,11 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "../Options/options.h"
 
 /**
 * Class Player - handle information about player
 * 
 */
-class Player {
+class Player : Options {
     std::string token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f m_playerPosition = { 1.0f, 1.2f }; // Player position at start
@@ -16,7 +17,7 @@ class Player {
  public:
     /**
     * Constructor
-    * @param authtoken - Authentication token for API communication
+    * @param string authtoken - Authentication token for API communication
     */
 
      Player(std::string authtoken);
@@ -26,7 +27,7 @@ class Player {
     * Function created only for test, to check how fast player moves
     * void function, no params
     */
-    inline void getMyVelocity();
+    void getMyVelocity();
 
     sf::Vector2f getMyPosition();
 
@@ -34,7 +35,7 @@ class Player {
     * getMySpriteObject
     * Function returns player sprite object, like shape, color
     * @param -
-    * @return player - SFML CircleShape player object
+    * @return SFML Object CircleShape player - SFML CircleShape player object
     */
     sf::CircleShape getMySpriteObject();
 
@@ -53,7 +54,7 @@ class Player {
     /**
     * getMyToken
     * Function that returns auth token for API
-    * @return token - hashed API Token for Player
+    * @return string token - hashed API Token for Player
     */
     std::string getMyToken();
 };

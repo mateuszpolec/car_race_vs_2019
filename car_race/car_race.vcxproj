@@ -169,6 +169,7 @@
     <ClCompile Include="FileWorker\MapWorker.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Options\Options.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerCamera.cpp" />
     <ClCompile Include="Sockets\ApiConnector.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="FileWorker\map_worker.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
+    <ClInclude Include="Options\options.h" />
     <ClInclude Include="Player\player_camera.h" />
     <ClInclude Include="Player\player_class.h" />
     <ClInclude Include="Sockets\api_connector.h" />
