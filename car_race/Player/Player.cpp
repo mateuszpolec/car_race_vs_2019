@@ -19,20 +19,36 @@ void Player::listenPlayerMove() {
 	float deltaTime = clock.restart().asSeconds();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
 		//Checking if player velocity is not too high
-		m_playerVelocity.y -= m_playerAcceleration.y * deltaTime;
-		m_playerAcceleration.y += 3;
+		if (m_playerVelocity.y > -Options::playerMaxVelocityYAxis) {
+			m_playerVelocity.y -= m_playerAcceleration.x * deltaTime;
+		}
+		if (m_playerAcceleration.y < Options::playerMaxAccelerationYAxis) {
+			m_playerAcceleration.y += 3;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-		m_playerVelocity.y += m_playerAcceleration.y * deltaTime;
-		m_playerAcceleration.y += 3;
+		if (m_playerVelocity.y < Options::playerMaxVelocityYAxis) {
+			m_playerVelocity.y += m_playerAcceleration.x * deltaTime;
+		}				
+		if (m_playerAcceleration.y < Options::playerMaxAccelerationYAxis) {
+			m_playerAcceleration.y += 3;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-		m_playerVelocity.x -= m_playerAcceleration.x * deltaTime;
-		m_playerAcceleration.x += 3;
+		if (m_playerVelocity.x > -Options::playerMaxVelocityXAxis) {
+			m_playerVelocity.x -= m_playerAcceleration.x * deltaTime;
+		}		
+		if (m_playerAcceleration.x < Options::playerMaxAccelerationYAxis) {
+			m_playerAcceleration.x += 3;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-		m_playerVelocity.x += m_playerAcceleration.x * deltaTime;
-		m_playerAcceleration.x += 3;
+		if (m_playerVelocity.x < Options::playerMaxVelocityXAxis) {
+			m_playerVelocity.x += m_playerAcceleration.x * deltaTime;
+		}
+		if (m_playerAcceleration.x < Options::playerMaxAccelerationYAxis) {
+			m_playerAcceleration.x += 3;
+		}
 	}
 }
 
