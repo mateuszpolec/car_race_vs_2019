@@ -89,7 +89,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +124,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,6 +167,7 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="FileWorker\FileWorker.cpp" />
     <ClCompile Include="FileWorker\MapWorker.cpp" />
+    <ClCompile Include="GoogleTest.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Options\Options.cpp" />
@@ -196,8 +197,8 @@
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
-    <None Include="packages.config" />
     <None Include="Game.h" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png" />

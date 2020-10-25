@@ -84,6 +84,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="GoogleTest.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
@@ -132,8 +135,8 @@
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\192 racetrack Divided (1).tsx" />
     <None Include="Assets\192 racetrack Divided.tsx" />
-    <None Include="packages.config" />
     <None Include="Game.h" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\pixil-frame-0.png">
