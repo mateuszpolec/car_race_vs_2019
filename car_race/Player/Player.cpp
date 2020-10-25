@@ -54,8 +54,8 @@ void Player::listenPlayerMove() {
 
 
 void Player::movePlayer() {
-	float deltaTime = clock.restart().asSeconds();
-	m_playerPosition += m_playerVelocity * deltaTime;
+	float tickRate = 0.0050;
+	m_playerPosition += m_playerVelocity * tickRate;
 	this->m_player.setPosition(m_playerPosition);
 }
 

@@ -173,6 +173,7 @@
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerCamera.cpp" />
     <ClCompile Include="Sockets\ApiConnector.cpp" />
+    <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\tileson\single_include\tileson.hpp" />
@@ -195,6 +196,8 @@
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
+    <None Include="packages.config" />
+    <None Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png" />

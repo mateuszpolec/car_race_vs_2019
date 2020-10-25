@@ -6,10 +6,10 @@ MapWorker::MapWorker() {
 
 }
 
-void MapWorker::drawMapOnWindow(sf::RenderWindow & window) {
+void MapWorker::drawMapOnWindow(sf::RenderWindow *window) {
 
 	const static MapLayer layerZero(this->map, 0); //Made it static, because otherwise the game would constantly load map over and over again
 	const static MapLayer layerOne(this->map, 1);
-	window.draw(layerZero);
-	window.draw(layerOne);
+	window->draw(layerZero);
+	window->draw(layerOne);
 }

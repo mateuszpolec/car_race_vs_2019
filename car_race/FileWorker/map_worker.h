@@ -23,5 +23,5 @@ public:
 	* Drawing the map on window
 	* @param SFML Object RenderWindow - reference to the main window
 	*/
-	void drawMapOnWindow(sf::RenderWindow & window);
+	void drawMapOnWindow(sf::RenderWindow *window);
 };
