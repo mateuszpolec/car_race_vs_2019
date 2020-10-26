@@ -195,13 +195,14 @@
     <None Include="Assets\192 racetrack Divided.tsx" />
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
+    <None Include="Assets\testmap.tmx" />
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
     <None Include="packages.config" />
     <None Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png" />
-    <Image Include="Assets\pixil-frame-0.png" />
+    <Image Include="Assets\grass.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -29,8 +29,7 @@ void Game::classInitializer() {
 	this->api = new APIConnector();
 	const std::string token = this->api->getAuthToken();
 	this->player = new Player(token);
-	this->mapworker = new MapWorker();
-	this->map.load("./Assets/racemap2.tmx");
+	this->map.load("./Assets/testmap.tmx");
 	this->playercamera = new PlayerCamera();
 }
 
