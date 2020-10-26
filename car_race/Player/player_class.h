@@ -31,6 +31,10 @@ class Player : Options {
 
     sf::Vector2f getMyPosition();
 
+    int getMyPositionX();
+
+    int getMyPositionY();
+
     /**
     * getMySpriteObject
     * Function returns player sprite object, like shape, color

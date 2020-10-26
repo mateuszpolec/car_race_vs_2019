@@ -63,6 +63,14 @@ sf::Vector2f Player::getMyPosition() {
 	return m_playerPosition;
 }
 
+int Player::getMyPositionX() {
+	return std::abs((int) m_playerPosition.x / 12);
+}
+
+int Player::getMyPositionY() {
+	return std::abs((int) m_playerPosition.y / 12);
+}
+
 std::string Player::getMyToken() {
 	return token;
 }

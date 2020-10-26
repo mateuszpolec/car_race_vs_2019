@@ -8,12 +8,21 @@ void Game::createWindow() {
 
 void Game::render() {
 
-	//const static MapLayer layerZero(this->map, 0);
-	//const static MapLayer layerOne(this->map, 1);
+	static MapLayer layerZero(this->map, 0);
+	static MapLayer layerOne(this->map, 1);
+
+	std::cout << "My position is" << this->player->getMyPositionX() << " " << this->player->getMyPositionY() << std::endl;
+
+	auto tile_grass_layer = layerZero.getTile(this->player->getMyPositionX(), this->player->getMyPositionY());
+	auto tile_race_track_layer = layerOne.getTile(this->player->getMyPositionX(), this->player->getMyPositionY());
+
+	std::cout << "Tile grass is: " << tile_grass_layer.ID;
+	std::cout << "Tile race track is: " << tile_race_track_layer.ID;
+
 
 	this->window->clear(sf::Color::Black);
-	//this->window->draw(layerZero);
-	//this->window->draw(layerOne);
+	this->window->draw(layerZero);
+	this->window->draw(layerOne);
 	this->window->draw(this->player->getMySpriteObject());
 	this->window->display();
 }
