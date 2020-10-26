@@ -29,10 +29,27 @@ class Player : Options {
     */
     void getMyVelocity();
 
+    /**
+    * getMyPosition
+    * Function that returns player position
+    * @return - SFML Object Vector2f with player position on map
+    */
     sf::Vector2f getMyPosition();
 
+
+    /**
+    * getMyPositionX
+    * Function that returns player position in X axis including size of tile
+    * @return ABS int value with player position in X axis
+    */
     int getMyPositionX();
 
+
+    /**
+    * getMyPositionY
+    * Function that returns player position in Y axis including size of tile
+    * @return ABS int value with player position in Y axis
+    */
     int getMyPositionY();
 
     /**

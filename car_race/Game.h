@@ -17,12 +17,41 @@ class Game  {
 		tmx::Map map;
 
 	public:
+		/**
+		* createWindow
+		* Function that creates a SFML window and sets framerate
+		*/
 		void createWindow();
+
+		/**
+		* keepGameAlive
+		* SFML while loop for window, updates every state of game
+		*/
 		void keepGameAlive();
+
+		/**
+		* render
+		* As the names says, it just draw everything on the window
+		*/
 		void render();
+		/**
+		* update
+		* Updates every event that needs be updated. For example: player position
+		*/
 		void update();
+
+		/**
+		* eventListener
+		* Listens, if any of events happend. For example: Player click any key on keyboard
+		*/
 		void eventListener();
+
+		/**
+		* classInitializer
+		* Points every object to it instance
+		*/
 		void classInitializer();
+
 		Game();
 		~Game();
 	
