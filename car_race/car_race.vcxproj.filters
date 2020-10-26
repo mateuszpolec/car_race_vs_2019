@@ -72,9 +72,6 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="FileWorker\MapWorker.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Player\PlayerCamera.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -104,9 +101,6 @@
     <ClInclude Include="FileWorker\sfml_layer_loader.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="FileWorker\map_worker.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Player\player_camera.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -116,19 +110,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
-    <None Include="Assets\racemap2.tmx" />
-    <None Include="Assets\grass.tsx" />
     <None Include="Assets\192 racetrack Divided (1).tsx" />
-    <None Include="Assets\192 racetrack Divided.tsx" />
     <None Include="Game.h" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\pixil-frame-0.png">
-      <Filter>Pliki zasobów</Filter>
-    </Image>
-    <Image Include="Assets\192 racetrack Divided.png">
-      <Filter>Pliki zasobów</Filter>
-    </Image>
   </ItemGroup>
 </Project>

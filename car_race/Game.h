@@ -2,7 +2,6 @@
 #include "Player/player_class.h"
 #include "Player/player_camera.h"
 #include "Sockets/api_connector.h"
-#include "FileWorker/map_worker.h"
 #include "FileWorker/sfml_layer_loader.h"
 
 class Game  {
@@ -13,7 +12,6 @@ class Game  {
 
 		Player* player;
 		APIConnector* api;
-		MapWorker* mapworker;
 		PlayerCamera* playercamera;
 
 		tmx::Map map;

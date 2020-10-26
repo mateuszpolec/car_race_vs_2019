@@ -8,12 +8,12 @@ void Game::createWindow() {
 
 void Game::render() {
 
-	const static MapLayer layerZero(this->map, 0);
-	const static MapLayer layerOne(this->map, 1);
+	//const static MapLayer layerZero(this->map, 0);
+	//const static MapLayer layerOne(this->map, 1);
 
 	this->window->clear(sf::Color::Black);
-	this->window->draw(layerZero);
-	this->window->draw(layerOne);
+	//this->window->draw(layerZero);
+	//this->window->draw(layerOne);
 	this->window->draw(this->player->getMySpriteObject());
 	this->window->display();
 }
@@ -29,8 +29,7 @@ void Game::classInitializer() {
 	this->api = new APIConnector();
 	const std::string token = this->api->getAuthToken();
 	this->player = new Player(token);
-	this->mapworker = new MapWorker();
-	this->map.load("./Assets/racemap2.tmx");
+	//this->map.load("./Assets/racemap2.tmx");
 	this->playercamera = new PlayerCamera();
 }
 
