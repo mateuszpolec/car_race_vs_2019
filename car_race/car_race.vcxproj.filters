@@ -72,9 +72,6 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="FileWorker\MapWorker.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="Player\PlayerCamera.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
@@ -86,9 +83,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="Sockets\api_connector.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
@@ -101,22 +95,10 @@
     <ClInclude Include="Player\player_class.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="D:\Programs\Projekty\tileson\single_include\tileson.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugiconfig.hpp">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="FileWorker\sfml_layer_loader.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="FileWorker\map_worker.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="Player\player_camera.h">
@@ -128,11 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
-    <None Include="Assets\racemap2.tmx" />
-    <None Include="Assets\grass.tsx" />
     <None Include="Assets\192 racetrack Divided (1).tsx" />
-    <None Include="Assets\192 racetrack Divided.tsx" />
-    <None Include="packages.config" />
     <None Include="Game.h" />
     <None Include="Assets\testmap.tmx" />
   </ItemGroup>

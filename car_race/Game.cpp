@@ -8,12 +8,12 @@ void Game::createWindow() {
 
 void Game::render() {
 
-	const static MapLayer layerZero(this->map, 0);
-	const static MapLayer layerOne(this->map, 1);
+	//const static MapLayer layerZero(this->map, 0);
+	//const static MapLayer layerOne(this->map, 1);
 
 	this->window->clear(sf::Color::Black);
-	this->window->draw(layerZero);
-	this->window->draw(layerOne);
+	//this->window->draw(layerZero);
+	//this->window->draw(layerOne);
 	this->window->draw(this->player->getMySpriteObject());
 	this->window->display();
 }

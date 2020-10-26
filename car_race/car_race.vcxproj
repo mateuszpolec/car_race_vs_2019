@@ -89,7 +89,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,7 +124,7 @@
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>d:\Programs\Projekty\tmxlite\tmxlite\src;d:\Programs\Projekty\tmxlite\tmxlite\include;c:\SFML-2.5.1\include;d:\Programs\Projekty\jsoncpp\include</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,7 +166,6 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\TileLayer.cpp" />
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="FileWorker\FileWorker.cpp" />
-    <ClCompile Include="FileWorker\MapWorker.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Options\Options.cpp" />
@@ -176,19 +175,14 @@
     <ClCompile Include="Game.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="D:\Programs\Projekty\tileson\single_include\tileson.hpp" />
-    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugiconfig.hpp" />
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp" />
-    <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\miniz.h" />
     <ClInclude Include="FileWorker\file_worker.h" />
-    <ClInclude Include="FileWorker\map_worker.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Options\options.h" />
     <ClInclude Include="Player\player_camera.h" />
     <ClInclude Include="Player\player_class.h" />
     <ClInclude Include="Sockets\api_connector.h" />
-    <ClInclude Include="D:\Programs\Projekty\jsoncpp\dist\json\json.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\192 racetrack Divided (1).tsx" />
@@ -197,7 +191,6 @@
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\testmap.tmx" />
     <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
-    <None Include="packages.config" />
     <None Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
