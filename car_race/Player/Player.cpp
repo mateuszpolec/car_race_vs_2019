@@ -20,8 +20,15 @@ sf::Sprite Player::getMySpriteObject() {
 void Player::listenPlayerMove() {
 	float deltaTime = clock.restart().asSeconds();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+		if (m_currentSpeed < Options::playerMaxVelocity) {
+			m_currentSpeed += Options::playerMaxAcceleration * deltaTime;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		m_currentSpeed -= Options::playerMaxDeceleration * deltaTime;
+		if (m_currentSpeed < 0.f) {
+			m_currentSpeed = 0.f;
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		m_player.rotate(-Options::playerRotateAmmount * deltaTime);
@@ -29,10 +36,21 @@ void Player::listenPlayerMove() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		m_player.rotate(Options::playerRotateAmmount * deltaTime);
 	}
+
 }
 
 
 void Player::movePlayer() {
+
+	sf::Vector2f oldVector = m_movmentVector;
+	sf::Transform transform;
+
+	transform.rotate(m_player.getRotation());
+	m_movmentVector = transform.transformPoint(m_forwardVector);
+
+	m_currentSpeed *= Options::mathDotProductCalculation(oldVector, m_movmentVector);
+
+	m_player.move(m_movmentVector * m_currentSpeed * 0.05f);
 
 }
 
