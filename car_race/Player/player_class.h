@@ -9,9 +9,10 @@
 class Player : Options {
     std::string token;
     /* To remember, Vector2f describes data like math cartesian system*/
-    sf::Vector2f m_playerPosition = { 1.0f, 1.2f }; // Player position at start
-    sf::Vector2f m_playerVelocity = { 1, 1 }; // How fast player moves atm
-    sf::Vector2f m_playerAcceleration = { 2500, 2500 }; // Player Acceleration
+    sf::Vector2f m_momentVector;
+    const sf::Vector2f m_forwardVector = { 0.f, 1.f };
+    float m_currentSpeed;
+
     sf::Texture m_playerTexture;
     sf::Sprite m_player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
