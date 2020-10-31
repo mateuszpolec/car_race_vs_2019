@@ -10,7 +10,7 @@ void Player::getMyVelocity() {
 
 
 sf::Sprite Player::getMySpriteObject() {
-	this->m_playerTexture.loadFromFile("./Assets/car_spirit_1.png");
+	this->m_playerTexture.loadFromFile("./Assets/car_sprite_1.png");
 	m_player.setTexture(this->m_playerTexture);
 	m_player.setScale(3.0, 3.0);
 	m_player.setOrigin(4.5f, 7.0f);
