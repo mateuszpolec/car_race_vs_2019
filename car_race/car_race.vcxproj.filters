@@ -113,12 +113,18 @@
     <None Include="Assets\192 racetrack Divided (1).tsx" />
     <None Include="Game.h" />
     <None Include="Assets\testmap.tmx" />
+    <None Include="Assets\192 racetrack Divided.tsx" />
+    <None Include="Assets\grass.tsx" />
+    <None Include="Assets\racemap2.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
     <Image Include="Assets\grass.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_spirit_1.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

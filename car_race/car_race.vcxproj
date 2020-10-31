@@ -195,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png" />
+    <Image Include="Assets\car_spirit_1.png" />
     <Image Include="Assets\grass.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -9,9 +9,10 @@ void Player::getMyVelocity() {
 }
 
 
-sf::CircleShape Player::getMySpriteObject() {
-	m_player.setRadius(10);
-	m_player.setFillColor(sf::Color::Green);
+sf::Sprite Player::getMySpriteObject() {
+	this->m_playerTexture.loadFromFile("./Assets/car_spirit_1.png");
+	m_player.setTexture(this->m_playerTexture);
+	m_player.setScale(3.0, 3.0);
 	return m_player;
 }
 
@@ -41,6 +42,7 @@ void Player::listenPlayerMove() {
 		if (m_playerAcceleration.x < Options::playerMaxAccelerationYAxis) {
 			m_playerAcceleration.x += 3;
 		}
+		this->m_player.rotate(-Options::playerRotateAmmount * deltaTime);
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		if (m_playerVelocity.x < Options::playerMaxVelocityXAxis) {
@@ -49,6 +51,7 @@ void Player::listenPlayerMove() {
 		if (m_playerAcceleration.x < Options::playerMaxAccelerationYAxis) {
 			m_playerAcceleration.x += 3;
 		}
+		this->m_player.rotate(Options::playerRotateAmmount * deltaTime);
 	}
 }
 

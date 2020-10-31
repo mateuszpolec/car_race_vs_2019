@@ -12,7 +12,8 @@ class Player : Options {
     sf::Vector2f m_playerPosition = { 1.0f, 1.2f }; // Player position at start
     sf::Vector2f m_playerVelocity = { 1, 1 }; // How fast player moves atm
     sf::Vector2f m_playerAcceleration = { 2500, 2500 }; // Player Acceleration
-    sf::CircleShape m_player; //Generate player object
+    sf::Texture m_playerTexture;
+    sf::Sprite m_player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
  public:
     /**
@@ -58,7 +59,7 @@ class Player : Options {
     * @param -
     * @return SFML Object CircleShape player - SFML CircleShape player object
     */
-    sf::CircleShape getMySpriteObject();
+    sf::Sprite getMySpriteObject();
 
     /**
     * listenPlayerMove
