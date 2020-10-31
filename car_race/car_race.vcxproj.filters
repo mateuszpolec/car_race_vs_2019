@@ -127,5 +127,29 @@
     <Image Include="Assets\car_spirit_1.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
+    <Image Include="Assets\car_sprite_8.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_7.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_4.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_5.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_6.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_1.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_3.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\car_sprite_2.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
   </ItemGroup>
 </Project>

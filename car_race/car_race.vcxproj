@@ -196,6 +196,14 @@
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png" />
     <Image Include="Assets\car_spirit_1.png" />
+    <Image Include="Assets\car_sprite_1.png" />
+    <Image Include="Assets\car_sprite_2.png" />
+    <Image Include="Assets\car_sprite_3.png" />
+    <Image Include="Assets\car_sprite_4.png" />
+    <Image Include="Assets\car_sprite_5.png" />
+    <Image Include="Assets\car_sprite_6.png" />
+    <Image Include="Assets\car_sprite_7.png" />
+    <Image Include="Assets\car_sprite_8.png" />
     <Image Include="Assets\grass.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

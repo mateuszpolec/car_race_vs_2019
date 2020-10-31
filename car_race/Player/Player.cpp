@@ -38,10 +38,14 @@ void Player::listenPlayerMove() {
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		m_player.rotate(-Options::playerRotateAmmount * deltaTime);
+		if (m_currentSpeed > 0) {
+			m_player.rotate(-Options::playerRotateAmmount * deltaTime);
+		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		m_player.rotate(Options::playerRotateAmmount * deltaTime);
+		if (m_currentSpeed > 0) {
+			m_player.rotate(Options::playerRotateAmmount * deltaTime);
+		}
 	}
 
 }
