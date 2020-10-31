@@ -24,6 +24,13 @@ void Player::listenPlayerMove() {
 			m_currentSpeed += Options::playerMaxAcceleration * deltaTime;
 		}
 	}
+	else {
+		m_currentSpeed -= Options::playerFrictionForce * deltaTime;
+		if (m_currentSpeed < 0.f) {
+			m_currentSpeed = 0.f;
+		}
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
 		m_currentSpeed -= Options::playerMaxDeceleration * deltaTime;
 		if (m_currentSpeed < 0.f) {

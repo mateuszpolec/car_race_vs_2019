@@ -58,7 +58,7 @@ class Player : Options {
     * getMySpriteObject
     * Function returns player sprite object, like shape, color
     * @param -
-    * @return SFML Object CircleShape player - SFML CircleShape player object
+    * @return SFML Object Sprite player - SFML Sprite with Texture player object
     */
     sf::Sprite getMySpriteObject();
 
