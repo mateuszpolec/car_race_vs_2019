@@ -5,7 +5,6 @@ float Options::mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vecto
 }
 
 void Options::setVelocityAndAccelerationForGrass() {
-	std::cout << "Grass colision!" << std::endl;
 	Options::playerMaxAcceleration = 25.f;
 	Options::playerMaxVelocity = 25.f;
 }

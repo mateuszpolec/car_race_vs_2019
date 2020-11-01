@@ -10,7 +10,7 @@ class Player : Options {
     std::string token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f m_movmentVector;
-    const sf::Vector2f m_forwardVector = { 0.f, 1.f };
+    sf::Vector2f m_forwardVector = { 0.f, 1.f };
     float m_currentSpeed = 0.f;
 
     sf::Texture m_playerTexture;

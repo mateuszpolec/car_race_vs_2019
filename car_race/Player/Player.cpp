@@ -47,6 +47,15 @@ void Player::listenPlayerMove() {
 			m_player.rotate(Options::playerRotateAmmount * deltaTime);
 		}
 	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		//TODO IDEA: Create a function for drifting - hand brake
+		//Descripiton of movement:
+
+		// If player moving LEFT: -x
+		// If player is moving RIGHT: +x
+		// If player is moving UP: -y
+		// If player is moving DOWN: +y
+	}
 
 }
 
@@ -60,7 +69,11 @@ void Player::movePlayer() {
 	transform.rotate(m_player.getRotation());
 	m_movmentVector = transform.transformPoint(m_forwardVector);
 
+	std::cout << " Movement vector: " << m_movmentVector.x << " " << m_movmentVector.y << std::endl;
+
 	m_currentSpeed *= Options::mathDotProductCalculation(oldVector, m_movmentVector);
+
+	std::cout << " Current speed " << m_currentSpeed << std::endl;
 
 	m_player.move(m_movmentVector * m_currentSpeed * 0.05f);
 	
@@ -76,7 +89,7 @@ int Player::getMyPositionX() {
 	return std::abs((int) m_player.getPosition().x / 12);
 }
 
-int Player::getMyPositionY() {
+int Player::getMyPositionY() {	
 	return std::abs((int) m_player.getPosition().y / 12);
 }
 

@@ -26,8 +26,14 @@ class Options {
 		*/
 		float mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vector2f& rv);
 
+		/**
+		* TODO: Create documentation
+		*/
 		void setVelocityAndAccelerationForGrass();
 
+		/**
+		* TODO: Create documentation
+		*/
 		void setVelocityAndAccelerationForAsphalt();
 
 };
