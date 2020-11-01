@@ -53,6 +53,7 @@ void Player::listenPlayerMove() {
 
 void Player::movePlayer() {
 
+
 	sf::Vector2f oldVector = m_movmentVector;
 	sf::Transform transform;
 
@@ -62,6 +63,7 @@ void Player::movePlayer() {
 	m_currentSpeed *= Options::mathDotProductCalculation(oldVector, m_movmentVector);
 
 	m_player.move(m_movmentVector * m_currentSpeed * 0.05f);
+	
 
 }
 
@@ -76,6 +78,18 @@ int Player::getMyPositionX() {
 
 int Player::getMyPositionY() {
 	return std::abs((int) m_player.getPosition().y / 12);
+}
+
+void Player::checkPlayerCollision(std::uint32_t tileID) {
+	if (tileID == Options::GrassTileID) {
+		Options::setVelocityAndAccelerationForGrass();
+		if (m_currentSpeed > Options::playerMaxVelocity) {
+			m_currentSpeed -= Options::grassFrictionForce * 0.07f;
+		}
+	}
+	else {
+		Options::setVelocityAndAccelerationForAsphalt();
+	}
 }
 
 std::string Player::getMyToken() {

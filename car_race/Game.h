@@ -4,7 +4,7 @@
 #include "Sockets/api_connector.h"
 #include "FileWorker/sfml_layer_loader.h"
 
-class Game  {
+class Game {
 	private:
 		
 		sf::RenderWindow* window;

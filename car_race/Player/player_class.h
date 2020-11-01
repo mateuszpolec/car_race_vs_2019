@@ -16,6 +16,8 @@ class Player : Options {
     sf::Texture m_playerTexture;
     sf::Sprite m_player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
+
+
  public:
     /**
     * Constructor
@@ -73,6 +75,11 @@ class Player : Options {
     * Function that is called every frame refresh in Main.cpp, allow player to move with given velocity and acceleration
     */
     void movePlayer();
+
+    /**
+    * TODO: Documentation
+    */
+    void checkPlayerCollision(std::uint32_t tileID);
 
     /**
     * getMyToken
