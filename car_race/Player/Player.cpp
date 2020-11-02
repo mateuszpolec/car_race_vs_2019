@@ -69,15 +69,10 @@ void Player::movePlayer() {
 	transform.rotate(m_player.getRotation());
 	m_movmentVector = transform.transformPoint(m_forwardVector);
 
-	std::cout << " Movement vector: " << m_movmentVector.x << " " << m_movmentVector.y << std::endl;
-
 	m_currentSpeed *= Options::mathDotProductCalculation(oldVector, m_movmentVector);
-
-	std::cout << " Current speed " << m_currentSpeed << std::endl;
 
 	m_player.move(m_movmentVector * m_currentSpeed * 0.05f);
 	
-
 }
 
 sf::Vector2f Player::getMyPosition() {
@@ -94,6 +89,7 @@ int Player::getMyPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
+	std::cout << "My current lap is: " << this->m_currentLap << std::endl;
 	if (tileID == Options::GrassTileID) {
 		Options::setVelocityAndAccelerationForGrass();
 		if (m_currentSpeed > Options::playerMaxVelocity) {
@@ -103,6 +99,17 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 	else {
 		Options::setVelocityAndAccelerationForAsphalt();
 	}
+
+	if (tileID == Options::StartblockTileID) {
+		this->m_isNextLap = true;
+	}
+	else {
+		if (this->m_isNextLap == true) {
+			this->m_currentLap += 1;
+			this->m_isNextLap = false;
+		}
+	}
+
 }
 
 std::string Player::getMyToken() {

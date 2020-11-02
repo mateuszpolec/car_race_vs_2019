@@ -16,6 +16,8 @@ class Game {
 
 		tmx::Map map;
 
+		int lapsToComplete = 3;
+
 	public:
 		/**
 		* createWindow

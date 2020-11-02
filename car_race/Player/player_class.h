@@ -16,7 +16,8 @@ class Player : Options {
     sf::Texture m_playerTexture;
     sf::Sprite m_player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
-
+    int m_currentLap = 1;
+    bool m_isNextLap = false;
 
  public:
     /**
