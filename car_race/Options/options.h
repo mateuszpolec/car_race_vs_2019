@@ -16,7 +16,10 @@ class Options {
 
 		const float grassFrictionForce = 100.f;
 		const static int GrassTileID = 28381;
-		const static int StartblockTileID = 28382;
+		const static int checkpointOneTleID = 28383;
+		const static int checkpointTwoTileID = 28384;
+		const static int checkpointThreeTileID = 28385;
+		const static int StartblockTileID = 28386;
 
 		/**
 		* mathDotProductCalcualtion

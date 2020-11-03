@@ -117,6 +117,7 @@
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\startblock.tsx" />
+    <None Include="Assets\eventblocks.tsx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png">
@@ -153,6 +154,9 @@
       <Filter>Pliki zasobów</Filter>
     </Image>
     <Image Include="Assets\startblock.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="Assets\eventblocks.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
   </ItemGroup>

@@ -187,6 +187,7 @@
   <ItemGroup>
     <None Include="Assets\192 racetrack Divided (1).tsx" />
     <None Include="Assets\192 racetrack Divided.tsx" />
+    <None Include="Assets\eventblocks.tsx" />
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\startblock.tsx" />
@@ -205,6 +206,7 @@
     <Image Include="Assets\car_sprite_6.png" />
     <Image Include="Assets\car_sprite_7.png" />
     <Image Include="Assets\car_sprite_8.png" />
+    <Image Include="Assets\eventblocks.png" />
     <Image Include="Assets\grass.png" />
     <Image Include="Assets\startblock.png" />
   </ItemGroup>

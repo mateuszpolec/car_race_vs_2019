@@ -48,6 +48,7 @@ void Player::listenPlayerMove() {
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+		this->m_player.setPosition(300, 600);
 		//TODO IDEA: Create a function for drifting - hand brake
 		//Descripiton of movement:
 
@@ -100,12 +101,25 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 		Options::setVelocityAndAccelerationForAsphalt();
 	}
 
+	if (tileID == Options::checkpointOneTleID) {
+		this->checkpointsReached.insert(1);
+	}
+	else if (tileID == Options::checkpointTwoTileID) {
+		this->checkpointsReached.insert(2);
+	}
+	else if (tileID == Options::checkpointThreeTileID) {
+		this->checkpointsReached.insert(3);
+	}
+
 	if (tileID == Options::StartblockTileID) {
-		this->m_isNextLap = true;
+		if (this->checkpointsReached.size() == 3) {
+			this->m_isNextLap = true;
+		}
 	}
 	else {
 		if (this->m_isNextLap == true) {
 			this->m_currentLap += 1;
+			this->checkpointsReached.clear();
 			this->m_isNextLap = false;
 		}
 	}

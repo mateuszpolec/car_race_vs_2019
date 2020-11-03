@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 #include <SFML/Graphics.hpp>
 #include "../Options/options.h"
 
@@ -16,8 +17,11 @@ class Player : Options {
     sf::Texture m_playerTexture;
     sf::Sprite m_player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
+
+    /* Handling actual player position and current lap info*/
     int m_currentLap = 1;
     bool m_isNextLap = false;
+    std::set<int> checkpointsReached = {};
 
  public:
     /**
