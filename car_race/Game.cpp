@@ -38,6 +38,7 @@ void Game::classInitializer() {
 	this->player = new Player(token);
 	this->map.load("./Assets/testmap.tmx");
 	this->playercamera = new PlayerCamera();
+	this->player->moveToStart();
 }
 
 void Game::eventListener() {

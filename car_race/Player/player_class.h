@@ -23,6 +23,9 @@ class Player : Options {
     bool m_isNextLap = false;
     std::set<int> checkpointsReached = {};
 
+    /* Handling info about player handbrake */
+    bool isHandbrakeOn = false;
+
  public:
     /**
     * Constructor
@@ -92,4 +95,10 @@ class Player : Options {
     * @return string token - hashed API Token for Player
     */
     std::string getMyToken();
+
+    /**
+    * moveTostart
+    * Function that moves player sprite for starting position
+    */
+    void moveToStart();
 };

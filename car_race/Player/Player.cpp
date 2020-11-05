@@ -48,7 +48,9 @@ void Player::listenPlayerMove() {
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		this->m_player.setPosition(300, 600);
+		Options::playerMaxAcceleration = 0.f;
+		std::cout << Options::playerMaxAcceleration << std::endl;
+		this->isHandbrakeOn = true;
 		//TODO IDEA: Create a function for drifting - hand brake
 		//Descripiton of movement:
 
@@ -56,6 +58,9 @@ void Player::listenPlayerMove() {
 		// If player is moving RIGHT: +x
 		// If player is moving UP: -y
 		// If player is moving DOWN: +y
+	}
+	else {
+		this->isHandbrakeOn = false;
 	}
 
 }
@@ -98,7 +103,9 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 		}
 	}
 	else {
-		Options::setVelocityAndAccelerationForAsphalt();
+		if (!this->isHandbrakeOn) {
+			Options::setVelocityAndAccelerationForAsphalt();
+		}
 	}
 
 	if (tileID == Options::checkpointOneTleID) {
@@ -128,4 +135,9 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 
 std::string Player::getMyToken() {
 	return token;
+}
+
+void Player::moveToStart() {
+	this->m_player.rotate(180.f);
+	this->m_player.setPosition(250, 600);
 }
