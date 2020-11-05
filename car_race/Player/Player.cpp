@@ -87,7 +87,7 @@ sf::Vector2f Player::getMyPosition() {
 
 //MADE A CONST FOR TILE SIZE
 int Player::getMyPositionX() {
-	return std::abs((int) m_player.getPosition().x / 12);
+	return std::abs( (int) m_player.getPosition().x / 12);
 }
 
 int Player::getMyPositionY() {	
