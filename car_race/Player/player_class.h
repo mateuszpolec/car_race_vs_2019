@@ -26,6 +26,10 @@ class Player : Options {
     /* Handling info about player handbrake */
     bool isHandbrakeOn = false;
 
+
+    /* Handling info about actual frame - Temporary */
+    int actualFrame;
+
  public:
     /**
     * Constructor
@@ -40,6 +44,13 @@ class Player : Options {
     * void function, no params
     */
     void getMyVelocity();
+
+    void getMyRotation();
+    /**
+    * getMyRotation
+    * Function that returns actual player rotation
+    * void function, no params
+    */
 
     /**
     * getMyPosition
@@ -85,7 +96,10 @@ class Player : Options {
     void movePlayer();
 
     /**
-    * TODO: Documentation
+    * checkPlayerCollision
+    * To be more precise, the function checks on what tile is player "standing" on in this specific moment and starts event
+    * for the given tile. For example, if it's grass the method will slow down the player.
+    * @param uint32_t tileID
     */
     void checkPlayerCollision(std::uint32_t tileID);
 
@@ -95,6 +109,13 @@ class Player : Options {
     * @return string token - hashed API Token for Player
     */
     std::string getMyToken();
+
+    /**
+    * recordPlayerMove
+    * Temporary function: Saves the movement of player in current lap
+    */
+    void recordPlayerMove();
+
 
     /**
     * moveTostart

@@ -109,7 +109,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
     <None Include="Assets\192 racetrack Divided (1).tsx" />
     <None Include="Game.h" />
     <None Include="Assets\testmap.tmx" />

@@ -2,10 +2,23 @@
 
 Player::Player(std::string authtoken) {
 	token = authtoken;
+	this->actualFrame = 0;
 }
 
 void Player::getMyVelocity() {
 	std::cout << "My velocity is: " << m_currentSpeed << std::endl;
+}
+
+void Player::getMyRotation() {
+	std::cout << "My rotation is: " << this->m_player.getRotation() << std::endl;
+}
+
+void Player::recordPlayerMove() {
+	std::cout << "My current frame is: " << this->actualFrame << std::endl;
+	this->getMyVelocity();
+	this->getMyRotation();
+	this->actualFrame++;
+
 }
 
 
@@ -95,7 +108,7 @@ int Player::getMyPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
-	std::cout << "My current lap is: " << this->m_currentLap << std::endl;
+	this->recordPlayerMove();
 	if (tileID == Options::GrassTileID) {
 		Options::setVelocityAndAccelerationForGrass();
 		if (m_currentSpeed > Options::playerMaxVelocity) {

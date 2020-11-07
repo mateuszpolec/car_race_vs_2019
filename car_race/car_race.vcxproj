@@ -192,7 +192,6 @@
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\startblock.tsx" />
     <None Include="Assets\testmap.tmx" />
-    <None Include="D:\Programs\Tilemap\tiles\racemap2.tmx" />
     <None Include="Game.h" />
   </ItemGroup>
   <ItemGroup>
