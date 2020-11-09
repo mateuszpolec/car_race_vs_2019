@@ -12,3 +12,9 @@ std::string JSONWorker::getJsonTokenFromString(const std::string rawJson) {
     const std::string token = root["token"].asString();
     return token;
 }
+
+void JSONWorker::sendPlayerRecordedData(int currentFrame, float currentVelocity, float currentRotation) {
+    std::cout << "CurrentFrame: " << currentFrame << std::endl;
+    std::cout << "CurrentVelocity: " << currentVelocity << std::endl;
+    std::cout << "CurrentRotation: " << currentRotation << std::endl;
+}

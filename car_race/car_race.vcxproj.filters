@@ -81,6 +81,9 @@
     <ClCompile Include="Game.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy\Enemy.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sockets\api_connector.h">
@@ -107,6 +110,9 @@
     <ClInclude Include="Options\options.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy\enemy.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\192 racetrack Divided (1).tsx" />
@@ -117,6 +123,7 @@
     <None Include="Assets\racemap2.tmx" />
     <None Include="Assets\startblock.tsx" />
     <None Include="Assets\eventblocks.tsx" />
+    <None Include="Options\player_records.json" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png">

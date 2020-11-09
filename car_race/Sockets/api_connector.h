@@ -17,8 +17,8 @@ private:
     JSONCPP_STRING err;
     Json::Value root;
     Json::StreamWriterBuilder builder;
+    JSONWorker* jsonWorker;
 public:
-
     /**
     *
     * Function getAuthToken
@@ -43,4 +43,8 @@ public:
     //    std::cout << api_data << std::endl;
     //    http.sendRequest(request);
     //}
+
+    APIConnector();
+
+    ~APIConnector();
 };

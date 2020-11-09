@@ -3,6 +3,15 @@
 #include <SFML/Network/Http.hpp>
 #include <iostream>
 
+
+APIConnector::APIConnector() {
+    this->jsonWorker = new JSONWorker();
+}
+
+APIConnector::~APIConnector() {
+    delete this->jsonWorker;
+}
+
 std::string APIConnector::getAuthToken() {
     const std::string token = FileWorker::getTokenFromFile();
     if (token != "") {
@@ -17,7 +26,7 @@ std::string APIConnector::getAuthToken() {
         {
             const std::string rawJson = response.getBody();
             // Pass the response to json_worker class
-            const std::string token = getJsonTokenFromString(rawJson);
+            const std::string token = this->jsonWorker->getJsonTokenFromString(rawJson);
             FileWorker::saveTokenToFile(token); //Save token to file
             return token;
         }

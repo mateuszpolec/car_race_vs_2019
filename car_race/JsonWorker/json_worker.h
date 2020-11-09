@@ -1,6 +1,6 @@
 #include <json/json.h>
 #include <iostream>
-
+#pragma once
 
 /**
 * Class JSONWorker
@@ -32,6 +32,8 @@ class JSONWorker {
         //    const std::string api_data = Json::writeString(builder, root);
         //    return api_data;
         //}
+
+        void sendPlayerRecordedData(int currentFrame, float currentVelocity, float currentRotation);
 
         
 };

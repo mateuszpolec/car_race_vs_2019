@@ -1,0 +1,18 @@
+{
+  "Records": [
+    "1":
+    [
+      {
+        "Frame": 1,
+        "Velocity": 250.38,
+        "Rotation": 273.02
+      },
+      {
+        "Frame": 2,
+        "Velocity": 230.38,
+        "Rotation":  273.02
+      }
+    ]
+
+  ]
+}

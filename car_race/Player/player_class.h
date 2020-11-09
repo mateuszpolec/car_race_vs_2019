@@ -2,12 +2,13 @@
 #include <set>
 #include <SFML/Graphics.hpp>
 #include "../Options/options.h"
+#include "../JsonWorker/json_worker.h"
 
 /**
 * Class Player - handle information about player
 * 
 */
-class Player : Options {
+class Player : Options, JSONWorker {
     std::string token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f m_movmentVector;
@@ -27,8 +28,9 @@ class Player : Options {
     bool isHandbrakeOn = false;
 
 
-    /* Handling info about actual frame - Temporary */
+    /* Saving information about player movement in current lap - Temporary */
     int actualFrame;
+    JSONWorker* jsonWorker;
 
  public:
     /**

@@ -3,22 +3,17 @@
 Player::Player(std::string authtoken) {
 	token = authtoken;
 	this->actualFrame = 0;
+	this->jsonWorker = new JSONWorker();
 }
 
-void Player::getMyVelocity() {
-	std::cout << "My velocity is: " << m_currentSpeed << std::endl;
+Player::~Player() {
+	delete this->jsonWorker;
 }
 
-void Player::getMyRotation() {
-	std::cout << "My rotation is: " << this->m_player.getRotation() << std::endl;
-}
 
 void Player::recordPlayerMove() {
-	std::cout << "My current frame is: " << this->actualFrame << std::endl;
-	this->getMyVelocity();
-	this->getMyRotation();
 	this->actualFrame++;
-
+	this->jsonWorker->sendPlayerRecordedData(this->actualFrame, this->m_currentSpeed, this->m_player.getRotation());
 }
 
 
