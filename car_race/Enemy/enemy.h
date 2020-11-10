@@ -9,6 +9,8 @@ class Enemy {
 
 	sf::Sprite enemy;
 	sf::Texture enemyTexture;
+
+	bool isLoaded = false;
 	
 
 public:

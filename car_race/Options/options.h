@@ -24,6 +24,20 @@ class Options {
 		const static int checkpointThreeTileID = 28385;
 		const static int StartblockTileID = 28386;
 
+		// vector of paths  to all avaiable textures
+
+		const static inline std::vector<std::string> pathsToTextures = {
+			"./Assets/car_sprite_1.png"
+			"./Assets/car_sprite_2.png",
+			"./Assets/car_sprite_3.png",
+			"./Assets/car_sprite_4.png",
+			"./Assets/car_sprite_5.png",
+			"./Assets/car_sprite_6.png",
+			"./Assets/car_sprite_7.png",
+			"./Assets/car_sprite_8.png"
+		};
+
+
 		/**
 		* mathDotProductCalcualtion
 		* Function that counts the product of two vectors

@@ -1,15 +1,22 @@
 #include "enemy.h"
 
 sf::Sprite Enemy::getEnemySpriteObject() {
-	this->enemyTexture.loadFromFile("./Assets/car_sprite_3.png");
-	enemy.setTexture(this->enemyTexture);
-	enemy.setScale(3.0, 3.0);
-	enemy.setOrigin(4.5f, 7.0f);
-	return enemy;
+	if (this->isLoaded == false) {
+		this->isLoaded = true;
+		short randInt = rand() % 7;
+		this->enemyTexture.loadFromFile(Options::pathsToTextures[randInt]);
+		enemy.setTexture(this->enemyTexture);
+		enemy.setScale(3.0, 3.0);
+		enemy.setOrigin(4.5f, 7.0f);
+		return enemy;
+	}
+	else {
+		return enemy;
+	}
 }
 
 void Enemy::checkPossibleMove() {
-	std::cout << "Checking possible move";
+	std::cout << Options::pathsToTextures.size() << std::endl;
 }
 
 void Enemy::moveToStart() {

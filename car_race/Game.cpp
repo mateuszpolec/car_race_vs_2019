@@ -33,7 +33,7 @@ void Game::update() {
 	this->player->movePlayer();
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getMyPosition());
 	for (auto enemy : this->vectorOfEnemies) {
-		//enemy->checkPossibleMove();
+		enemy->checkPossibleMove();
 	}
 
 	std::cout << "Player position: " << this->player->getMyPosition().x << " " << this->player->getMyPosition().y << std::endl;
