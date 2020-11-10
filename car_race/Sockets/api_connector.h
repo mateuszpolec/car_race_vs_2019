@@ -1,3 +1,6 @@
+#ifndef API_CONNECTOR_H
+#define API_CONNECTOR_H
+
 #include <SFML/Network.hpp>
 #include <SFML/Network/Http.hpp>
 #include <iostream>
@@ -10,7 +13,7 @@
 * Made it possible to communicate with API
 */
 
-class APIConnector : FileWorker, JSONWorker {
+class APIConnector : FileWorker, public virtual JSONWorker {
 
 private:
     sf::Http http;
@@ -48,3 +51,5 @@ public:
 
     ~APIConnector();
 };
+
+#endif

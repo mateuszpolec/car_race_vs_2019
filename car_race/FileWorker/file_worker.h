@@ -1,3 +1,6 @@
+#ifndef FILE_WORKER_H
+#define FILE_WORKER_H
+
 #include <iostream>
 
 /**
@@ -19,3 +22,5 @@ class FileWorker {
 		*/
 		std::string getTokenFromFile();
 };
+
+#endif

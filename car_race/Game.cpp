@@ -21,7 +21,10 @@ void Game::render() {
 	this->window->clear(sf::Color::Black);
 	this->window->draw(layerZero);
 	this->window->draw(layerOne);
-	this->window->draw(this->player->getMySpriteObject());
+	this->window->draw(this->player->getPlayerSpriteObject());
+	for (auto enemy : this->vectorOfEnemies) {
+		this->window->draw(enemy->getEnemySpriteObject());
+	}
 	this->window->display();
 }
 
@@ -29,6 +32,11 @@ void Game::render() {
 void Game::update() {
 	this->player->movePlayer();
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getMyPosition());
+	for (auto enemy : this->vectorOfEnemies) {
+		//enemy->checkPossibleMove();
+	}
+
+	std::cout << "Player position: " << this->player->getMyPosition().x << " " << this->player->getMyPosition().y << std::endl;
 }
 
 
@@ -39,6 +47,12 @@ void Game::classInitializer() {
 	this->map.load("./Assets/testmap.tmx");
 	this->playercamera = new PlayerCamera();
 	this->player->moveToStart();
+
+	for (short i = 0; i < 10; ++i) {
+		this->vectorOfEnemies.push_back(new Enemy());
+		this->vectorOfEnemies[i]->moveToStart();
+	}
+
 }
 
 void Game::eventListener() {

@@ -13,11 +13,11 @@ Player::~Player() {
 
 void Player::recordPlayerMove() {
 	this->actualFrame++;
-	this->jsonWorker->sendPlayerRecordedData(this->actualFrame, this->m_currentSpeed, this->m_player.getRotation());
+	//this->jsonWorker->sendPlayerRecordedData(this->m_currentLap, this->actualFrame, this->m_currentSpeed, this->m_player.getRotation());
 }
 
 
-sf::Sprite Player::getMySpriteObject() {
+sf::Sprite Player::getPlayerSpriteObject() {
 	this->m_playerTexture.loadFromFile("./Assets/car_sprite_1.png");
 	m_player.setTexture(this->m_playerTexture);
 	m_player.setScale(3.0, 3.0);
@@ -134,6 +134,7 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 	else {
 		if (this->m_isNextLap == true) {
 			this->m_currentLap += 1;
+			this->actualFrame = 0;
 			this->checkpointsReached.clear();
 			this->m_isNextLap = false;
 		}

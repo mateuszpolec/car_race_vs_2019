@@ -1,6 +1,8 @@
+#ifndef JSON_WORKER_H
+#define JSON_WORKER_H
+
 #include <json/json.h>
 #include <iostream>
-#pragma once
 
 /**
 * Class JSONWorker
@@ -33,7 +35,9 @@ class JSONWorker {
         //    return api_data;
         //}
 
-        void sendPlayerRecordedData(int currentFrame, float currentVelocity, float currentRotation);
+        void sendPlayerRecordedData(int currentLap, int currentFrame, float currentVelocity, float currentRotation);
 
         
 };
+
+#endif

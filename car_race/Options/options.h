@@ -1,3 +1,6 @@
+#ifndef OPTIONS_H
+#define OPTIONS_H
+
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -41,3 +44,5 @@ class Options {
 		void setVelocityAndAccelerationForAsphalt();
 
 };
+
+#endif

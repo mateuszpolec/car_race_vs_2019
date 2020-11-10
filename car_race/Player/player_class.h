@@ -1,3 +1,6 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <iostream>
 #include <set>
 #include <SFML/Graphics.hpp>
@@ -8,7 +11,7 @@
 * Class Player - handle information about player
 * 
 */
-class Player : Options, JSONWorker {
+class Player : public virtual Options, public virtual JSONWorker {
     std::string token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f m_movmentVector;
@@ -39,6 +42,8 @@ class Player : Options, JSONWorker {
     */
 
      Player(std::string authtoken);
+
+     ~Player();
 
     /**
     * getMyVelocity
@@ -78,12 +83,12 @@ class Player : Options, JSONWorker {
     int getMyPositionY();
 
     /**
-    * getMySpriteObject
+    * getPlayerSpriteObject
     * Function returns player sprite object, like shape, color
     * @param -
     * @return SFML Object Sprite player - SFML Sprite with Texture player object
     */
-    sf::Sprite getMySpriteObject();
+    sf::Sprite getPlayerSpriteObject();
 
     /**
     * listenPlayerMove
@@ -125,3 +130,5 @@ class Player : Options, JSONWorker {
     */
     void moveToStart();
 };
+
+#endif

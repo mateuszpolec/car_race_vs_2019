@@ -1,8 +1,12 @@
+#ifndef GAME_H
+#define GAME_H
+
 #include <SFML/Graphics.hpp>
 #include "Player/player_class.h"
 #include "Player/player_camera.h"
 #include "Sockets/api_connector.h"
 #include "FileWorker/sfml_layer_loader.h"
+#include "Enemy/enemy.h"
 
 class Game {
 	private:
@@ -13,6 +17,10 @@ class Game {
 		Player* player;
 		APIConnector* api;
 		PlayerCamera* playercamera;
+
+
+		//Vector pointing at instances of Enemy classes
+		std::vector<Enemy *> vectorOfEnemies = {};
 
 		tmx::Map map;
 
@@ -58,3 +66,5 @@ class Game {
 		~Game();
 	
 };
+
+#endif

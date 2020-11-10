@@ -1,18 +1,242 @@
 {
   "Records": [
-    "1":
-    [
-      {
-        "Frame": 1,
-        "Velocity": 250.38,
-        "Rotation": 273.02
-      },
-      {
-        "Frame": 2,
-        "Velocity": 230.38,
-        "Rotation":  273.02
-      }
-    ]
-
+    {
+      "1": [
+        {
+          "Frame": 10,
+          "currentRotation": 180.0,
+          "currentVelocity": 40.666255950927734
+        },
+        {
+          "Frame": 20,
+          "currentRotation": 180.0,
+          "currentVelocity": 61.644504547119141
+        },
+        {
+          "Frame": 30,
+          "currentRotation": 180.0,
+          "currentVelocity": 83.654762268066406
+        },
+        {
+          "Frame": 40,
+          "currentRotation": 180.0,
+          "currentVelocity": 105.96689605712891
+        },
+        {
+          "Frame": 50,
+          "currentRotation": 195.08021545410156,
+          "currentVelocity": 126.08300018310547
+        },
+        {
+          "Frame": 60,
+          "currentRotation": 195.08021545410156,
+          "currentVelocity": 148.02688598632813
+        },
+        {
+          "Frame": 70,
+          "currentRotation": 220.29353332519531,
+          "currentVelocity": 171.59100341796875
+        },
+        {
+          "Frame": 80,
+          "currentRotation": 237.7099609375,
+          "currentVelocity": 198.94947814941406
+        },
+        {
+          "Frame": 90,
+          "currentRotation": 270.04425048828125,
+          "currentVelocity": 225.53366088867188
+        },
+        {
+          "Frame": 100,
+          "currentRotation": 270.04425048828125,
+          "currentVelocity": 259.61029052734375
+        },
+        {
+          "Frame": 110,
+          "currentRotation": 270.04425048828125,
+          "currentVelocity": 297.78363037109375
+        },
+        {
+          "Frame": 120,
+          "currentRotation": 305.53701782226563,
+          "currentVelocity": 302.0057373046875
+        },
+        {
+          "Frame": 130,
+          "currentRotation": 344.83981323242188,
+          "currentVelocity": 302.19119262695313
+        },
+        {
+          "Frame": 140,
+          "currentRotation": 4.846466064453125,
+          "currentVelocity": 300.63589477539063
+        },
+        {
+          "Frame": 150,
+          "currentRotation": 357.83920288085938,
+          "currentVelocity": 300.48794555664063
+        },
+        {
+          "Frame": 160,
+          "currentRotation": 27.975339889526367,
+          "currentVelocity": 300.86862182617188
+        },
+        {
+          "Frame": 170,
+          "currentRotation": 77.296066284179688,
+          "currentVelocity": 305.44857788085938
+        },
+        {
+          "Frame": 180,
+          "currentRotation": 77.296066284179688,
+          "currentVelocity": 302.12481689453125
+        },
+        {
+          "Frame": 190,
+          "currentRotation": 77.296066284179688,
+          "currentVelocity": 302.1251220703125
+        },
+        {
+          "Frame": 200,
+          "currentRotation": 117.37557983398438,
+          "currentVelocity": 300.9322509765625
+        },
+        {
+          "Frame": 210,
+          "currentRotation": 121.82247924804688,
+          "currentVelocity": 300.06231689453125
+        },
+        {
+          "Frame": 220,
+          "currentRotation": 165.16558837890625,
+          "currentVelocity": 300.58914184570313
+        },
+        {
+          "Frame": 230,
+          "currentRotation": 211.53898620605469,
+          "currentVelocity": 279.78909301757813
+        }
+      ],
+      "2": [
+        {
+          "Frame": 10,
+          "currentRotation": 211.53898620605469,
+          "currentVelocity": 302.07278442382813
+        },
+        {
+          "Frame": 20,
+          "currentRotation": 216.5118408203125,
+          "currentVelocity": 302.07247924804688
+        },
+        {
+          "Frame": 30,
+          "currentRotation": 263.83621215820313,
+          "currentVelocity": 300.35354614257813
+        },
+        {
+          "Frame": 40,
+          "currentRotation": 285.2281494140625,
+          "currentVelocity": 300.0123291015625
+        },
+        {
+          "Frame": 50,
+          "currentRotation": 296.46969604492188,
+          "currentVelocity": 301.09365844726563
+        },
+        {
+          "Frame": 60,
+          "currentRotation": 352.71914672851563,
+          "currentVelocity": 302.29940795898438
+        },
+        {
+          "Frame": 70,
+          "currentRotation": 352.71914672851563,
+          "currentVelocity": 300.89239501953125
+        },
+        {
+          "Frame": 80,
+          "currentRotation": 16.573263168334961,
+          "currentVelocity": 300.26248168945313
+        },
+        {
+          "Frame": 90,
+          "currentRotation": 35.364906311035156,
+          "currentVelocity": 303.55191040039063
+        },
+        {
+          "Frame": 100,
+          "currentRotation": 61.886287689208984,
+          "currentVelocity": 300.62503051757813
+        },
+        {
+          "Frame": 110,
+          "currentRotation": 102.59040832519531,
+          "currentVelocity": 300.50741577148438
+        },
+        {
+          "Frame": 120,
+          "currentRotation": 102.59040832519531,
+          "currentVelocity": 300.50741577148438
+        },
+        {
+          "Frame": 130,
+          "currentRotation": 151.63825988769531,
+          "currentVelocity": 301.86990356445313
+        },
+        {
+          "Frame": 140,
+          "currentRotation": 181.1478271484375,
+          "currentVelocity": 302.45587158203125
+        },
+        {
+          "Frame": 150,
+          "currentRotation": 166.06022644042969,
+          "currentVelocity": 302.15451049804688
+        }
+      ],
+      "3": [
+        {
+          "Frame": 10,
+          "currentRotation": 203.85751342773438,
+          "currentVelocity": 302.14096069335938
+        },
+        {
+          "Frame": 20,
+          "currentRotation": 243.74693298339844,
+          "currentVelocity": 304.39691162109375
+        },
+        {
+          "Frame": 30,
+          "currentRotation": 243.74693298339844,
+          "currentVelocity": 304.3966064453125
+        },
+        {
+          "Frame": 40,
+          "currentRotation": 293.88250732421875,
+          "currentVelocity": 302.45294189453125
+        },
+        {
+          "Frame": 50,
+          "currentRotation": 277.19363403320313,
+          "currentVelocity": 301.82781982421875
+        },
+        {
+          "Frame": 60,
+          "currentRotation": 357.6275634765625,
+          "currentVelocity": 305.72555541992188
+        },
+        {
+          "Frame": 70,
+          "currentRotation": 23.676809310913086,
+          "currentVelocity": 266.79666137695313
+        },
+        {
+          "Frame": 80,
+          "currentRotation": 347.97833251953125,
+          "currentVelocity": 190.25210571289063
+        }
+      ]
+    }
   ]
 }

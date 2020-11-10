@@ -13,8 +13,22 @@ std::string JSONWorker::getJsonTokenFromString(const std::string rawJson) {
     return token;
 }
 
-void JSONWorker::sendPlayerRecordedData(int currentFrame, float currentVelocity, float currentRotation) {
-    std::cout << "CurrentFrame: " << currentFrame << std::endl;
-    std::cout << "CurrentVelocity: " << currentVelocity << std::endl;
-    std::cout << "CurrentRotation: " << currentRotation << std::endl;
-}
+//void JSONWorker::sendPlayerRecordedData(int currentLap, int currentFrame, float currentVelocity, float currentRotation) {
+//    static Json::Value root;
+//
+//    std::string currentLapString = std::to_string(currentLap);
+//
+//    if(currentFrame % 10 == 0) {
+//        root["Records"][0][currentLapString][currentFrame/10]["Frame"] = currentFrame;
+//        root["Records"][0][currentLapString][currentFrame/10]["currentVelocity"] = currentVelocity;
+//        root["Records"][0][currentLapString][currentFrame/10]["currentRotation"] = currentRotation;
+//    } else if (currentFrame == 0) {
+//        root["Records"][0][currentLapString][0]["Frame"] = currentFrame;
+//        root["Records"][0][currentLapString][0]["currentVelocity"] = currentVelocity;
+//        root["Records"][0][currentLapString][0]["currentRotation"] = currentRotation;
+//    }
+//
+// 
+//
+//    std::cout << root;
+//}

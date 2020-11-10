@@ -1,3 +1,6 @@
+#ifndef PLAYER_CAMERA_H
+#define PLAYER_CAMERA_H
+
 #include <SFML/Graphics.hpp>
 
 class PlayerCamera {
@@ -20,3 +23,5 @@ class PlayerCamera {
 		*/
 		void cameraFollowPlayer(sf::RenderWindow& window, sf::Vector2f playerPosition);
 };
+
+#endif
