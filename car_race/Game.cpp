@@ -38,6 +38,9 @@ void Game::render() {
 		rightSideTiles.push_back(layerZero.getTile(x_right, testEnemy->getEnemyPositionY()).ID);
 	}
 
+	testEnemy->checkSurronding(leftSideTiles, upSideTiles, rightSideTiles);
+	testEnemy->moveEnemy();
+
 
 
 	this->window->clear(sf::Color::Black);
@@ -57,8 +60,6 @@ void Game::update() {
 	for (auto enemy : this->vectorOfEnemies) {
 		enemy->checkPossibleMove();
 	}
-
-	std::cout << "Player position: " << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
 }
 
 

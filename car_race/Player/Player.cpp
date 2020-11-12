@@ -21,38 +21,37 @@ sf::Sprite Player::getPlayerSpriteObject() {
 }
 
 void Player::listenPlayerMove() {
-	float deltaTime = clock.restart().asSeconds();
+	float deltaTime = this->clock.restart().asSeconds();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		if (this->currentSpeed < Options::playerMaxVelocity) {
-			this->currentSpeed += Options::playerMaxAcceleration * deltaTime;
+		if (this->currentSpeed < Options::maxVelocity) {
+			this->currentSpeed += Options::maxAcceleration * deltaTime;
 		}
 	}
 	else {
-		this->currentSpeed -= Options::playerFrictionForce * deltaTime;
+		this->currentSpeed -= Options::frictionForce * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		this->currentSpeed -= Options::playerMaxDeceleration * deltaTime;
+		this->currentSpeed -= Options::maxDeceleration * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(-Options::playerRotateAmmount * deltaTime);
+			this->player.rotate(-Options::rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(Options::playerRotateAmmount * deltaTime);
+			this->player.rotate(Options::rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		Options::playerMaxAcceleration = 0.f;
-		std::cout << Options::playerMaxAcceleration << std::endl;
+		std::cout << Options::maxAcceleration << std::endl;
 		this->isHandbrakeOn = true;
 		//TODO IDEA: Create a function for drifting - hand brake
 		//Descripiton of movement:
@@ -101,7 +100,7 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 	this->recordPlayerMove();
 	if (tileID == Options::GrassTileID) {
 		Options::setVelocityAndAccelerationForGrass();
-		if (this->currentSpeed > Options::playerMaxVelocity) {
+		if (this->currentSpeed > Options::maxVelocity) {
 			this->currentSpeed -= Options::grassFrictionForce * 0.07f;
 		}
 	}

@@ -8,12 +8,12 @@ class Options {
 	
 	public:
 
-		// Variables for player movement
-		float playerMaxVelocity = 300.f;
-		float playerMaxAcceleration = 125.f;
-		float playerMaxDeceleration = 125.f;
-		float playerFrictionForce = 60.f;
-		float playerRotateAmmount = 180.f;
+		// Variables for movement
+		static inline float maxVelocity = 300.f;
+		static inline float maxAcceleration = 125.f;
+		static inline float maxDeceleration = 125.f;
+		static inline float frictionForce = 60.f;
+		static inline float rotateAmmount = 180.f;
 
 		// Variables for ID of static blocks on map
 
@@ -45,7 +45,7 @@ class Options {
 		* @param SFML Object Vector2f - Second one to count
 		* @return float - Scalar product of two vectors
 		*/
-		float mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vector2f& rv);
+		static float mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vector2f& rv);
 
 		/**
 		* TODO: Create documentation

@@ -9,6 +9,12 @@ class Enemy {
 
 	sf::Sprite enemy;
 	sf::Texture enemyTexture;
+	sf::Clock clock;
+	sf::Vector2f movmentVector;
+	sf::Vector2f forwardVector = { 0.f, 1.f };
+	sf::Vector2f mVector;
+	int currentSpeedX = 0;
+	int currentSpeedY = 0;
 
 
 	// State of textures - used for getting sprite object
@@ -30,7 +36,9 @@ public:
 	*/
 	void moveToStart();
 	
-	void checkSurronding();
+	void checkSurronding(std::vector<int> leftSideTiles, std::vector<int> upSideTiles, std::vector<int> rightSideTiles);
+
+	void moveEnemy();
 
 	void checkPossibleMove();
 

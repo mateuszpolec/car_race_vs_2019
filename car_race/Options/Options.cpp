@@ -5,11 +5,11 @@ float Options::mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vecto
 }
 
 void Options::setVelocityAndAccelerationForGrass() {
-	Options::playerMaxAcceleration = 25.f;
-	Options::playerMaxVelocity = 25.f;
+	Options::maxAcceleration = 25.f;
+	Options::maxVelocity = 25.f;
 }
 
 void Options::setVelocityAndAccelerationForAsphalt() {
-	Options::playerMaxAcceleration = 125.f;
-	Options::playerMaxVelocity = 300.f;
+	Options::maxAcceleration = 125.f;
+	Options::maxVelocity = 300.f;
 }
