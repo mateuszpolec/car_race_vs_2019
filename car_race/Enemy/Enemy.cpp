@@ -1,8 +1,9 @@
 #include "enemy.h"
+#include "../FileWorker/sfml_layer_loader.h"
 
 sf::Sprite Enemy::getEnemySpriteObject() {
-	if (this->isLoaded == false) {
-		this->isLoaded = true;
+	if (this->textureIsLoaded == false) {
+		this->textureIsLoaded = true;
 		short randInt = rand() % 7;
 		this->enemyTexture.loadFromFile(Options::pathsToTextures[randInt]);
 		enemy.setTexture(this->enemyTexture);
@@ -13,6 +14,11 @@ sf::Sprite Enemy::getEnemySpriteObject() {
 	else {
 		return enemy;
 	}
+}
+
+void Enemy::checkSurronding() {
+
+
 }
 
 void Enemy::checkPossibleMove() {
@@ -26,3 +32,10 @@ void Enemy::moveToStart() {
 	this->enemy.setPosition(xPosition, yPosition);
 }
 
+int Enemy::getEnemyPositionX() {
+	return std::abs((int) this->enemy.getPosition().x / 12);
+}
+
+int Enemy::getEnemyPositionY() {
+	return std::abs((int)this->enemy.getPosition().y / 12);
+}

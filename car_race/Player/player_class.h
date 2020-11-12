@@ -12,19 +12,19 @@
 * 
 */
 class Player : public virtual Options, public virtual JSONWorker {
-    std::string token;
+    std::string m_token;
     /* To remember, Vector2f describes data like math cartesian system*/
-    sf::Vector2f m_movmentVector;
-    sf::Vector2f m_forwardVector = { 0.f, 1.f };
-    float m_currentSpeed = 0.f;
+    sf::Vector2f movmentVector;
+    sf::Vector2f forwardVector = { 0.f, 1.f };
+    float currentSpeed = 0.f;
 
-    sf::Texture m_playerTexture;
-    sf::Sprite m_player; //Generate player object
+    sf::Texture playerTexture;
+    sf::Sprite player; //Generate player object
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
 
     /* Handling actual player position and current lap info*/
-    int m_currentLap = 1;
-    bool m_isNextLap = false;
+    int currentLap = 1;
+    bool isNextLap = false;
     std::set<int> checkpointsReached = {};
 
     /* Handling info about player handbrake */
@@ -43,7 +43,6 @@ class Player : public virtual Options, public virtual JSONWorker {
 
      Player(std::string authtoken);
 
-     ~Player();
 
     /**
     * getMyVelocity
@@ -64,23 +63,23 @@ class Player : public virtual Options, public virtual JSONWorker {
     * Function that returns player position
     * @return - SFML Object Vector2f with player position on map
     */
-    sf::Vector2f getMyPosition();
+    sf::Vector2f getPlayerPosition();
 
 
     /**
-    * getMyPositionX
+    * getPlayerPositionX
     * Function that returns player position in X axis including size of tile
     * @return ABS int value with player position in X axis
     */
-    int getMyPositionX();
+    int getPlayerPositionX();
 
 
     /**
-    * getMyPositionY
+    * getPlayerPositionY
     * Function that returns player position in Y axis including size of tile
     * @return ABS int value with player position in Y axis
     */
-    int getMyPositionY();
+    int getPlayerPositionY();
 
     /**
     * getPlayerSpriteObject
