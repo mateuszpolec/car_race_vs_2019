@@ -21,9 +21,7 @@ void Enemy::checkSurronding() {
 
 }
 
-void Enemy::checkPossibleMove() {
-	std::cout << Options::pathsToTextures.size() << std::endl;
-}
+void Enemy::checkPossibleMove() {}
 
 void Enemy::moveToStart() {
 	int xPosition = rand() % 175 + 175;

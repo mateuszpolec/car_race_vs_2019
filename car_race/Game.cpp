@@ -16,45 +16,28 @@ void Game::render() {
 
 	this->player->checkPlayerCollision(tile_grass_layer.ID);
 
-	short i = 0;
-
 	Enemy* testEnemy = this->vectorOfEnemies[0];
 
 
-	std::cout << "What's in front of enemy zero: ";
+	std::vector<int> leftSideTiles = {};
+	std::vector<int> upSideTiles = {};
+	std::vector<int> rightSideTiles = {};
 
+	// Append tiles from left side of player to vector
 	for (int x_left = testEnemy->getEnemyPositionX(); x_left < testEnemy->getEnemyPositionX() + 10; ++x_left) {
-		std::cout << layerZero.getTile(x_left, testEnemy->getEnemyPositionX()).ID << " ";
+		leftSideTiles.push_back(layerZero.getTile(x_left, testEnemy->getEnemyPositionY()).ID);
 	}
 
+	// Append tiles from up side of player to vector
 	for (int y_up = testEnemy->getEnemyPositionY(); y_up < testEnemy->getEnemyPositionY() + 10; ++y_up) {
-		std::cout << layerZero.getTile(y_up, testEnemy->getEnemyPositionX()).ID << " ";
+		upSideTiles.push_back(layerZero.getTile(testEnemy->getEnemyPositionX(), y_up).ID);
 	}
 
-	for (int x_right = testEnemy->getEnemyPositionX(); x_right < testEnemy->getEnemyPositionY() - 10; --x_right) {
-		std::cout << layerZero.getTile(x_right, testEnemy->getEnemyPositionX()).ID << " ";
+	// Append tiles from right side of player to vector
+	for (int x_right = testEnemy->getEnemyPositionX(); x_right > testEnemy->getEnemyPositionX() - 10; --x_right) {
+		rightSideTiles.push_back(layerZero.getTile(x_right, testEnemy->getEnemyPositionY()).ID);
 	}
 
-	std::cout << std::endl;
-
-
-
-	//for (Enemy* enemy : this->vectorOfEnemies) {
-	//	i++;
-	//	std::cout << "Enemy " << i << ": " << std::endl;
-	//	for (int i = enemy->getEnemyPositionX(); i < enemy->getEnemyPositionX() + 10; ++i) {
-	//		std::cout << layerZero.getTile(i, enemy->getEnemyPositionY()).ID << " ";
-	//	}
-
-	//	std::cout << std::endl;
-
-	//	for (int j = enemy->getEnemyPositionY(); j < enemy->getEnemyPositionY() + 10; ++j) {
-	//		std::cout << layerZero.getTile(enemy->getEnemyPositionX(), i).ID << " ";
-	//	}
-
-
-	//	std::cout << std::endl;
-	//}
 
 
 	this->window->clear(sf::Color::Black);
