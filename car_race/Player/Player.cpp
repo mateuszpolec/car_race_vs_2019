@@ -51,7 +51,6 @@ void Player::listenPlayerMove() {
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		std::cout << Options::maxAcceleration << std::endl;
 		this->isHandbrakeOn = true;
 		//TODO IDEA: Create a function for drifting - hand brake
 		//Descripiton of movement:
@@ -99,10 +98,10 @@ int Player::getPlayerPositionY() {
 void Player::checkPlayerCollision(std::uint32_t tileID) {
 	this->recordPlayerMove();
 	if (tileID == Options::GrassTileID) {
-		Options::setVelocityAndAccelerationForGrass();
-		if (this->currentSpeed > Options::maxVelocity) {
-			this->currentSpeed -= Options::grassFrictionForce * 0.07f;
-		}
+		//Options::setVelocityAndAccelerationForGrass();
+		//if (this->currentSpeed > Options::maxVelocity) {
+		//	this->currentSpeed -= Options::grassFrictionForce * 0.07f;
+		//}
 	}
 	else {
 		if (!this->isHandbrakeOn) {

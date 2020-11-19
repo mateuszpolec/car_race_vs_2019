@@ -167,6 +167,7 @@
     <ClCompile Include="D:\Programs\Projekty\tmxlite\tmxlite\src\Tileset.cpp" />
     <ClCompile Include="Enemy\Enemy.cpp" />
     <ClCompile Include="FileWorker\FileWorker.cpp" />
+    <ClCompile Include="FileWorker\RouteCreator.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Options\Options.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp" />
     <ClInclude Include="Enemy\enemy.h" />
     <ClInclude Include="FileWorker\file_worker.h" />
+    <ClInclude Include="FileWorker\RouteCreator.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Options\options.h" />

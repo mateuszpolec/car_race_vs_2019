@@ -7,6 +7,7 @@
 #include "Sockets/api_connector.h"
 #include "FileWorker/sfml_layer_loader.h"
 #include "Enemy/enemy.h"
+#include "FileWorker/RouteCreator.h"
 
 class Game {
 	private:
