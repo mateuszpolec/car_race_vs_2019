@@ -70,15 +70,17 @@ void Player::listenPlayerMove() {
 void Player::movePlayer() {
 
 
-	sf::Vector2f oldVector = this->movmentVector;
+	sf::Vector2f oldVector = this->movementVector;
 	sf::Transform transform;
 
 	transform.rotate(this->player.getRotation());
-	this->movmentVector = transform.transformPoint(this->forwardVector);
+	this->movementVector = transform.transformPoint(this->forwardVector);
 
-	this->currentSpeed *= Options::mathDotProductCalculation(oldVector, this->movmentVector);
+	this->currentSpeed *= Options::mathDotProductCalculation(oldVector, this->movementVector);
 
-	this->player.move(this->movmentVector * this->currentSpeed * 0.05f);
+	std::cout << this->player.getRotation() << std::endl;
+
+	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
 	
 }
 

@@ -18,6 +18,7 @@ void Game::render() {
 
 	// Create a vertex array for drawing; a line strip is perfect for this
 	sf::VertexArray vertices(sf::LinesStrip, 0);
+	Enemy* testEnemy = this->vectorOfEnemies[0];
 
 	std::vector<std::vector<sf::Vector2f>> vectorOfPoints;
 	// Calculate the points on the curve (10 segments)
@@ -66,6 +67,17 @@ void Game::render() {
 			vertices.append(sf::Vertex(*a, sf::Color::White));
 		}
 	}
+	
+	static std::vector<sf::Vector2f> pointsToFollowForEnemy;
+
+	if (pointsToFollowForEnemy.size() == 0) {
+		for (int i = 0; i < vertices.getVertexCount(); ++i) {
+			sf::Vector2f temporaryPoint = { vertices[i].position.x, vertices[i].position.y };
+			pointsToFollowForEnemy.push_back(temporaryPoint);
+			std::cout << vertices[i].position.x << " " << vertices[i].position.y << std::endl;
+		}
+		testEnemy->setPointsToFollow(pointsToFollowForEnemy);
+	}
 	// ...
 
 	// Draw the vertex array
@@ -87,7 +99,7 @@ void Game::update() {
 	for (auto enemy : this->vectorOfEnemies) {
 		enemy->checkPossibleMove();
 	}
-	std::cout << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
+	//std::cout << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
 }
 
 

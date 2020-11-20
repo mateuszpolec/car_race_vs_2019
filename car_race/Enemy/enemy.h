@@ -14,6 +14,8 @@ class Enemy {
 	sf::Vector2f forwardVector = { 0.f, 1.f };
 	float currentSpeed = 0;
 
+	std::vector <sf::Vector2f> pointsToFollow = {};
+
 
 	// State of textures - used for getting sprite object
 	bool textureIsLoaded = false;
@@ -39,6 +41,13 @@ public:
 	void checkPossibleMove();
 
 	/**
+	* setPointsToFollow
+	* Sets points to follow for enemy sprite
+	* @param std::vector with points to follow in it
+	*/
+	void setPointsToFollow(std::vector<sf::Vector2f> pointsToFollowForEnemy);
+
+	/**
 	* getEnemyPositionX
 	* Function that returns enemy position in X axis including size of tile
 	* @return ABS int value with enemy position in X axis
@@ -51,6 +60,7 @@ public:
 	* @return ABS int value with enemy position in Y axis
 	*/
 	int getEnemyPositionY();
+
 
 };
 

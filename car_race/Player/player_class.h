@@ -14,7 +14,7 @@
 class Player : public virtual Options, public virtual JSONWorker {
     std::string m_token;
     /* To remember, Vector2f describes data like math cartesian system*/
-    sf::Vector2f movmentVector;
+    sf::Vector2f movementVector;
     sf::Vector2f forwardVector = { 0.f, 1.f };
     float currentSpeed = 0.f;
 
