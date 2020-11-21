@@ -29,7 +29,7 @@ void Enemy::moveEnemy() {
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo];
 	sf::Vector2f oldPosition = this->enemy.getPosition();
 
-	this->currentSpeed = 4;
+	this->currentSpeed = 15;
 
 	float r = sqrt(pow((pointToGo.x - oldPosition.x), 2) + pow((pointToGo.y - oldPosition.y), 2));
 	float x = pointToGo.x - oldPosition.x;
@@ -55,11 +55,6 @@ void Enemy::moveEnemy() {
 
 
 
-	std::cout << this->actualPointToGo << "\n";
-
-	//std::cout << "Point to go: " << pointToGo.x << " " << pointToGo.y << "\n";
-	//std::cout << "Actual position: " << oldPosition.x << " " << oldPosition.y << "\n";	
-
 	sf::Vector2f oldVector = this->movementVector;
 	sf::Transform transform;
 
@@ -70,7 +65,9 @@ void Enemy::moveEnemy() {
 
 	this->enemy.move(this->movementVector * this->currentSpeed);
 
-	if (r < 6) {
+	std::cout << r << "\n";
+
+	if (r < 100) {
 		this->actualPointToGo++;
 		if (this->actualPointToGo > 98) {
 			this->actualPointToGo = 0;
