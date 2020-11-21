@@ -44,8 +44,7 @@ void Game::render() {
 			sf::Vector2f(750, 950),
 			sf::Vector2f(1100, 850),
 			sf::Vector2f(750, 950),
-			25
-		);
+			25);
 
 	std::vector<sf::Vector2f> firstEnemyFourthPoints =
 		CalcCubicBezier(
@@ -53,8 +52,7 @@ void Game::render() {
 			sf::Vector2f(250, 600),
 			sf::Vector2f(300, 1050),
 			sf::Vector2f(250, 600),
-			25
-		);
+			25);
 
 	vectorOfPoints.push_back(firstEnemyFirstPoints);
 	vectorOfPoints.push_back(fisrtEnemySecondPoints);
@@ -80,6 +78,8 @@ void Game::render() {
 	}
 	// ...
 
+	testEnemy->moveEnemy();
+
 	// Draw the vertex array
 	this->window->clear(sf::Color::Black);
 	this->window->draw(layerZero);
@@ -96,9 +96,9 @@ void Game::render() {
 void Game::update() {
 	this->player->movePlayer();
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getPlayerPosition());
-	for (auto enemy : this->vectorOfEnemies) {
-		enemy->checkPossibleMove();
-	}
+	//for (auto enemy : this->vectorOfEnemies) {
+	//	enemy->checkPossibleMove();
+	//}
 	//std::cout << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
 }
 

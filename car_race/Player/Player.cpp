@@ -78,7 +78,7 @@ void Player::movePlayer() {
 
 	this->currentSpeed *= Options::mathDotProductCalculation(oldVector, this->movementVector);
 
-	std::cout << this->player.getRotation() << std::endl;
+	//std::cout << this->player.getRotation() << std::endl;
 
 	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
 	

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Options/options.h"
+#include <cmath>
 
 class Enemy {
 
@@ -12,9 +13,12 @@ class Enemy {
 	sf::Clock clock;
 	sf::Vector2f movementVector;
 	sf::Vector2f forwardVector = { 0.f, 1.f };
+
+	short actualPointToGo = 0;
+	static inline std::vector <sf::Vector2f> pointsToFollow;
 	float currentSpeed = 0;
 
-	std::vector <sf::Vector2f> pointsToFollow = {};
+	int halfOfPlot = 0;
 
 
 	// State of textures - used for getting sprite object
@@ -38,7 +42,7 @@ public:
 	
 	void moveEnemy();
 
-	void checkPossibleMove();
+	double checkPossibleMove();
 
 	/**
 	* setPointsToFollow
