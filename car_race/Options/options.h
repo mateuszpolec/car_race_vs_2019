@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "../FileWorker/RouteCreator.h"
 
 class Options {
 	
@@ -27,7 +28,7 @@ class Options {
 		// vector of paths  to all avaiable textures
 
 		const static inline std::vector<std::string> pathsToTextures = {
-			"./Assets/car_sprite_1.png"
+			"./Assets/car_sprite_1.png",
 			"./Assets/car_sprite_2.png",
 			"./Assets/car_sprite_3.png",
 			"./Assets/car_sprite_4.png",
@@ -56,6 +57,11 @@ class Options {
 		* TODO: Create documentation
 		*/
 		void setVelocityAndAccelerationForAsphalt();
+
+		/**
+		* TODO: Create documentation
+		*/
+		static int randomValueFromScope(int start, int scope);
 
 };
 

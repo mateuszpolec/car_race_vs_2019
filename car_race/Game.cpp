@@ -16,75 +16,19 @@ void Game::render() {
 
 	this->player->checkPlayerCollision(tile_grass_layer.ID);
 
-	// Create a vertex array for drawing; a line strip is perfect for this
-	sf::VertexArray vertices(sf::LinesStrip, 0);
-	Enemy* testEnemy = this->vectorOfEnemies[0];
 
-	std::vector<std::vector<sf::Vector2f>> vectorOfPoints;
-	// Calculate the points on the curve (10 segments)
-	std::vector<sf::Vector2f> firstEnemyFirstPoints =
-		CalcCubicBezier(
-			sf::Vector2f(250, 600),
-			sf::Vector2f(620, 125),
-			sf::Vector2f(100, 100),
-			sf::Vector2f(620, 125),
-			25);
-
-	std::vector<sf::Vector2f> fisrtEnemySecondPoints =
-		CalcCubicBezier(
-			sf::Vector2f(620, 125),
-			sf::Vector2f(1050, 435),
-			sf::Vector2f(1060, 175),
-			sf::Vector2f(1050, 435),
-			25);
-
-	std::vector<sf::Vector2f> firstEnemyThirdPoints =
-		CalcCubicBezier(
-			sf::Vector2f(1050, 435),
-			sf::Vector2f(750, 950),
-			sf::Vector2f(1100, 850),
-			sf::Vector2f(750, 950),
-			25);
-
-	std::vector<sf::Vector2f> firstEnemyFourthPoints =
-		CalcCubicBezier(
-			sf::Vector2f(750, 950),
-			sf::Vector2f(250, 600),
-			sf::Vector2f(300, 1050),
-			sf::Vector2f(250, 600),
-			25);
-
-	vectorOfPoints.push_back(firstEnemyFirstPoints);
-	vectorOfPoints.push_back(fisrtEnemySecondPoints);
-	vectorOfPoints.push_back(firstEnemyThirdPoints);
-	vectorOfPoints.push_back(firstEnemyFourthPoints);
-
-	// Append the points as vertices to the vertex array
-	for (int i = 0; i < vectorOfPoints.size(); ++i) {
-		for (std::vector<sf::Vector2f>::const_iterator a = vectorOfPoints[i].begin(); a != vectorOfPoints[i].end(); ++a) {
-			vertices.append(sf::Vertex(*a, sf::Color::White));
+	for (Enemy* enemy : this->vectorOfEnemies) {
+		if (enemy->pointsToFollow.empty()) {
+			enemy->createTrack();
+		}
+		else {
+			enemy->moveEnemy();
 		}
 	}
-	
-	static std::vector<sf::Vector2f> pointsToFollowForEnemy;
-
-	if (pointsToFollowForEnemy.size() == 0) {
-		for (int i = 0; i < vertices.getVertexCount(); ++i) {
-			sf::Vector2f temporaryPoint = { vertices[i].position.x, vertices[i].position.y };
-			pointsToFollowForEnemy.push_back(temporaryPoint);
-			std::cout << vertices[i].position.x << " " << vertices[i].position.y << std::endl;
-		}
-		testEnemy->setPointsToFollow(pointsToFollowForEnemy);
-	}
-	// ...
-
-	testEnemy->moveEnemy();
-
 	// Draw the vertex array
 	this->window->clear(sf::Color::Black);
 	this->window->draw(layerZero);
 	this->window->draw(layerOne);
-	this->window->draw(vertices);
 	this->window->draw(this->player->getPlayerSpriteObject());
 	for (Enemy* enemy : this->vectorOfEnemies) {
 		this->window->draw(enemy->getEnemySpriteObject());
@@ -96,9 +40,7 @@ void Game::render() {
 void Game::update() {
 	this->player->movePlayer();
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getPlayerPosition());
-	//for (auto enemy : this->vectorOfEnemies) {
-	//	enemy->checkPossibleMove();
-	//}
+
 	//std::cout << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
 }
 

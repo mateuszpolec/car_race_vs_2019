@@ -13,3 +13,7 @@ void Options::setVelocityAndAccelerationForAsphalt() {
 	Options::maxAcceleration = 125.f;
 	Options::maxVelocity = 300.f;
 }
+
+int Options::randomValueFromScope(int start, int scope) {
+	return rand() % scope + start;
+}

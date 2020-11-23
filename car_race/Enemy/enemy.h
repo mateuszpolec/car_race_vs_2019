@@ -15,17 +15,17 @@ class Enemy {
 	sf::Vector2f forwardVector = { 0.f, 1.f };
 
 	short actualPointToGo = 0;
-	static inline std::vector <sf::Vector2f> pointsToFollow;
 	float currentSpeed = 0;
 
 	int halfOfPlot = 0;
-
+	bool tooFar = false;
 
 	// State of textures - used for getting sprite object
 	bool textureIsLoaded = false;
 	
 
 public:
+	std::vector <sf::Vector2f> pointsToFollow = {};
 
 	/**
 	* getEnemySpriteObject
@@ -43,6 +43,8 @@ public:
 	void moveEnemy();
 
 	double checkPossibleMove();
+
+	void createTrack();
 
 	/**
 	* setPointsToFollow
