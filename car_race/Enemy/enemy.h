@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "../Options/options.h"
 #include <cmath>
+#include <set>
 
 class Enemy {
 
@@ -19,6 +20,20 @@ class Enemy {
 
 	int halfOfPlot = 0;
 	bool tooFar = false;
+
+	int currentLap = 0;
+	bool isNextLap = false;
+	std::set<int> checkpointsReached = {};
+
+	struct nextRandomBezierPoint {
+
+		int x, y;
+
+		nextRandomBezierPoint(int random_x, int random_y) {
+			x = random_x;
+			y = random_y;
+		}
+	};
 
 	// State of textures - used for getting sprite object
 	bool textureIsLoaded = false;
@@ -42,9 +57,11 @@ public:
 	
 	void moveEnemy();
 
-	double checkPossibleMove();
-
 	void createTrack();
+
+	void checkEnemyCollision() {
+
+	}
 
 	/**
 	* setPointsToFollow

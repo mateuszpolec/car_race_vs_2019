@@ -23,7 +23,7 @@ class Player : public virtual Options, public virtual JSONWorker {
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
 
     /* Handling actual player position and current lap info*/
-    int currentLap = 1;
+    int currentLap = 0;
     bool isNextLap = false;
     std::set<int> checkpointsReached = {};
 
@@ -32,7 +32,6 @@ class Player : public virtual Options, public virtual JSONWorker {
 
 
     /* Saving information about player movement in current lap - Temporary */
-    int actualFrame;
     JSONWorker* jsonWorker;
 
  public:
@@ -42,14 +41,6 @@ class Player : public virtual Options, public virtual JSONWorker {
     */
 
      Player(std::string authtoken);
-
-
-    /**
-    * getMyVelocity
-    * Function created only for test, to check how fast player moves
-    * void function, no params
-    */
-    void getMyVelocity();
 
     void getMyRotation();
     /**
@@ -115,13 +106,6 @@ class Player : public virtual Options, public virtual JSONWorker {
     * @return string token - hashed API Token for Player
     */
     std::string getMyToken();
-
-    /**
-    * recordPlayerMove
-    * Temporary function: Saves the movement of player in current lap
-    */
-    void recordPlayerMove();
-
 
     /**
     * moveTostart

@@ -93,39 +93,46 @@ void Enemy::createTrack() {
 	std::vector<std::vector<sf::Vector2f>> vectorOfPoints;
 	// Calculate the points on the curve (10 segments)
 
-	std::vector<int> fp_Start = { rand() % 100 + 250, rand() % 25 + 575 };
-	std::vector<int> fp_End = { rand() % 20 + 600, rand() % 10 + 125 };
+	Enemy::nextRandomBezierPoint firstPoint(rand() % 100 + 250, rand() % 25 + 575);
+	Enemy::nextRandomBezierPoint firstCurve(rand() % 200 + 75, rand() % 25 + 75);
+	Enemy::nextRandomBezierPoint secondPoint(rand() % 20 + 600, rand() % 10 + 125);
+	Enemy::nextRandomBezierPoint secondCurve(rand() % 200 + 1060, rand() % 25 + 175);
+	Enemy::nextRandomBezierPoint thirdPoint(rand() % 100 + 945, rand() % 30 + 435);
+	Enemy::nextRandomBezierPoint thirdCurve(rand() % 200 + 1025, rand() % 25 + 850);
+	Enemy::nextRandomBezierPoint fourthPoint(rand() % 100 + 650, rand() % 100 + 850);
+	Enemy::nextRandomBezierPoint fourthCurve(rand() % 100 + 275, rand() % 25 + 1000);
+
 
 	std::vector<sf::Vector2f> firstPoints =
 		CalcCubicBezier(
-			sf::Vector2f(fp_Start[0], fp_Start[1]),
-			sf::Vector2f(620, 125),
-			sf::Vector2f(100, 100),
-			sf::Vector2f(fp_End[0], fp_End[1]),
+			sf::Vector2f(firstPoint.x, firstPoint.y),
+			sf::Vector2f(secondPoint.x, secondPoint.y),
+			sf::Vector2f(firstCurve.x, firstCurve.y),
+			sf::Vector2f(secondPoint.x, secondPoint.y),
 			25);
 
 	std::vector<sf::Vector2f> secondPoints =
 		CalcCubicBezier(
-			sf::Vector2f(fp_End[0], fp_End[1]),
-			sf::Vector2f(1050, 435),
-			sf::Vector2f(1060, 175),
-			sf::Vector2f(1050, 435),
+			sf::Vector2f(secondPoint.x, secondPoint.y),
+			sf::Vector2f(thirdPoint.x, thirdPoint.y),
+			sf::Vector2f(secondCurve.x, secondCurve.y),
+			sf::Vector2f(thirdPoint.x, thirdPoint.y),
 			25);
 
 	std::vector<sf::Vector2f> thirdPoints =
 		CalcCubicBezier(
-			sf::Vector2f(1050, 435),
-			sf::Vector2f(750, 950),
-			sf::Vector2f(1100, 850),
-			sf::Vector2f(750, 950),
+			sf::Vector2f(thirdPoint.x, thirdPoint.y),
+			sf::Vector2f(fourthPoint.x, fourthPoint.y),
+			sf::Vector2f(thirdCurve.x, thirdCurve.y),
+			sf::Vector2f(fourthPoint.x, fourthPoint.y),
 			25);
 
 	std::vector<sf::Vector2f> fourthPoints =
 		CalcCubicBezier(
-			sf::Vector2f(750, 950),
-			sf::Vector2f(250, 600),
-			sf::Vector2f(300, 1050),
-			sf::Vector2f(250, 600),
+			sf::Vector2f(fourthPoint.x, fourthPoint.y),
+			sf::Vector2f(firstPoint.x, firstPoint.y),
+			sf::Vector2f(fourthCurve.x, fourthCurve.y),
+			sf::Vector2f(firstPoint.x, firstPoint.y),
 			25);
 
 	vectorOfPoints.push_back(firstPoints);
@@ -150,12 +157,6 @@ void Enemy::createTrack() {
 	}
 	this->setPointsToFollow(pointsToFollowForEnemy);
 }
-
-
-double Enemy::checkPossibleMove() {
-	return 0;
-}
-
 
 
 

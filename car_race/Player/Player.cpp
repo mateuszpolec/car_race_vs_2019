@@ -2,14 +2,9 @@
 
 Player::Player(std::string authtoken) {
 	m_token = authtoken;
-	this->actualFrame = 0;
 	this->jsonWorker = new JSONWorker();
 }
 
-void Player::recordPlayerMove() {
-	this->actualFrame++;
-	//this->jsonWorker->sendPlayerRecordedData(this->m_currentLap, this->actualFrame, this->m_currentSpeed, this->m_player.getRotation());
-}
 
 
 sf::Sprite Player::getPlayerSpriteObject() {
@@ -82,7 +77,7 @@ void Player::movePlayer() {
 
 	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
 
-	//std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
+	std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
 	
 }
 
@@ -100,7 +95,6 @@ int Player::getPlayerPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
-	this->recordPlayerMove();
 	if (tileID == Options::GrassTileID) {
 		//Options::setVelocityAndAccelerationForGrass();
 		//if (this->currentSpeed > Options::maxVelocity) {
@@ -130,8 +124,6 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 	}
 	else {
 		if (this->isNextLap == true) {
-			this->currentLap += 1;
-			this->actualFrame = 0;
 			this->checkpointsReached.clear();
 			this->isNextLap = false;
 		}
