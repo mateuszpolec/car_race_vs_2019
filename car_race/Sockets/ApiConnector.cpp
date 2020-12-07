@@ -4,9 +4,8 @@
 #include <iostream>
 
 
-APIConnector::APIConnector() {
-    this->jsonWorker = new JSONWorker();
-}
+APIConnector::APIConnector() : 
+    jsonWorker(new JSONWorker()) {}
 
 APIConnector::~APIConnector() {
     delete this->jsonWorker;

@@ -26,17 +26,20 @@ void Enemy::moveToStart() {
 
 void Enemy::moveEnemy() {
 	float deltaTime = this->clock.restart().asSeconds();
-	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo];
+	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
 	sf::Vector2f oldPosition = this->enemy.getPosition();
 
-	if (this->currentSpeed < Options::maxVelocity) {
-		this->currentSpeed += Options::maxAcceleration * deltaTime;
+	//Acceleration
+	if (this->currentSpeed < Options::s_maxVelocity) {
+		this->currentSpeed += Options::s_maxAcceleration * deltaTime;
 	}
 	
+	//Cartesian system to polar system
 	float r = sqrt(pow((pointToGo.x - oldPosition.x), 2) + pow((pointToGo.y - oldPosition.y), 2));
 	float x = pointToGo.x - oldPosition.x;
 	float angle_sin = asin(x / r) * 180.0 / 3.14;
 
+	//Set half of plot, because sinus is positive in scope of <0; 270> and negative in scope of (270; 360>
 	if (angle_sin < 90 && this->halfOfPlot == 0) {
 		this->enemy.setRotation(180 + angle_sin);
 	}
@@ -55,6 +58,7 @@ void Enemy::moveEnemy() {
 
 
 
+	//The magic of moving player
 	sf::Vector2f oldVector = this->movementVector;
 	sf::Transform transform;
 
@@ -149,12 +153,14 @@ void Enemy::createTrack() {
 
 	std::vector<sf::Vector2f> pointsToFollowForEnemy;
 
+	// Change from VertexArray to Standard Libary Vector with Vector2f
 	if (pointsToFollowForEnemy.size() == 0) {
 		for (int i = 0; i < vertices.getVertexCount(); ++i) {
 			sf::Vector2f temporaryPoint = { vertices[i].position.x, vertices[i].position.y };
 			pointsToFollowForEnemy.push_back(temporaryPoint);
 		}
 	}
+
 	this->setPointsToFollow(pointsToFollowForEnemy);
 }
 

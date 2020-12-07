@@ -9,6 +9,7 @@
 
 class Enemy {
 
+private:
 	sf::Sprite enemy;
 	sf::Texture enemyTexture;
 	sf::Clock clock;
@@ -29,10 +30,7 @@ class Enemy {
 
 		int x, y;
 
-		nextRandomBezierPoint(int random_x, int random_y) {
-			x = random_x;
-			y = random_y;
-		}
+		nextRandomBezierPoint(int random_x, int random_y) : x(random_x), y(random_y) {}
 	};
 
 	// State of textures - used for getting sprite object
@@ -55,13 +53,26 @@ public:
 	*/
 	void moveToStart();
 	
+
+	/**
+	* moveEnemy
+	* Function that changes the cartesian system to polar system and then the enemy
+	* spirite is going to follow the nearest point. 
+	* More in .cpp file
+	*/
 	void moveEnemy();
 
+
+	/**
+	* createTrack
+	* Function that creates the track to follow by enemy.
+	* More in .cpp file
+	*/
 	void createTrack();
 
-	void checkEnemyCollision() {
 
-	}
+	//TODO: Create a way to handle collision and dodge another cars
+	void checkEnemyCollision() {}
 
 	/**
 	* setPointsToFollow

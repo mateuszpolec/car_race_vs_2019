@@ -1,9 +1,8 @@
 #include "player_class.h"
 
-Player::Player(std::string authtoken) {
-	m_token = authtoken;
-	this->jsonWorker = new JSONWorker();
-}
+Player::Player(std::string authtoken) :
+	m_token(authtoken), 
+	jsonWorker(new JSONWorker()) {}
 
 
 
@@ -18,31 +17,31 @@ sf::Sprite Player::getPlayerSpriteObject() {
 void Player::listenPlayerMove() {
 	float deltaTime = this->clock.restart().asSeconds();
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		if (this->currentSpeed < Options::maxVelocity) {
-			this->currentSpeed += Options::maxAcceleration * deltaTime;
+		if (this->currentSpeed < Options::s_maxVelocity) {
+			this->currentSpeed += Options::s_maxAcceleration * deltaTime;
 		}
 	}
 	else {
-		this->currentSpeed -= Options::frictionForce * deltaTime;
+		this->currentSpeed -= Options::s_frictionForce * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		this->currentSpeed -= Options::maxDeceleration * deltaTime;
+		this->currentSpeed -= Options::s_maxDeceleration * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(-Options::rotateAmmount * deltaTime);
+			this->player.rotate(-Options::s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(Options::rotateAmmount * deltaTime);
+			this->player.rotate(Options::s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -95,10 +94,10 @@ int Player::getPlayerPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
-	if (tileID == Options::GrassTileID) {
+	if (tileID == Options::s_GrassTileID) {
 		//Options::setVelocityAndAccelerationForGrass();
-		//if (this->currentSpeed > Options::maxVelocity) {
-		//	this->currentSpeed -= Options::grassFrictionForce * 0.07f;
+		//if (this->currentSpeed > Options::s_maxVelocity) {
+		//	this->currentSpeed -= Options::grasss_frictionForce * 0.07f;
 		//}
 	}
 	else {
@@ -107,17 +106,17 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 		}
 	}
 
-	if (tileID == Options::checkpointOneTleID) {
+	if (tileID == Options::s_checkpointOneTleID) {
 		this->checkpointsReached.insert(1);
 	}
-	else if (tileID == Options::checkpointTwoTileID) {
+	else if (tileID == Options::s_checkpointTwoTileID) {
 		this->checkpointsReached.insert(2);
 	}
-	else if (tileID == Options::checkpointThreeTileID) {
+	else if (tileID == Options::s_checkpointThreeTileID) {
 		this->checkpointsReached.insert(3);
 	}
 
-	if (tileID == Options::StartblockTileID) {
+	if (tileID == Options::s_StartblockTileID) {
 		if (this->checkpointsReached.size() == 3) {
 			this->isNextLap = true;
 		}

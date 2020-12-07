@@ -8,11 +8,11 @@ void Game::createWindow() {
 
 void Game::render() {
 
-	static MapLayer layerZero(this->map, 0);
-	static MapLayer layerOne(this->map, 1);
+	static MapLayer s_layerZero(this->map, 0);
+	static MapLayer s_layerOne(this->map, 1);
 
-	auto tile_grass_layer = layerZero.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
-	auto tile_race_track_layer = layerOne.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
+	auto tile_grass_layer = s_layerZero.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
+	auto tile_race_track_layer = s_layerOne.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
 
 	this->player->checkPlayerCollision(tile_grass_layer.ID);
 
@@ -27,8 +27,8 @@ void Game::render() {
 	}
 	// Draw the vertex array
 	this->window->clear(sf::Color::Black);
-	this->window->draw(layerZero);
-	this->window->draw(layerOne);
+	this->window->draw(s_layerZero);
+	this->window->draw(s_layerOne);
 	this->window->draw(this->player->getPlayerSpriteObject());
 	for (Enemy* enemy : this->vectorOfEnemies) {
 		this->window->draw(enemy->getEnemySpriteObject());

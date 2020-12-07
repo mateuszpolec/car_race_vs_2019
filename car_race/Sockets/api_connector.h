@@ -31,22 +31,6 @@ public:
     */
     std::string getAuthToken();
 
-    /**
-    * TODO: Create function, that save player information in api
-    */
-    //void sendPlayerInformation(std::string token, sf::Vector2f playerPosition) {
-    //    http.setHost("127.0.0.1", 8000);
-    //    std::string api_data = JSONWorker::prepareDataForAPIUpdate(token, playerPosition);
-    //    sf::Http::Request request;
-    //    request.setMethod(sf::Http::Request::Put);
-    //    request.setUri("/api/player/");
-    //    request.setHttpVersion(1, 1);
-    //    request.setField("Content-Type", "application/json");
-    //    request.setBody(api_data);
-    //    std::cout << api_data << std::endl;
-    //    http.sendRequest(request);
-    //}
-
     APIConnector();
 
     ~APIConnector();

@@ -10,20 +10,20 @@ class Options {
 	public:
 
 		// Variables for movement
-		static inline float maxVelocity = 300.f;
-		static inline float maxAcceleration = 125.f;
-		static inline float maxDeceleration = 125.f;
-		static inline float frictionForce = 60.f;
-		static inline float rotateAmmount = 180.f;
+		static inline float s_maxVelocity = 300.f;
+		static inline float s_maxAcceleration = 125.f;
+		static inline float s_maxDeceleration = 125.f;
+		static inline float s_s_frictionForce = 60.f;
+		static inline float s_s_rotateAmmount = 180.f;
 
 		// Variables for ID of static blocks on map
 
-		const float grassFrictionForce = 100.f;
-		const static int GrassTileID = 28381;
-		const static int checkpointOneTleID = 28383;
-		const static int checkpointTwoTileID = 28384;
-		const static int checkpointThreeTileID = 28385;
-		const static int StartblockTileID = 28386;
+		const float grasss_frictionForce = 100.f;
+		const static int s_GrassTileID = 28381;
+		const static int s_checkpointOneTleID = 28383;
+		const static int s_checkpointTwoTileID = 28384;
+		const static int s_checkpointThreeTileID = 28385;
+		const static int s_StartblockTileID = 28386;
 
 		// vector of paths  to all avaiable textures
 

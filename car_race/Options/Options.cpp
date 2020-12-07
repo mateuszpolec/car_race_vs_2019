@@ -5,13 +5,13 @@ float Options::mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vecto
 }
 
 void Options::setVelocityAndAccelerationForGrass() {
-	Options::maxAcceleration = 25.f;
-	Options::maxVelocity = 25.f;
+	Options::s_maxAcceleration = 25.f;
+	Options::s_maxVelocity = 25.f;
 }
 
 void Options::setVelocityAndAccelerationForAsphalt() {
-	Options::maxAcceleration = 125.f;
-	Options::maxVelocity = 300.f;
+	Options::s_maxAcceleration = 125.f;
+	Options::s_maxVelocity = 300.f;
 }
 
 int Options::randomValueFromScope(int start, int scope) {
