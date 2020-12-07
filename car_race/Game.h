@@ -10,61 +10,61 @@
 #include "FileWorker/RouteCreator.h"
 
 class Game {
-	private:
-		
-		sf::RenderWindow* window;
-		sf::Event event;
 
-		Player* player;
-		APIConnector* api;
-		PlayerCamera* playercamera;
+private:
+	sf::RenderWindow* window;
+	sf::Event event;
+
+	Player* player;
+	APIConnector* api;
+	PlayerCamera* playercamera;
 
 
-		//Vector pointing at instances of Enemy classes
-		std::vector<Enemy *> vectorOfEnemies = {};
+	//Vector pointing at instances of Enemy classes
+	std::vector<Enemy*> vectorOfEnemies = {};
 
-		tmx::Map map;
+	tmx::Map map;
 
-		int lapsToComplete = 3;
+	int lapsToComplete = 3;
 
-	public:
-		/**
-		* createWindow
-		* Function that creates a SFML window and sets framerate
-		*/
-		void createWindow();
+public:
+	/**
+	* createWindow
+	* Function that creates a SFML window and sets framerate
+	*/
+	void createWindow();
 
-		/**
-		* keepGameAlive
-		* SFML while loop for window, updates every state of game
-		*/
-		void keepGameAlive();
+	/**
+	* keepGameAlive
+	* SFML while loop for window, updates every state of game
+	*/
+	void keepGameAlive();
 
-		/**
-		* render
-		* As the names says, it just draw everything on the window
-		*/
-		void render();
-		/**
-		* update
-		* Updates every event that needs be updated. For example: player position
-		*/
-		void update();
+	/**
+	* render
+	* As the names says, it just draw everything on the window
+	*/
+	void render();
+	/**
+	* update
+	* Updates every event that needs be updated. For example: player position
+	*/
+	void update();
 
-		/**
-		* eventListener
-		* Listens, if any of events happend. For example: Player click any key on keyboard
-		*/
-		void eventListener();
+	/**
+	* eventListener
+	* Listens, if any of events happend. For example: Player click any key on keyboard
+	*/
+	void eventListener();
 
-		/**
-		* classInitializer
-		* Points every object to it instance
-		*/
-		void classInitializer();
+	/**
+	* classInitializer
+	* Points every object to it instance
+	*/
+	void classInitializer();
 
-		Game();
-		~Game();
+	Game();
+	~Game();
 	
 };
 

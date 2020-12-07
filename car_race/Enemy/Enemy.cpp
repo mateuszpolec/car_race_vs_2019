@@ -1,18 +1,22 @@
 #include "enemy.h"
 #include "../FileWorker/sfml_layer_loader.h"
 
+Enemy::Enemy(std::string name) : m_Name(name) {}
+
+Enemy::~Enemy() {}
+
 sf::Sprite Enemy::getEnemySpriteObject() {
 	if (this->textureIsLoaded == false) {
 		this->textureIsLoaded = true;
 		short randInt = rand() % 7;
 		this->enemyTexture.loadFromFile(Options::pathsToTextures[randInt]);
-		enemy.setTexture(this->enemyTexture);
-		enemy.setScale(3.0, 3.0);
-		enemy.setOrigin(4.5f, 7.0f);
-		return enemy;
+		m_Enemy.setTexture(this->enemyTexture);
+		m_Enemy.setScale(3.0, 3.0);
+		m_Enemy.setOrigin(4.5f, 7.0f);
+		return m_Enemy;
 	}
 	else {
-		return enemy;
+		return m_Enemy;
 	}
 }
 
@@ -20,14 +24,14 @@ sf::Sprite Enemy::getEnemySpriteObject() {
 void Enemy::moveToStart() {
 	int xPosition = rand() % 175 + 175;
 	int yPosition = rand() % 200 + 575;
-	this->enemy.rotate(180.f);
-	this->enemy.setPosition(xPosition, yPosition);
+	this->m_Enemy.rotate(180.f);
+	this->m_Enemy.setPosition(xPosition, yPosition);
 }
 
 void Enemy::moveEnemy() {
 	float deltaTime = this->clock.restart().asSeconds();
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
-	sf::Vector2f oldPosition = this->enemy.getPosition();
+	sf::Vector2f oldPosition = this->m_Enemy.getPosition();
 
 	//Acceleration
 	if (this->currentSpeed < Options::s_maxVelocity) {
@@ -41,7 +45,7 @@ void Enemy::moveEnemy() {
 
 	//Set half of plot, because sinus is positive in scope of <0; 270> and negative in scope of (270; 360>
 	if (angle_sin < 90 && this->halfOfPlot == 0) {
-		this->enemy.setRotation(180 + angle_sin);
+		this->m_Enemy.setRotation(180 + angle_sin);
 	}
 
 	if (this->actualPointToGo == 24) {
@@ -49,7 +53,7 @@ void Enemy::moveEnemy() {
 	}
 
 	if (this->halfOfPlot == 1) {
-		this->enemy.setRotation(360 - angle_sin);
+		this->m_Enemy.setRotation(360 - angle_sin);
 	}
 
 	if (this->actualPointToGo == 82) {
@@ -62,11 +66,11 @@ void Enemy::moveEnemy() {
 	sf::Vector2f oldVector = this->movementVector;
 	sf::Transform transform;
 
-	transform.rotate(this->enemy.getRotation());
+	transform.rotate(this->m_Enemy.getRotation());
 	this->movementVector = transform.transformPoint(this->forwardVector);
 
 
-	this->enemy.move(this->movementVector * this->currentSpeed * 0.05f);
+	this->m_Enemy.move(this->movementVector * this->currentSpeed * 0.05f);
 
 	if (r < 100) {
 		this->actualPointToGo++;
@@ -96,6 +100,10 @@ void Enemy::checkEnemyCollision(std::uint32_t tileID) {
 			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
 		}
 	}
+}
+
+void Enemy::checkCollisionInBezier() {
+	std::cout << "Called" << "\n";
 }
 
 void Enemy::createTrack() {
@@ -174,9 +182,9 @@ void Enemy::createTrack() {
 
 
 int Enemy::getEnemyPositionX() {
-	return std::abs((int) this->enemy.getPosition().x / 12);
+	return std::abs((int) this->m_Enemy.getPosition().x / 12);
 }
 
 int Enemy::getEnemyPositionY() {
-	return std::abs((int)this->enemy.getPosition().y / 12);
+	return std::abs((int)this->m_Enemy.getPosition().y / 12);
 }

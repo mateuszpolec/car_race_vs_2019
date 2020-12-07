@@ -76,7 +76,7 @@ void Player::movePlayer() {
 
 	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
 
-	std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
+	//std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
 	
 }
 

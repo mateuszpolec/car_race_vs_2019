@@ -10,7 +10,7 @@
 class Enemy {
 
 private:
-	sf::Sprite enemy;
+	sf::Sprite m_Enemy;
 	sf::Texture enemyTexture;
 	sf::Clock clock;
 	sf::Vector2f movementVector;
@@ -18,10 +18,8 @@ private:
 
 	short actualPointToGo = 0;
 	float currentSpeed = 0;
-
 	int halfOfPlot = 0;
 	bool tooFar = false;
-
 	int currentLap = 0;
 	bool isNextLap = false;
 	std::set<int> checkpointsReached = {};
@@ -38,6 +36,13 @@ private:
 	
 
 public:
+
+	std::string m_Name;
+
+	Enemy(std::string name);
+
+	~Enemy();
+
 	std::vector <sf::Vector2f> pointsToFollow = {};
 
 	/**
@@ -77,6 +82,9 @@ public:
 	* @param tileID std::uint32_t Tile ID of what's under the Enemy Sprite
 	*/
 	void checkEnemyCollision(std::uint32_t tileID);
+
+	//TODO: Documentation
+	void checkCollisionInBezier();
 
 	/**
 	* setPointsToFollow

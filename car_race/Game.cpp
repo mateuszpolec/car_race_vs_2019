@@ -55,7 +55,8 @@ void Game::classInitializer() {
 	this->player->moveToStart();
 
 	for (short i = 0; i < 10; ++i) {
-		this->vectorOfEnemies.push_back(new Enemy());
+		std::string nameOfEnemy = "Enemy " + std::to_string(i);
+		this->vectorOfEnemies.push_back(new Enemy(nameOfEnemy));
 		this->vectorOfEnemies[i]->moveToStart();
 	}
 
