@@ -86,7 +86,7 @@ sf::Vector2f Player::getPlayerPosition() {
 
 //MADE A CONST FOR TILE SIZE
 int Player::getPlayerPositionX() {
-	return std::abs( (int) this->player.getPosition().x / 12);
+	return std::abs((int) this->player.getPosition().x / 12);
 }
 
 int Player::getPlayerPositionY() {
@@ -95,15 +95,12 @@ int Player::getPlayerPositionY() {
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
 	if (tileID == Options::s_GrassTileID) {
-		//Options::setVelocityAndAccelerationForGrass();
-		//if (this->currentSpeed > Options::s_maxVelocity) {
-		//	this->currentSpeed -= Options::grasss_frictionForce * 0.07f;
-		//}
+		if (this->currentSpeed > 120) {
+			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+		}
 	}
 	else {
-		if (!this->isHandbrakeOn) {
-			Options::setVelocityAndAccelerationForAsphalt();
-		}
+		if (!this->isHandbrakeOn) {}
 	}
 
 	if (tileID == Options::s_checkpointOneTleID) {

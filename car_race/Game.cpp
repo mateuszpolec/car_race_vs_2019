@@ -23,6 +23,7 @@ void Game::render() {
 		}
 		else {
 			enemy->moveEnemy();
+			enemy->checkEnemyCollision(tile_grass_layer.ID);
 		}
 	}
 	// Draw the vertex array

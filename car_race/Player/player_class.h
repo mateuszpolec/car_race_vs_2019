@@ -11,7 +11,7 @@
 * Class Player - handle information about player
 * 
 */
-class Player : public virtual Options, public virtual JSONWorker {
+class Player : Options, JSONWorker {
     std::string m_token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f movementVector;
@@ -42,12 +42,13 @@ class Player : public virtual Options, public virtual JSONWorker {
 
      Player(std::string authtoken);
 
-    void getMyRotation();
-    /**
+
+     /**
     * getMyRotation
     * Function that returns actual player rotation
     * void function, no params
     */
+    void getMyRotation();
 
     /**
     * getMyPosition

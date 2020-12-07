@@ -13,12 +13,12 @@ class Options {
 		static inline float s_maxVelocity = 300.f;
 		static inline float s_maxAcceleration = 125.f;
 		static inline float s_maxDeceleration = 125.f;
-		static inline float s_s_frictionForce = 60.f;
-		static inline float s_s_rotateAmmount = 180.f;
+		static inline float s_frictionForce = 60.f;
+		static inline float s_rotateAmmount = 180.f;
 
 		// Variables for ID of static blocks on map
 
-		const float grasss_frictionForce = 100.f;
+		static inline float s_Grass_frictionForce = 100.f;
 		const static int s_GrassTileID = 28381;
 		const static int s_checkpointOneTleID = 28383;
 		const static int s_checkpointTwoTileID = 28384;

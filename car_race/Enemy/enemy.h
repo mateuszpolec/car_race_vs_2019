@@ -71,8 +71,12 @@ public:
 	void createTrack();
 
 
-	//TODO: Create a way to handle collision and dodge another cars
-	void checkEnemyCollision() {}
+	/**
+	* checkEnemyCollision
+	* Check what tile is under enemy
+	* @param tileID std::uint32_t Tile ID of what's under the Enemy Sprite
+	*/
+	void checkEnemyCollision(std::uint32_t tileID);
 
 	/**
 	* setPointsToFollow

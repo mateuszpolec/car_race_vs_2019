@@ -88,7 +88,14 @@ void Enemy::moveEnemy() {
 }
 void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnemy) {
 	this->pointsToFollow = pointsToFollowForEnemy;
+}
 
+void Enemy::checkEnemyCollision(std::uint32_t tileID) {
+	if (tileID == Options::s_GrassTileID) {
+		if (this->currentSpeed > 120) {
+			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+		}
+	}
 }
 
 void Enemy::createTrack() {
