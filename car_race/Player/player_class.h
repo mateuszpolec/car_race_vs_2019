@@ -11,7 +11,7 @@
 * Class Player - handle information about player
 * 
 */
-class Player : Options, JSONWorker {
+class Player : JSONWorker {
     std::string m_token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f movementVector;

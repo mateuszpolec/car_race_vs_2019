@@ -76,7 +76,7 @@ void Player::movePlayer() {
 
 	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
 
-	//std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
+	std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
 	
 }
 
@@ -94,7 +94,6 @@ int Player::getPlayerPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
-	std::cout << tileID << "\n";
 	if (tileID == Options::s_GrassTileID) {
 		if (this->currentSpeed > 120) {
 			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
@@ -134,5 +133,5 @@ std::string Player::getMyToken() {
 
 void Player::moveToStart() {
 	this->player.rotate(180.f);
-	this->player.setPosition(250, 600);
+	this->player.setPosition(525, 1270);
 }

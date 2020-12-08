@@ -14,6 +14,7 @@ void Game::render() {
 	auto tile_grass_layer = s_layerZero.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
 	auto tile_race_track_layer = s_layerOne.getTile(this->player->getPlayerPositionX(), this->player->getPlayerPositionY());
 
+
 	this->player->checkPlayerCollision(tile_grass_layer.ID);
 
 
@@ -22,8 +23,9 @@ void Game::render() {
 			enemy->createTrack();
 		}
 		else {
+			auto tile_grass_layer_enemy = s_layerZero.getTile(enemy->getEnemyPositionX(), enemy->getEnemyPositionY());
+			enemy->checkEnemyCollision(tile_grass_layer_enemy.ID);
 			enemy->moveEnemy();
-			enemy->checkEnemyCollision(tile_grass_layer.ID);
 		}
 	}
 	// Draw the vertex array

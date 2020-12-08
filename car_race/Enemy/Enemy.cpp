@@ -97,6 +97,7 @@ void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnem
 void Enemy::checkEnemyCollision(std::uint32_t tileID) {
 	if (tileID == Options::s_GrassTileID) {
 		if (this->currentSpeed > 120) {
+			std::cout << m_Name << " Collision" << "\n";
 			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
 		}
 	}
@@ -112,7 +113,7 @@ void Enemy::createTrack() {
 	std::vector<std::vector<sf::Vector2f>> vectorOfPoints;
 	// Calculate the points on the curve (10 segments)
 
-	Enemy::nextRandomBezierPoint firstPoint(rand() % 100 + 250, rand() % 25 + 575);
+	Enemy::nextRandomBezierPoint firstPoint(rand() % 100 + 525, rand() % 25 + 1110);
 	Enemy::nextRandomBezierPoint firstCurve(rand() % 200 + 75, rand() % 25 + 75);
 	Enemy::nextRandomBezierPoint secondPoint(rand() % 20 + 600, rand() % 10 + 125);
 	Enemy::nextRandomBezierPoint secondCurve(rand() % 200 + 1060, rand() % 25 + 175);
