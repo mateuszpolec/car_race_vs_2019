@@ -94,6 +94,7 @@ int Player::getPlayerPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
+	std::cout << tileID << "\n";
 	if (tileID == Options::s_GrassTileID) {
 		if (this->currentSpeed > 120) {
 			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;

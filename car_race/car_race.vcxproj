@@ -194,6 +194,7 @@
     <None Include="Assets\eventblocks.tsx" />
     <None Include="Assets\grass.tsx" />
     <None Include="Assets\racemap2.tmx" />
+    <None Include="Assets\racemap_new.tmx" />
     <None Include="Assets\startblock.tsx" />
     <None Include="Assets\testmap.tmx" />
     <None Include="Game.h" />

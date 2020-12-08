@@ -50,7 +50,7 @@ void Game::classInitializer() {
 	this->api = new APIConnector();
 	const std::string token = this->api->getAuthToken();
 	this->player = new Player(token);
-	this->map.load("./Assets/testmap.tmx");
+	this->map.load("./Assets/racemap_new.tmx");
 	this->playercamera = new PlayerCamera();
 	this->player->moveToStart();
 

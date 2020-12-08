@@ -130,6 +130,7 @@
     <None Include="Assets\startblock.tsx" />
     <None Include="Assets\eventblocks.tsx" />
     <None Include="Options\player_records.json" />
+    <None Include="Assets\racemap_new.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\192 racetrack Divided.png">

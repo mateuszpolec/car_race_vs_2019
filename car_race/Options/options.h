@@ -15,15 +15,15 @@ class Options {
 		static inline float s_maxDeceleration = 125.f;
 		static inline float s_frictionForce = 60.f;
 		static inline float s_rotateAmmount = 180.f;
+		static inline float s_Grass_frictionForce = 100.f;
 
 		// Variables for ID of static blocks on map
-
-		static inline float s_Grass_frictionForce = 100.f;
-		const static int s_GrassTileID = 28381;
-		const static int s_checkpointOneTleID = 28383;
-		const static int s_checkpointTwoTileID = 28384;
-		const static int s_checkpointThreeTileID = 28385;
-		const static int s_StartblockTileID = 28386;
+		const static int s_GrassTileID = 1;
+		const static int s_checkpointOneTleID = 28382;
+		const static int s_checkpointTwoTileID = 28383;
+		const static int s_checkpointThreeTileID = 28384;
+		const static int s_StartblockTileID = 28385;
+		const static int s_BezierBlockPointID = 28386;
 
 		// vector of paths  to all avaiable textures
 
