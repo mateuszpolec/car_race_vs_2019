@@ -10,7 +10,7 @@ class Options {
 	public:
 
 		// Variables for movement
-		static inline float s_maxVelocity = 300.f;
+		static inline float s_maxVelocity = 200.f;
 		static inline float s_maxAcceleration = 125.f;
 		static inline float s_maxDeceleration = 125.f;
 		static inline float s_frictionForce = 60.f;

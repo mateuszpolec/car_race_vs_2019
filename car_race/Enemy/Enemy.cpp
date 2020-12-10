@@ -35,7 +35,7 @@ void Enemy::moveEnemy() {
 	std::cout << this->actualPointToGo << "\n";
 
 	//Acceleration
-	if (this->currentSpeed < 200) {
+	if (this->currentSpeed < Options::s_maxVelocity) {
 		this->currentSpeed += Options::s_maxAcceleration * deltaTime;
 	}
 
@@ -82,16 +82,6 @@ void Enemy::moveEnemy() {
 			this->actualPointToGo = 0;
 		}
 	}
-	//else if (r > 600 && this->tooFar == false) {
-	//	if(this->tooFar == true) {
-	//		this->actualPointToGo += 5;
-	//		std::cout << "Wyjeba³o";
-	//	}
-	//	this->tooFar = true;
-	//	if (this->actualPointToGo > 148) {
-	//		this->actualPointToGo = 0;
-	//	}
-	//}
 
 }
 
@@ -100,12 +90,12 @@ void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnem
 }
 
 void Enemy::checkEnemyCollision(std::uint32_t tileID) {
-	//if (tileID == Options::s_GrassTileID) {
-	//	if (this->currentSpeed > 120) {
-	//		std::cout << m_Name << " Collision" << "\n";
-	//		this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
-	//	}
-	//}
+	if (tileID == Options::s_GrassTileID) {
+		if (this->currentSpeed > 120) {
+			std::cout << m_Name << " Collision" << "\n";
+			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+		}
+	}
 }
 
 void Enemy::checkCollisionInBezier() {
