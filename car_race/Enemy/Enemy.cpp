@@ -20,12 +20,11 @@ sf::Sprite Enemy::getEnemySpriteObject() {
 	}
 }
 
-
 void Enemy::moveToStart() {
 	int xPosition = rand() % 175 + 175;
 	int yPosition = rand() % 200 + 575;
 	this->m_Enemy.rotate(180.f);
-	this->m_Enemy.setPosition(xPosition, yPosition);
+	this->m_Enemy.setPosition(525, 1270);
 }
 
 void Enemy::moveEnemy() {
@@ -33,11 +32,13 @@ void Enemy::moveEnemy() {
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
 	sf::Vector2f oldPosition = this->m_Enemy.getPosition();
 
+	std::cout << this->actualPointToGo << "\n";
+
 	//Acceleration
-	if (this->currentSpeed < Options::s_maxVelocity) {
+	if (this->currentSpeed < 200) {
 		this->currentSpeed += Options::s_maxAcceleration * deltaTime;
 	}
-	
+
 	//Cartesian system to polar system
 	float r = sqrt(pow((pointToGo.x - oldPosition.x), 2) + pow((pointToGo.y - oldPosition.y), 2));
 	float x = pointToGo.x - oldPosition.x;
@@ -56,11 +57,13 @@ void Enemy::moveEnemy() {
 		this->m_Enemy.setRotation(360 - angle_sin);
 	}
 
-	if (this->actualPointToGo == 82) {
+	if (this->actualPointToGo == 128) {
 		this->halfOfPlot = 0;
 	}
 
-
+	//if (this->actualPointToGo == 104) {
+	//	this->halfOfPlot = 0;
+	//}
 
 	//The magic of moving player
 	sf::Vector2f oldVector = this->movementVector;
@@ -75,32 +78,34 @@ void Enemy::moveEnemy() {
 	if (r < 100) {
 		this->actualPointToGo++;
 		this->tooFar = false;
-		if (this->actualPointToGo > 98) {
+		if (this->actualPointToGo > 148) {
 			this->actualPointToGo = 0;
 		}
 	}
-	else if (r > 300) {
-		if(this->tooFar == true) {
-			this->actualPointToGo += 5;
-		}
-		this->tooFar = true;
-		if (this->actualPointToGo > 98) {
-			this->actualPointToGo = 0;
-		}
-	}
+	//else if (r > 600 && this->tooFar == false) {
+	//	if(this->tooFar == true) {
+	//		this->actualPointToGo += 5;
+	//		std::cout << "Wyjeba³o";
+	//	}
+	//	this->tooFar = true;
+	//	if (this->actualPointToGo > 148) {
+	//		this->actualPointToGo = 0;
+	//	}
+	//}
 
 }
+
 void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnemy) {
 	this->pointsToFollow = pointsToFollowForEnemy;
 }
 
 void Enemy::checkEnemyCollision(std::uint32_t tileID) {
-	if (tileID == Options::s_GrassTileID) {
-		if (this->currentSpeed > 120) {
-			std::cout << m_Name << " Collision" << "\n";
-			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
-		}
-	}
+	//if (tileID == Options::s_GrassTileID) {
+	//	if (this->currentSpeed > 120) {
+	//		std::cout << m_Name << " Collision" << "\n";
+	//		this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+	//	}
+	//}
 }
 
 void Enemy::checkCollisionInBezier() {
@@ -108,20 +113,23 @@ void Enemy::checkCollisionInBezier() {
 }
 
 void Enemy::createTrack() {
-	sf::VertexArray vertices(sf::LinesStrip, 0);
+	 sf::VertexArray vertices(sf::LinesStrip, 0);
 
 	std::vector<std::vector<sf::Vector2f>> vectorOfPoints;
 	// Calculate the points on the curve (10 segments)
-
-	Enemy::nextRandomBezierPoint firstPoint(rand() % 100 + 525, rand() % 25 + 1110);
-	Enemy::nextRandomBezierPoint firstCurve(rand() % 200 + 75, rand() % 25 + 75);
-	Enemy::nextRandomBezierPoint secondPoint(rand() % 20 + 600, rand() % 10 + 125);
-	Enemy::nextRandomBezierPoint secondCurve(rand() % 200 + 1060, rand() % 25 + 175);
-	Enemy::nextRandomBezierPoint thirdPoint(rand() % 100 + 945, rand() % 30 + 435);
-	Enemy::nextRandomBezierPoint thirdCurve(rand() % 200 + 1025, rand() % 25 + 850);
-	Enemy::nextRandomBezierPoint fourthPoint(rand() % 100 + 650, rand() % 100 + 850);
-	Enemy::nextRandomBezierPoint fourthCurve(rand() % 100 + 275, rand() % 25 + 1000);
-
+			
+	Enemy::nextRandomBezierPoint firstPoint(rand() % 100 + 425, rand() % 100 + 1092);
+	Enemy::nextRandomBezierPoint firstCurve(372, 456);
+	Enemy::nextRandomBezierPoint secondPoint(rand() % 100 + 1272, rand() % 100 + 492);
+	Enemy::nextRandomBezierPoint secondCurve(2004, 468);
+	Enemy::nextRandomBezierPoint thirdPoint(rand() % 100 + 1728, rand() % 100 + 1128);
+	Enemy::nextRandomBezierPoint thirdCurve(1896, 1740);
+	Enemy::nextRandomBezierPoint fourthPoint(rand() % 100 + 1596, rand() % 100 + 1500);
+	Enemy::nextRandomBezierPoint fourthCurve(1140, 1560);
+	Enemy::nextRandomBezierPoint fifthPoint(rand() % 100 + 1368, rand() % 100 + 1716);
+	Enemy::nextRandomBezierPoint fifthCurve(1584, 2076);
+	Enemy::nextRandomBezierPoint sixthPoint(rand() % 100 + 1020, rand() % 100 + 1920);
+	Enemy::nextRandomBezierPoint sixthCurve(312, 1944);
 
 	std::vector<sf::Vector2f> firstPoints =
 		CalcCubicBezier(
@@ -150,8 +158,24 @@ void Enemy::createTrack() {
 	std::vector<sf::Vector2f> fourthPoints =
 		CalcCubicBezier(
 			sf::Vector2f(fourthPoint.x, fourthPoint.y),
-			sf::Vector2f(firstPoint.x, firstPoint.y),
+			sf::Vector2f(fifthPoint.x, fifthPoint.y),
 			sf::Vector2f(fourthCurve.x, fourthCurve.y),
+			sf::Vector2f(fifthPoint.x, fifthPoint.y),
+			25);
+
+	std::vector<sf::Vector2f> fifthPoints =
+		CalcCubicBezier(
+			sf::Vector2f(fifthPoint.x, fifthPoint.y),
+			sf::Vector2f(sixthPoint.x, sixthPoint.y),
+			sf::Vector2f(fifthCurve.x, fifthCurve.y),
+			sf::Vector2f(sixthPoint.x, sixthPoint.y),
+			25);
+
+	std::vector<sf::Vector2f> sixthPoints =
+		CalcCubicBezier(
+			sf::Vector2f(sixthPoint.x, sixthPoint.y),
+			sf::Vector2f(firstPoint.x, firstPoint.y),
+			sf::Vector2f(sixthCurve.x, sixthCurve.y),
 			sf::Vector2f(firstPoint.x, firstPoint.y),
 			25);
 
@@ -159,6 +183,10 @@ void Enemy::createTrack() {
 	vectorOfPoints.push_back(secondPoints);
 	vectorOfPoints.push_back(thirdPoints);
 	vectorOfPoints.push_back(fourthPoints);
+	vectorOfPoints.push_back(fifthPoints);
+	vectorOfPoints.push_back(sixthPoints);
+
+
 
 	// Append the points as vertices to the vertex array
 	for (int i = 0; i < vectorOfPoints.size(); ++i) {
@@ -179,8 +207,6 @@ void Enemy::createTrack() {
 
 	this->setPointsToFollow(pointsToFollowForEnemy);
 }
-
-
 
 int Enemy::getEnemyPositionX() {
 	return std::abs((int) this->m_Enemy.getPosition().x / 12);

@@ -24,6 +24,7 @@ private:
 	bool isNextLap = false;
 	std::set<int> checkpointsReached = {};
 
+
 	struct nextRandomBezierPoint {
 
 		int x, y;
