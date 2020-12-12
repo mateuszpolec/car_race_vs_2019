@@ -57,6 +57,14 @@ void Enemy::moveEnemy() {
 		this->m_Enemy.setRotation(360 - angle_sin);
 	}
 
+	//Slowing down enemy for sharp turn in given place on map
+	if (this->actualPointToGo > 78 && this->actualPointToGo < 100) {
+		if (this->currentSpeed > 200) {
+			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+		}
+
+	}
+
 	if (this->actualPointToGo == 128) {
 		this->halfOfPlot = 0;
 	}
@@ -75,7 +83,7 @@ void Enemy::moveEnemy() {
 
 	this->m_Enemy.move(this->movementVector * this->currentSpeed * 0.05f);
 
-	if (r < 100) {
+	if (r < 150) {
 		this->actualPointToGo++;
 		this->tooFar = false;
 		if (this->actualPointToGo > 148) {
