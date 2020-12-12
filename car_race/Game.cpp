@@ -33,8 +33,10 @@ void Game::render() {
 	this->window->draw(s_layerZero);
 	this->window->draw(s_layerOne);
 	this->window->draw(this->player->getPlayerSpriteObject());
+	this->window->draw(this->player->showName(this->gameFont));
 	for (Enemy* enemy : this->vectorOfEnemies) {
 		this->window->draw(enemy->getEnemySpriteObject());
+		this->window->draw(enemy->showName(this->gameFont));
 	}
 	this->window->display();
 }
@@ -60,6 +62,10 @@ void Game::classInitializer() {
 		std::string nameOfEnemy = "Enemy " + std::to_string(i);
 		this->vectorOfEnemies.push_back(new Enemy(nameOfEnemy));
 		this->vectorOfEnemies[i]->moveToStart();
+	}
+
+	if (this->gameFont.loadFromFile("./Assets/RobotoMono-Regular.ttf")) {
+		// Error 
 	}
 
 }

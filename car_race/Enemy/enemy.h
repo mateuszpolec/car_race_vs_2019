@@ -108,6 +108,14 @@ public:
 	*/
 	int getEnemyPositionY();
 
+	/**
+	* showName
+	* Function that display enemy name on the map just a little above enemy sprite sprite
+	* @param sf::Font gameFont - Reference to font variable
+	* @return sf::Text text - Player name with font, size, and all needed attributes
+	*/
+	sf::Text showName(sf::Font& gameFont);
+
 
 };
 

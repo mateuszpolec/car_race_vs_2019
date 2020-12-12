@@ -32,8 +32,6 @@ void Enemy::moveEnemy() {
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
 	sf::Vector2f oldPosition = this->m_Enemy.getPosition();
 
-	std::cout << this->actualPointToGo << "\n";
-
 	//Acceleration
 	if (this->currentSpeed < Options::s_maxVelocity) {
 		this->currentSpeed += Options::s_maxAcceleration * deltaTime;
@@ -100,7 +98,6 @@ void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnem
 void Enemy::checkEnemyCollision(std::uint32_t tileID) {
 	if (tileID == Options::s_GrassTileID) {
 		if (this->currentSpeed > 120) {
-			std::cout << m_Name << " Collision" << "\n";
 			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
 		}
 	}
@@ -212,4 +209,15 @@ int Enemy::getEnemyPositionX() {
 
 int Enemy::getEnemyPositionY() {
 	return std::abs((int)this->m_Enemy.getPosition().y / 12);
+}
+
+sf::Text Enemy::showName(sf::Font& gameFont) {
+	sf::Text text;
+	text.setFont(gameFont);
+	text.setString(m_Name);
+	text.setCharacterSize(18);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setFillColor(sf::Color::White);
+	text.setPosition(this->m_Enemy.getPosition().x - (sizeOfText.width / 2), this->m_Enemy.getPosition().y - 50);
+	return text;
 }

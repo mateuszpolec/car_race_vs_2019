@@ -75,8 +75,6 @@ void Player::movePlayer() {
 	//std::cout << this->player.getRotation() << std::endl;
 
 	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
-
-	std::cout << "Player pos: " << this->player.getPosition().x << " " << this->player.getPosition().y << "\n";
 	
 }
 
@@ -124,7 +122,17 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 			this->isNextLap = false;
 		}
 	}
+}
 
+sf::Text Player::showName(sf::Font& gameFont) {
+	sf::Text text;
+	text.setFont(gameFont);
+	text.setString("Player");
+	text.setCharacterSize(18);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setFillColor(sf::Color::White);
+	text.setPosition(this->player.getPosition().x - (sizeOfText.width / 2), this->player.getPosition().y - 50);
+	return text;
 }
 
 std::string Player::getMyToken() {

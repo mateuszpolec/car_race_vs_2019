@@ -113,6 +113,15 @@ class Player : JSONWorker {
     * Function that moves player sprite for starting position
     */
     void moveToStart();
+
+
+    /**
+    * showName
+    * Function that display player name on the map just a little above player sprite
+    * @param sf::Font gameFont - Reference to font variable
+    * @return sf::Text text - Player name with font, size, and all needed attributes
+    */
+    sf::Text showName(sf::Font& gameFont);
 };
 
 #endif

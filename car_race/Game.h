@@ -27,6 +27,8 @@ private:
 
 	int lapsToComplete = 3;
 
+	sf::Font gameFont;
+
 public:
 	/**
 	* createWindow
