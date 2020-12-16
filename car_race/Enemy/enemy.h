@@ -16,10 +16,13 @@ private:
 	sf::Vector2f movementVector;
 	sf::Vector2f forwardVector = { 0.f, 1.f };
 
+	// Section for Movement
 	short actualPointToGo = 0;
-	float currentSpeed = 0;
 	int halfOfPlot = 0;
 	bool tooFar = false;
+
+	// Section for lap measurment
+	float timeCounter = 0;
 	int currentLap = 0;
 	bool isNextLap = false;
 	std::set<int> checkpointsReached = {};
@@ -37,6 +40,8 @@ private:
 	
 
 public:
+
+	float currentSpeed = 0;
 
 	std::string m_Name;
 

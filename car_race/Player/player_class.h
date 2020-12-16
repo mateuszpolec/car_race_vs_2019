@@ -26,6 +26,7 @@ class Player : JSONWorker {
     int currentLap = 0;
     bool isNextLap = false;
     std::set<int> checkpointsReached = {};
+    float timeCounter;
 
     /* Handling info about player handbrake */
     bool isHandbrakeOn = false;

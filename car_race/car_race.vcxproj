@@ -171,6 +171,7 @@
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Options\Options.cpp" />
+    <ClCompile Include="Options\TextManager.cpp" />
     <ClCompile Include="Player\Player.cpp" />
     <ClCompile Include="Player\PlayerCamera.cpp" />
     <ClCompile Include="Sockets\ApiConnector.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\json_worker.h" />
     <ClInclude Include="Options\options.h" />
+    <ClInclude Include="Options\TextManager.h" />
     <ClInclude Include="Player\player_camera.h" />
     <ClInclude Include="Player\player_class.h" />
     <ClInclude Include="Sockets\api_connector.h" />
@@ -214,6 +216,9 @@
     <Image Include="Assets\eventblocks.png" />
     <Image Include="Assets\grass.png" />
     <Image Include="Assets\startblock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\RobotoMono-Regular.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

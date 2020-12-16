@@ -2,7 +2,7 @@
 #include <iostream>
 
 void Game::createWindow() {
-	this->window = new sf::RenderWindow(sf::VideoMode(1200, 800), "My window");
+	this->window = new sf::RenderWindow(sf::VideoMode(s_screenHeight, s_screenWidth), "My window");
 	this->window->setFramerateLimit(60); //TODO: Set Framelimit const
 }
 
@@ -23,11 +23,15 @@ void Game::render() {
 			enemy->createTrack();
 		}
 		else {
-			auto tile_grass_layer_enemy = s_layerZero.getTile(enemy->getEnemyPositionX(), enemy->getEnemyPositionY());
-			enemy->checkEnemyCollision(tile_grass_layer_enemy.ID);
-			enemy->moveEnemy();
+			if(!isGameFreezed) {
+				auto tile_grass_layer_enemy = s_layerZero.getTile(enemy->getEnemyPositionX(), enemy->getEnemyPositionY());
+				enemy->checkEnemyCollision(tile_grass_layer_enemy.ID);
+				enemy->moveEnemy();
+			}
 		}
 	}
+
+
 	// Draw the vertex array
 	this->window->clear(sf::Color::Black);
 	this->window->draw(s_layerZero);
@@ -38,15 +42,25 @@ void Game::render() {
 		this->window->draw(enemy->getEnemySpriteObject());
 		this->window->draw(enemy->showName(this->gameFont));
 	}
+
+	if (gameStateInstance->isEventActive == false) {
+
+	}
+
+
 	this->window->display();
 }
 
 
 void Game::update() {
-	this->player->movePlayer();
+	if (!isGameFreezed) {
+		this->player->movePlayer();
+	}
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getPlayerPosition());
-
-	//std::cout << this->player->getPlayerPosition().x << " " << this->player->getPlayerPosition().y << std::endl;
+	 
+	if (this->globalTimeCounter > 10) {
+		isGameFreezed = false;
+	}
 }
 
 
@@ -86,7 +100,29 @@ void Game::keepGameAlive() {
 		this->eventListener();
 		this->render();
 		this->update();
+		sf::Time elapsed1 = globalClock.getElapsedTime();
+		this->globalTimeCounter += elapsed1.asSeconds();
+		globalClock.restart();
 	}
+}
+
+void Game::changeStateToMenu() {
+	gameStateInstance->stateOfGame = 0;
+}
+
+void Game::changeStateToQualificationRound() {
+	gameStateInstance->stateOfGame = 1;
+	this->window->draw(qualificationLapsText(this->gameFont, this->player->getPlayerPosition()));
+	this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
+	gameStateInstance->timeCountdown = 10;
+}
+
+void Game::changeStateToMainRaceRound() {
+	gameStateInstance->stateOfGame = 2;
+}
+
+void Game::changeStateToEndOfRaceScreen() {
+	gameStateInstance->stateOfGame = 3;
 }
 
 Game::Game() {

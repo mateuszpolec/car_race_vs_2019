@@ -16,32 +16,33 @@ sf::Sprite Player::getPlayerSpriteObject() {
 
 void Player::listenPlayerMove() {
 	float deltaTime = this->clock.restart().asSeconds();
+	this->timeCounter += deltaTime;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		if (this->currentSpeed < Options::s_maxVelocity) {
-			this->currentSpeed += Options::s_maxAcceleration * deltaTime;
+		if (this->currentSpeed < s_maxVelocity) {
+			this->currentSpeed += s_maxAcceleration * deltaTime;
 		}
 	}
 	else {
-		this->currentSpeed -= Options::s_frictionForce * deltaTime;
+		this->currentSpeed -= s_frictionForce * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		this->currentSpeed -= Options::s_maxDeceleration * deltaTime;
+		this->currentSpeed -= s_maxDeceleration * deltaTime;
 		if (this->currentSpeed < 0.f) {
 			this->currentSpeed = 0.f;
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(-Options::s_rotateAmmount * deltaTime);
+			this->player.rotate(-s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
 		if (this->currentSpeed > 0) {
-			this->player.rotate(Options::s_rotateAmmount * deltaTime);
+			this->player.rotate(s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -70,7 +71,7 @@ void Player::movePlayer() {
 	transform.rotate(this->player.getRotation());
 	this->movementVector = transform.transformPoint(this->forwardVector);
 
-	this->currentSpeed *= Options::mathDotProductCalculation(oldVector, this->movementVector);
+	this->currentSpeed *= mathDotProductCalculation(oldVector, this->movementVector);
 
 	//std::cout << this->player.getRotation() << std::endl;
 
@@ -92,26 +93,26 @@ int Player::getPlayerPositionY() {
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
-	if (tileID == Options::s_GrassTileID) {
+	if (tileID == s_GrassTileID) {
 		if (this->currentSpeed > 120) {
-			//this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+			//this->currentSpeed -= s_Grass_frictionForce * 0.08f;
 		}
 	}
 	else {
 		if (!this->isHandbrakeOn) {}
 	}
 
-	if (tileID == Options::s_checkpointOneTleID) {
+	if (tileID == s_checkpointOneTleID) {
 		this->checkpointsReached.insert(1);
 	}
-	else if (tileID == Options::s_checkpointTwoTileID) {
+	else if (tileID == s_checkpointTwoTileID) {
 		this->checkpointsReached.insert(2);
 	}
-	else if (tileID == Options::s_checkpointThreeTileID) {
+	else if (tileID == s_checkpointThreeTileID) {
 		this->checkpointsReached.insert(3);
 	}
 
-	if (tileID == Options::s_StartblockTileID) {
+	if (tileID == s_StartblockTileID) {
 		if (this->checkpointsReached.size() == 3) {
 			this->isNextLap = true;
 		}

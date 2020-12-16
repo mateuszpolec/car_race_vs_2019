@@ -8,6 +8,7 @@
 #include "FileWorker/sfml_layer_loader.h"
 #include "Enemy/enemy.h"
 #include "FileWorker/RouteCreator.h"
+#include "./Options/TextManager.h"
 
 class Game {
 
@@ -19,15 +20,38 @@ private:
 	APIConnector* api;
 	PlayerCamera* playercamera;
 
+	// Handling Time in Game
+	sf::Clock globalClock;
+	float globalTimeCounter;
+	bool isGameFreezed = true;
+
 
 	//Vector pointing at instances of Enemy classes
 	std::vector<Enemy*> vectorOfEnemies = {};
 
 	tmx::Map map;
-
 	int lapsToComplete = 3;
 
+	// Handling text in game
 	sf::Font gameFont;
+
+	// Handling the state of game
+	/**
+	* stateOfGame = 0 -> Player in menu section
+	* stateOfGame = 1 -> Player in qualification round
+	* stateOfGame = 2 -> Player in main race round
+	* stateOfGame = 3 -> Player in end screen round
+	*/
+
+	struct gameState {
+		int stateOfGame = 1;
+		int timeCountdown = 0;
+		bool isEventActive = false;
+		bool isCountdownActive = false;
+		int nextState = 2;
+	};
+
+	gameState* gameStateInstance;
 
 public:
 	/**
@@ -64,6 +88,11 @@ public:
 	* Points every object to it instance
 	*/
 	void classInitializer();
+
+	void changeStateToMenu();
+	void changeStateToQualificationRound();
+	void changeStateToMainRaceRound();
+	void changeStateToEndOfRaceScreen();
 
 	Game();
 	~Game();

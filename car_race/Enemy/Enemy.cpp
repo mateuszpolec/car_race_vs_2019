@@ -9,7 +9,7 @@ sf::Sprite Enemy::getEnemySpriteObject() {
 	if (this->textureIsLoaded == false) {
 		this->textureIsLoaded = true;
 		short randInt = rand() % 7;
-		this->enemyTexture.loadFromFile(Options::pathsToTextures[randInt]);
+		this->enemyTexture.loadFromFile(pathsToTextures[randInt]);
 		m_Enemy.setTexture(this->enemyTexture);
 		m_Enemy.setScale(3.0, 3.0);
 		m_Enemy.setOrigin(4.5f, 7.0f);
@@ -28,13 +28,18 @@ void Enemy::moveToStart() {
 }
 
 void Enemy::moveEnemy() {
+	std::cout << this->currentSpeed << "\n";
 	float deltaTime = this->clock.restart().asSeconds();
+	this->timeCounter += deltaTime;
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
 	sf::Vector2f oldPosition = this->m_Enemy.getPosition();
 
 	//Acceleration
-	if (this->currentSpeed < Options::s_maxVelocity) {
-		this->currentSpeed += Options::s_maxAcceleration * deltaTime;
+	if (this->currentSpeed < s_maxVelocity) {
+		this->currentSpeed += s_maxAcceleration * deltaTime * 0.3f;
+	}
+	else if (this->currentSpeed > s_maxVelocity) {
+		this->currentSpeed = s_maxVelocity;
 	}
 
 	//Cartesian system to polar system
@@ -58,7 +63,7 @@ void Enemy::moveEnemy() {
 	//Slowing down enemy for sharp turn in given place on map
 	if (this->actualPointToGo > 78 && this->actualPointToGo < 100) {
 		if (this->currentSpeed > 200) {
-			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+			this->currentSpeed -= s_Grass_frictionForce * 0.08f;
 		}
 
 	}
@@ -96,9 +101,9 @@ void Enemy::setPointsToFollow(std::vector < sf::Vector2f > pointsToFollowForEnem
 }
 
 void Enemy::checkEnemyCollision(std::uint32_t tileID) {
-	if (tileID == Options::s_GrassTileID) {
+	if (tileID == s_GrassTileID) {
 		if (this->currentSpeed > 120) {
-			this->currentSpeed -= Options::s_Grass_frictionForce * 0.08f;
+			this->currentSpeed -= s_Grass_frictionForce * 0.08f;
 		}
 	}
 }

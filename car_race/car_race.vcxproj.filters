@@ -87,6 +87,9 @@
     <ClCompile Include="FileWorker\RouteCreator.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="Options\TextManager.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sockets\api_connector.h">
@@ -117,6 +120,9 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="FileWorker\RouteCreator.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="Options\TextManager.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
@@ -172,5 +178,8 @@
     <Image Include="Assets\eventblocks.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\RobotoMono-Regular.ttf" />
   </ItemGroup>
 </Project>
