@@ -28,7 +28,6 @@ void Enemy::moveToStart() {
 }
 
 void Enemy::moveEnemy() {
-	std::cout << this->currentSpeed << "\n";
 	float deltaTime = this->clock.restart().asSeconds();
 	this->timeCounter += deltaTime;
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go

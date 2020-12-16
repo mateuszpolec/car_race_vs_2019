@@ -43,15 +43,11 @@ private:
 	* stateOfGame = 3 -> Player in end screen round
 	*/
 
-	struct gameState {
-		int stateOfGame = 1;
-		int timeCountdown = 0;
-		bool isEventActive = false;
-		bool isCountdownActive = false;
-		int nextState = 2;
-	};
-
-	gameState* gameStateInstance;
+	int stateOfGame = 1;
+	int timeCountdown = 0;
+	bool isEventActive = false;
+	bool isCountdownActive = false;
+	int nextState = 2;
 
 public:
 	/**

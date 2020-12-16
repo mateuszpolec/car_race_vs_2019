@@ -42,12 +42,9 @@ void Game::render() {
 		this->window->draw(enemy->getEnemySpriteObject());
 		this->window->draw(enemy->showName(this->gameFont));
 	}
-
-	if (gameStateInstance->isEventActive == false) {
-
+	if ( (this->isEventActive == false) && (this->stateOfGame == 1)) {
+		changeStateToQualificationRound();
 	}
-
-
 	this->window->display();
 }
 
@@ -102,27 +99,30 @@ void Game::keepGameAlive() {
 		this->update();
 		sf::Time elapsed1 = globalClock.getElapsedTime();
 		this->globalTimeCounter += elapsed1.asSeconds();
+		std::cout << this->timeCountdown - round(this->globalTimeCounter) << "\n";
 		globalClock.restart();
 	}
 }
 
 void Game::changeStateToMenu() {
-	gameStateInstance->stateOfGame = 0;
+	this->stateOfGame = 0;
 }
 
 void Game::changeStateToQualificationRound() {
-	gameStateInstance->stateOfGame = 1;
+	this->stateOfGame = 1;
 	this->window->draw(qualificationLapsText(this->gameFont, this->player->getPlayerPosition()));
 	this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
-	gameStateInstance->timeCountdown = 10;
+	this->isEventActive = true;
+	this->isCountdownActive = true;
+	this->timeCountdown = this->globalTimeCounter + 15;
 }
 
 void Game::changeStateToMainRaceRound() {
-	gameStateInstance->stateOfGame = 2;
+	this->stateOfGame = 2;
 }
 
 void Game::changeStateToEndOfRaceScreen() {
-	gameStateInstance->stateOfGame = 3;
+	this->stateOfGame = 3;
 }
 
 Game::Game() {
