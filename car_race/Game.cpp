@@ -42,9 +42,37 @@ void Game::render() {
 		this->window->draw(enemy->getEnemySpriteObject());
 		this->window->draw(enemy->showName(this->gameFont));
 	}
+
+
+	//Code for first state of game - Qualification Round
 	if ( (this->isEventActive == false) && (this->stateOfGame == 1)) {
 		changeStateToQualificationRound();
 	}
+
+	if (this->isCountdownActive && this->stateOfGame == 1) {
+		std::string timeCountdown = std::to_string(round(this->timeCountdown - this->globalTimeCounter));
+		this->window->draw(qualificationLapsText(this->gameFont, this->player->getPlayerPosition()));
+		this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
+		this->window->draw(timeCountdownText(this->gameFont, this->player->getPlayerPosition(), timeCountdown));
+		this->isGameFreezed = true;
+		if(this->timeCountdown - this->globalTimeCounter < 0) {
+			this->isCountdownActive = false;
+			this->isGameFreezed = false;
+		}
+	}
+
+	if (this->isEventActive && this->stateOfGame == 1 && this->player->currentLap == 4) {
+
+		std::cout << "Player: " << " " << this->player->currentLap << "\n";
+
+		for (Enemy* enemy : this->vectorOfEnemies) {
+			std::cout << enemy->m_Name << ": " << enemy->timeCounter << " " << enemy->currentLap << " " << enemy->actualPointToGo << "\n";
+		}
+
+		this->isGameFreezed = true;
+
+	}
+
 	this->window->display();
 }
 
@@ -54,10 +82,6 @@ void Game::update() {
 		this->player->movePlayer();
 	}
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getPlayerPosition());
-	 
-	if (this->globalTimeCounter > 10) {
-		isGameFreezed = false;
-	}
 }
 
 
@@ -99,7 +123,6 @@ void Game::keepGameAlive() {
 		this->update();
 		sf::Time elapsed1 = globalClock.getElapsedTime();
 		this->globalTimeCounter += elapsed1.asSeconds();
-		std::cout << this->timeCountdown - round(this->globalTimeCounter) << "\n";
 		globalClock.restart();
 	}
 }
@@ -114,7 +137,7 @@ void Game::changeStateToQualificationRound() {
 	this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
 	this->isEventActive = true;
 	this->isCountdownActive = true;
-	this->timeCountdown = this->globalTimeCounter + 15;
+	this->timeCountdown = this->globalTimeCounter + 8;
 }
 
 void Game::changeStateToMainRaceRound() {

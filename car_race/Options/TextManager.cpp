@@ -21,3 +21,14 @@ sf::Text qualificationLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPositi
 	text.setPosition(playerPosition.x - (sizeOfText.width/2), playerPosition.y - 200);
 	return text;
 }
+
+sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, std::string time) {
+	sf::Text text;
+	text.setFont(gameFont);
+	text.setString(time);
+	text.setCharacterSize(14);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setFillColor(sf::Color::White);
+	text.setPosition(playerPosition.x - (sizeOfText.width / 2), playerPosition.y - 100);
+	return text;
+}

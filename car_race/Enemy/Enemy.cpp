@@ -105,6 +105,29 @@ void Enemy::checkEnemyCollision(std::uint32_t tileID) {
 			this->currentSpeed -= s_Grass_frictionForce * 0.08f;
 		}
 	}
+
+	if (tileID == s_checkpointOneTleID) {
+		this->checkpointsReached.insert(1);
+	}
+	else if (tileID == s_checkpointTwoTileID) {
+		this->checkpointsReached.insert(2);
+	}
+	else if (tileID == s_checkpointThreeTileID) {
+		this->checkpointsReached.insert(3);
+	}
+
+	if (tileID == s_StartblockTileID) {
+		if (this->checkpointsReached.size() == 3) {
+			this->isNextLap = true;
+		}
+	}
+	else {
+		if (this->isNextLap == true) {
+			this->checkpointsReached.clear();
+			this->currentLap++;
+			this->isNextLap = false;
+		}
+	}
 }
 
 void Enemy::checkCollisionInBezier() {

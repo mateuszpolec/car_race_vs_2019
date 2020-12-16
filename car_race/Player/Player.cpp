@@ -15,6 +15,7 @@ sf::Sprite Player::getPlayerSpriteObject() {
 }
 
 void Player::listenPlayerMove() {
+	std::cout << this->currentLap << "\n";
 	float deltaTime = this->clock.restart().asSeconds();
 	this->timeCounter += deltaTime;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
@@ -120,6 +121,7 @@ void Player::checkPlayerCollision(std::uint32_t tileID) {
 	else {
 		if (this->isNextLap == true) {
 			this->checkpointsReached.clear();
+			this->currentLap++;
 			this->isNextLap = false;
 		}
 	}

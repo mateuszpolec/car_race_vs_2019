@@ -9,6 +9,11 @@
 
 class Enemy {
 
+public:
+	short actualPointToGo = 0;
+	int currentLap = 1;
+	float timeCounter = 0;
+
 private:
 	sf::Sprite m_Enemy;
 	sf::Texture enemyTexture;
@@ -17,13 +22,10 @@ private:
 	sf::Vector2f forwardVector = { 0.f, 1.f };
 
 	// Section for Movement
-	short actualPointToGo = 0;
 	int halfOfPlot = 0;
 	bool tooFar = false;
 
 	// Section for lap measurment
-	float timeCounter = 0;
-	int currentLap = 0;
 	bool isNextLap = false;
 	std::set<int> checkpointsReached = {};
 

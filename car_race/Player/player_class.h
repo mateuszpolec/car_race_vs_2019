@@ -12,6 +12,10 @@
 * 
 */
 class Player : JSONWorker {
+public:
+    int currentLap = 1;
+
+private:
     std::string m_token;
     /* To remember, Vector2f describes data like math cartesian system*/
     sf::Vector2f movementVector;
@@ -23,7 +27,6 @@ class Player : JSONWorker {
     sf::Clock clock; // Clock created for elapsing time between frames and correct movement of player 
 
     /* Handling actual player position and current lap info*/
-    int currentLap = 0;
     bool isNextLap = false;
     std::set<int> checkpointsReached = {};
     float timeCounter;
