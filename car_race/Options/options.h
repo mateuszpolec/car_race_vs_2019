@@ -27,6 +27,16 @@ const static int s_checkpointThreeTileID = 28384;
 const static int s_StartblockTileID = 28385;
 const static int s_BezierBlockPointID = 28386;
 
+const sf::Vector2f firstPlaceStartingPoint = { 485, 1275 };
+const sf::Vector2f secondPlaceStartingPoint = { 570, 1315 };
+const sf::Vector2f thirdPlaceStartingPoint = { 485, 1355 };
+const sf::Vector2f fourthPlaceStartingPoint = { 570, 1395 };
+const sf::Vector2f fifthPlaceStartingPoint = { 485, 1435 };
+const sf::Vector2f sixthPlaceStartingPoint = { 570, 1475 };
+const sf::Vector2f seventhPlaceStartingPoint = { 485, 1515 };
+const sf::Vector2f eightPlaceStartingPoint = { 570, 1555 };
+const sf::Vector2f ninthPlaceStartingPoint = { 485, 1595 };
+const sf::Vector2f tenPlaceStartingPoint = { 570, 1645 };
 // vector of paths  to all avaiable textures
 
 const static inline std::vector<std::string> pathsToTextures = {

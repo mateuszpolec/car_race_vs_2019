@@ -81,6 +81,7 @@ void Game::update() {
 	if (!isGameFreezed) {
 		this->player->movePlayer();
 	}
+
 	this->playercamera->cameraFollowPlayer(*this->window, this->player->getPlayerPosition());
 }
 
