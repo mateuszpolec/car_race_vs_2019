@@ -17,3 +17,28 @@ void setVelocityAndAccelerationForAsphalt() {
 int randomValueFromScope(int start, int scope) {
 	return rand() % scope + start;
 }
+
+bool isThereAnyDuplicates(std::vector<int>& pointsToSort) {
+	for (short i = 0; i < pointsToSort.size(); ++i) {
+		for (short j = 0; j < pointsToSort.size(); ++j) {
+			if (i != j) {
+				if (pointsToSort[i] == pointsToSort[j]) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+void removeDuplicatesFromVector(std::vector<int>& pointsToSort) {
+	for (short i = 0; i < pointsToSort.size(); ++i) {
+		for (short j = 0; j < pointsToSort.size(); ++j) {
+			if (i != j) {
+				if (pointsToSort[i] == pointsToSort[j]) {
+					pointsToSort[i]++;
+				}
+			}
+		}
+	}
+}

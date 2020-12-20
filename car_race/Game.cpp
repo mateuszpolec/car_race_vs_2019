@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <iostream>
 
 void Game::createWindow() {
 	this->window = new sf::RenderWindow(sf::VideoMode(s_screenHeight, s_screenWidth), "My window");
@@ -63,11 +62,37 @@ void Game::render() {
 
 	if (this->isEventActive && this->stateOfGame == 1 && this->player->currentLap == 4) {
 
-		std::cout << "Player: " << " " << this->player->currentLap << "\n";
+		int playerPointsCompleted = 450; // Setting the points, that player will make if he end the race.
+
+		std::vector<int> pointsToSort = { playerPointsCompleted };
+
 
 		for (Enemy* enemy : this->vectorOfEnemies) {
-			std::cout << enemy->m_Name << ": " << enemy->timeCounter << " " << enemy->currentLap << " " << enemy->actualPointToGo << "\n";
+			pointsToSort.push_back(enemy->totalPointsCompleted);
 		}
+
+		std::sort(pointsToSort.begin(), pointsToSort.end());
+		std::reverse(pointsToSort.begin(), pointsToSort.end());
+
+
+		while (isThereAnyDuplicates(pointsToSort)) {
+			removeDuplicatesFromVector(pointsToSort);
+		}
+
+		for (Enemy* enemy : this->vectorOfEnemies) {
+			std::vector<int>::iterator itr = std::find(pointsToSort.begin(), pointsToSort.end(), enemy->totalPointsCompleted);
+
+			int index = std::distance(pointsToSort.begin(), itr);
+
+			//std::cout << "Enemy " << enemy->m_Name << " will start at place " << pointsToSort[index] << "\n";
+		}
+
+
+		for (auto& point : pointsToSort) {
+			std::cout << point << "\n";
+		}
+
+
 
 		this->isGameFreezed = true;
 
@@ -94,7 +119,7 @@ void Game::classInitializer() {
 	this->playercamera = new PlayerCamera();
 	this->player->moveToStart();
 
-	for (short i = 0; i < 10; ++i) {
+	for (short i = 0; i < 9; ++i) {
 		std::string nameOfEnemy = "Enemy " + std::to_string(i);
 		this->vectorOfEnemies.push_back(new Enemy(nameOfEnemy));
 		this->vectorOfEnemies[i]->moveToStart();
@@ -138,7 +163,7 @@ void Game::changeStateToQualificationRound() {
 	this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
 	this->isEventActive = true;
 	this->isCountdownActive = true;
-	this->timeCountdown = this->globalTimeCounter + 8;
+	this->timeCountdown = this->globalTimeCounter + 10;
 }
 
 void Game::changeStateToMainRaceRound() {

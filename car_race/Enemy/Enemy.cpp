@@ -87,6 +87,7 @@ void Enemy::moveEnemy() {
 
 	if (r < 150) {
 		this->actualPointToGo++;
+		this->totalPointsCompleted++;
 		this->tooFar = false;
 		if (this->actualPointToGo > 148) {
 			this->actualPointToGo = 0;

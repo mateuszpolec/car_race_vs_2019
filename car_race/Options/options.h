@@ -27,16 +27,19 @@ const static int s_checkpointThreeTileID = 28384;
 const static int s_StartblockTileID = 28385;
 const static int s_BezierBlockPointID = 28386;
 
-const sf::Vector2f firstPlaceStartingPoint = { 485, 1275 };
-const sf::Vector2f secondPlaceStartingPoint = { 570, 1315 };
-const sf::Vector2f thirdPlaceStartingPoint = { 485, 1355 };
-const sf::Vector2f fourthPlaceStartingPoint = { 570, 1395 };
-const sf::Vector2f fifthPlaceStartingPoint = { 485, 1435 };
-const sf::Vector2f sixthPlaceStartingPoint = { 570, 1475 };
-const sf::Vector2f seventhPlaceStartingPoint = { 485, 1515 };
-const sf::Vector2f eightPlaceStartingPoint = { 570, 1555 };
-const sf::Vector2f ninthPlaceStartingPoint = { 485, 1595 };
-const sf::Vector2f tenPlaceStartingPoint = { 570, 1645 };
+const std::vector<sf::Vector2f> startingPlaces = {
+	sf::Vector2f { 485, 1275 },
+	sf::Vector2f { 570, 1315 },
+	sf::Vector2f { 485, 1355 },
+	sf::Vector2f { 570, 1395 },
+	sf::Vector2f { 485, 1435 },
+	sf::Vector2f { 570, 1475 },
+	sf::Vector2f { 485, 1515 },
+	sf::Vector2f { 570, 1555 },
+	sf::Vector2f { 485, 1595 },
+	sf::Vector2f { 570, 1645 }
+};
+
 // vector of paths  to all avaiable textures
 
 const static inline std::vector<std::string> pathsToTextures = {
@@ -79,5 +82,15 @@ static int randomValueFromScope(int start, int scope);
 * TODO: Create documentation	
 */
 void loadFont();
+
+/**
+* TODO: Create documentation
+*/
+bool isThereAnyDuplicates(std::vector<int>& pointsToSort);
+
+/**
+* TODO: Create documentation
+*/
+void removeDuplicatesFromVector(std::vector<int>& pointsToSort);
 
 #endif

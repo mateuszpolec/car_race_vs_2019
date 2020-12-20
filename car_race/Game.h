@@ -9,6 +9,9 @@
 #include "Enemy/enemy.h"
 #include "FileWorker/RouteCreator.h"
 #include "./Options/TextManager.h"
+#include <iostream>
+#include <algorithm>
+
 
 class Game {
 

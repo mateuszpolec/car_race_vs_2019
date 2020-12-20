@@ -11,8 +11,9 @@ class Enemy {
 
 public:
 	short actualPointToGo = 0;
-	int currentLap = 1;
+	int currentLap = 0;
 	float timeCounter = 0;
+	int totalPointsCompleted = 0;
 
 private:
 	sf::Sprite m_Enemy;
