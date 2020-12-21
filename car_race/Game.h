@@ -53,6 +53,10 @@ private:
 	int nextState = 2;
 
 public:
+
+	Game();
+	~Game();
+
 	/**
 	* createWindow
 	* Function that creates a SFML window and sets framerate
@@ -88,13 +92,17 @@ public:
 	*/
 	void classInitializer();
 
+	// TODO: Documentation
 	void changeStateToMenu();
-	void changeStateToQualificationRound();
-	void changeStateToMainRaceRound();
-	void changeStateToEndOfRaceScreen();
 
-	Game();
-	~Game();
+	//TODO: Documentation
+	void changeStateToQualificationRound();
+
+	//TODO: Documentation
+	void changeStateToMainRaceRound();
+
+	//TODO: Documentation
+	void changeStateToEndOfRaceScreen();
 	
 };
 

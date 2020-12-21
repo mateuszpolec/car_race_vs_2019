@@ -14,6 +14,7 @@
 class Player : JSONWorker {
 public:
     int currentLap = 1;
+    sf::Vector2f startingPlace;
 
 private:
     std::string m_token;

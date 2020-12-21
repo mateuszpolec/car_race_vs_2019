@@ -27,7 +27,7 @@ const static int s_checkpointThreeTileID = 28384;
 const static int s_StartblockTileID = 28385;
 const static int s_BezierBlockPointID = 28386;
 
-const std::vector<sf::Vector2f> startingPlaces = {
+const std::vector<sf::Vector2f> startingPlacesPoints = {
 	sf::Vector2f { 485, 1275 },
 	sf::Vector2f { 570, 1315 },
 	sf::Vector2f { 485, 1355 },
@@ -64,32 +64,29 @@ const static inline std::vector<std::string> pathsToTextures = {
 float mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vector2f& rv);
 
 /**
-* TODO: Create documentation
-*/
-void setVelocityAndAccelerationForGrass();
-
-/**
-* TODO: Create documentation
-*/
-void setVelocityAndAccelerationForAsphalt();
-
-/**
-* TODO: Create documentation
+* randomValueFromScope
+* Function that returns random value from given start number and scope
+* Example: For given int start = 1, and scope = 10 the result will be random integer from <1; 10>
+* @param int start - Minimum number that you want to have in random scope
+* @param int scope - How big is scope for random value
+* @return - random int from given start point and scope
 */
 static int randomValueFromScope(int start, int scope);
 
-/**
-* TODO: Create documentation	
-*/
-void loadFont();
 
 /**
-* TODO: Create documentation
+* isThereAnyDuplicates
+* Check if there's any duplicate value in given vector
+* @param std::vector with integers
+* @return boolean, if there's an duplicate value the return will be True, if not - False
 */
 bool isThereAnyDuplicates(std::vector<int>& pointsToSort);
 
 /**
-* TODO: Create documentation
+* removeDuplicatesFromVector
+* Change the value of duplicate value from value to next nearest number.
+* Example: For given vector with numbers 442, 442 the result will be 443, 442
+* @param Reference to std::vector with numbers
 */
 void removeDuplicatesFromVector(std::vector<int>& pointsToSort);
 

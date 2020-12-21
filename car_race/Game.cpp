@@ -15,6 +15,7 @@ void Game::render() {
 
 
 	this->player->checkPlayerCollision(tile_grass_layer.ID);
+	this->player->checkPlayerCollision(tile_race_track_layer.ID);
 
 
 	for (Enemy* enemy : this->vectorOfEnemies) {
@@ -48,6 +49,7 @@ void Game::render() {
 		changeStateToQualificationRound();
 	}
 
+	// Qualification Round Timer & Text Drawing
 	if (this->isCountdownActive && this->stateOfGame == 1) {
 		std::string timeCountdown = std::to_string(round(this->timeCountdown - this->globalTimeCounter));
 		this->window->draw(qualificationLapsText(this->gameFont, this->player->getPlayerPosition()));
@@ -60,43 +62,50 @@ void Game::render() {
 		}
 	}
 
+	// Qualification Round - Gameplay
 	if (this->isEventActive && this->stateOfGame == 1 && this->player->currentLap == 4) {
 
 		int playerPointsCompleted = 450; // Setting the points, that player will make if he end the race.
 
-		std::vector<int> pointsToSort = { playerPointsCompleted };
-
+		std::vector<int> pointsToSort = {};
+		std::set<int> startingPlaces = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // How many starting points there are
 
 		for (Enemy* enemy : this->vectorOfEnemies) {
 			pointsToSort.push_back(enemy->totalPointsCompleted);
 		}
 
-		std::sort(pointsToSort.begin(), pointsToSort.end());
-		std::reverse(pointsToSort.begin(), pointsToSort.end());
+		pointsToSort.push_back(playerPointsCompleted);
+
 
 
 		while (isThereAnyDuplicates(pointsToSort)) {
 			removeDuplicatesFromVector(pointsToSort);
 		}
 
+		//Get back to Enemy class and change their completed points to be without any duplicates
+		for (short i = 0; i < this->vectorOfEnemies.size(); ++i) {
+			this->vectorOfEnemies[i]->totalPointsCompleted = pointsToSort[i];
+		}
+
+		std::sort(pointsToSort.begin(), pointsToSort.end());
+		std::reverse(pointsToSort.begin(), pointsToSort.end());
+
 		for (Enemy* enemy : this->vectorOfEnemies) {
 			std::vector<int>::iterator itr = std::find(pointsToSort.begin(), pointsToSort.end(), enemy->totalPointsCompleted);
 
 			int index = std::distance(pointsToSort.begin(), itr);
 
-			//std::cout << "Enemy " << enemy->m_Name << " will start at place " << pointsToSort[index] << "\n";
+			enemy->startingPlace = startingPlacesPoints[index];
+			startingPlaces.erase(index);
 		}
 
-
-		for (auto& point : pointsToSort) {
-			std::cout << point << "\n";
-		}
-
-
+		int playerStartPosition = *std::next(startingPlaces.begin(), 0);
+		this->player->startingPlace = startingPlacesPoints[playerStartPosition];
 
 		this->isGameFreezed = true;
 
 	}
+
 
 	this->window->display();
 }

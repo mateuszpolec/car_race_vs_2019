@@ -10,10 +10,14 @@
 class Enemy {
 
 public:
+	float currentSpeed = 0;
+	std::string m_Name;
 	short actualPointToGo = 0;
 	int currentLap = 0;
 	float timeCounter = 0;
 	int totalPointsCompleted = 0;
+	sf::Vector2f startingPlace;
+	std::vector <sf::Vector2f> pointsToFollow = {};
 
 private:
 	sf::Sprite m_Enemy;
@@ -31,10 +35,19 @@ private:
 	std::set<int> checkpointsReached = {};
 
 
+	/**
+	* nextRandomBezierPoint
+	* Structure, that allows to create an Cartesian point for Bezier Curve
+	*/
 	struct nextRandomBezierPoint {
 
 		int x, y;
 
+		/**
+		* Constructor
+		* @param int random_x - Random Given Integer that will represent point in X-axis for Bezier Curve
+		* @param int random_y - Random Given Integer that will represent point in Y-axis for Bezier Curve
+		*/
 		nextRandomBezierPoint(int random_x, int random_y) : x(random_x), y(random_y) {}
 	};
 
@@ -44,15 +57,13 @@ private:
 
 public:
 
-	float currentSpeed = 0;
-
-	std::string m_Name;
-
+	/**
+	* Enemy Constructor
+	* @param std::string name - set the name of Enemy class to given name in constructor
+	*/
 	Enemy(std::string name);
 
 	~Enemy();
-
-	std::vector <sf::Vector2f> pointsToFollow = {};
 
 	/**
 	* getEnemySpriteObject
