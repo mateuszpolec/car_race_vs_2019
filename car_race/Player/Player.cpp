@@ -146,3 +146,8 @@ void Player::moveToStart() {
 	this->player.rotate(180.f);
 	this->player.setPosition(525, 1270);
 }
+
+void Player::moveToStartPosition() {
+	this->player.setRotation(180.f);
+	this->player.setPosition(startingPlace);
+}

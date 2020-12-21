@@ -103,7 +103,31 @@ void Game::render() {
 		this->player->startingPlace = startingPlacesPoints[playerStartPosition];
 
 		this->isGameFreezed = true;
+		this->isEventActive = false;
+		this->stateOfGame = 2;
+	}
 
+	//Code for change state to second state of game - Main race round
+	if ((this->isEventActive == false) && (this->stateOfGame == 2)) {
+		changeStateToMainRaceRound();
+		for (Enemy* enemy : this->vectorOfEnemies) {
+			enemy->moveToStartPosition();
+			enemy->actualPointToGo = 0;
+			enemy->halfOfPlot = 0;
+		}
+		this->player->moveToStartPosition();
+	}
+
+	// Main race round Timer & Text Drawing
+	if (this->isCountdownActive && this->stateOfGame == 2) {
+		std::string timeCountdown = std::to_string(round(this->timeCountdown - this->globalTimeCounter));
+		this->window->draw(mainRaceLapsText(this->gameFont, this->player->getPlayerPosition()));
+		this->window->draw(mainRaceLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
+		this->window->draw(timeCountdownText(this->gameFont, this->player->getPlayerPosition(), timeCountdown));
+		if (this->timeCountdown - this->globalTimeCounter < 0) {
+			this->isCountdownActive = false;
+			this->isGameFreezed = false;
+		}
 	}
 
 
@@ -168,8 +192,6 @@ void Game::changeStateToMenu() {
 
 void Game::changeStateToQualificationRound() {
 	this->stateOfGame = 1;
-	this->window->draw(qualificationLapsText(this->gameFont, this->player->getPlayerPosition()));
-	this->window->draw(qualificationLapsHelpText(this->gameFont, this->player->getPlayerPosition()));
 	this->isEventActive = true;
 	this->isCountdownActive = true;
 	this->timeCountdown = this->globalTimeCounter + 10;
@@ -177,6 +199,9 @@ void Game::changeStateToQualificationRound() {
 
 void Game::changeStateToMainRaceRound() {
 	this->stateOfGame = 2;
+	this->isEventActive = true;
+	this->isCountdownActive = true;
+	this->timeCountdown = this->globalTimeCounter + 10;
 }
 
 void Game::changeStateToEndOfRaceScreen() {

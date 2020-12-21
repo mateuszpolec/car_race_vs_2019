@@ -27,6 +27,11 @@ void Enemy::moveToStart() {
 	this->m_Enemy.setPosition(525, 1270);
 }
 
+void Enemy::moveToStartPosition() {
+	this->m_Enemy.setRotation(180.f);
+	this->m_Enemy.setPosition(this->startingPlace);
+}
+
 void Enemy::moveEnemy() {
 	float deltaTime = this->clock.restart().asSeconds();
 	this->timeCounter += deltaTime;

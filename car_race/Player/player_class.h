@@ -98,6 +98,13 @@ private:
     */
     void movePlayer();
 
+
+    /**
+    * moveToStartPosition
+    * Teleport player to start position at beggining of main race round
+    */
+    void moveToStartPosition();
+
     /**
     * checkPlayerCollision
     * To be more precise, the function checks on what tile is player "standing" on in this specific moment and starts event

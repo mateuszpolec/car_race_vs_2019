@@ -18,6 +18,7 @@ public:
 	int totalPointsCompleted = 0;
 	sf::Vector2f startingPlace;
 	std::vector <sf::Vector2f> pointsToFollow = {};
+	int halfOfPlot = 0;
 
 private:
 	sf::Sprite m_Enemy;
@@ -27,7 +28,6 @@ private:
 	sf::Vector2f forwardVector = { 0.f, 1.f };
 
 	// Section for Movement
-	int halfOfPlot = 0;
 	bool tooFar = false;
 
 	// Section for lap measurment
@@ -74,10 +74,15 @@ public:
 	
 	/**
 	* moveToStart
-	* Function moves enemy to start positon at beggining
+	* Function moves enemy to start positon at beggining of Qualification round
 	*/
 	void moveToStart();
 	
+	/**
+	* moveToStartPosition
+	* Moves enemy to start position at beggining of Main race round
+	*/
+	void moveToStartPosition();
 
 	/**
 	* moveEnemy
