@@ -51,7 +51,7 @@ void Game::render() {
 
 	// Qualification Round Timer & Text Drawing
 	if (this->m_isCountdownActive && this->m_stateOfGame == 1) {
-		std::string timeCountdown = std::to_string(round(this->m_timeCountdown - this->m_globalTimeCounter));
+		float timeCountdown = round(this->m_timeCountdown - this->m_globalTimeCounter);
 		this->m_window->draw(qualificationLapsText(this->m_gameFont, this->m_player->getPlayerPosition()));
 		this->m_window->draw(qualificationLapsHelpText(this->m_gameFont, this->m_player->getPlayerPosition()));
 		this->m_window->draw(timeCountdownText(this->m_gameFont, this->m_player->getPlayerPosition(), timeCountdown));
@@ -123,7 +123,7 @@ void Game::render() {
 
 	// Main race round Timer & Text Drawing
 	if (this->m_isCountdownActive && this->m_stateOfGame == 2) {
-		std::string timeCountdown = std::to_string(round(this->m_timeCountdown - this->m_globalTimeCounter));
+		float timeCountdown = round(this->m_timeCountdown - this->m_globalTimeCounter);
 		this->m_window->draw(mainRaceLapsText(this->m_gameFont, this->m_player->getPlayerPosition()));
 		this->m_window->draw(mainRaceLapsHelpText(this->m_gameFont, this->m_player->getPlayerPosition()));
 		this->m_window->draw(timeCountdownText(this->m_gameFont, this->m_player->getPlayerPosition(), timeCountdown));

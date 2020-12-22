@@ -45,11 +45,13 @@ sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition) {
 
 }
 
-sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, std::string time) {
+sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, float time) {
 	sf::Text text;
 	text.setFont(gameFont);
-	text.setString(time);
-	text.setCharacterSize(14);
+	int timeToInt = (int) time;
+	std::string timeToString = std::to_string(timeToInt);
+	text.setString(timeToString);
+	text.setCharacterSize(16);
 	sf::FloatRect sizeOfText = text.getGlobalBounds();
 	text.setFillColor(sf::Color::White);
 	text.setPosition(playerPosition.x - (sizeOfText.width / 2), playerPosition.y - 100);

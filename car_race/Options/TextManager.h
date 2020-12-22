@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "../Options/options.h"
+#include <iomanip>
 
 
 const sf::Vector2f centerOfScreen = { s_screenHeight / 2, s_screenWidth / 2 };
@@ -40,7 +41,7 @@ sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition);
 * @param std::string time - Representation of time countdown in string to make it possible to convert into SFML Text Object
 * @return SFML Object Text - Text with font, font size and position
 */
-sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, std::string time);
+sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, float time);
 
 
 #endif
