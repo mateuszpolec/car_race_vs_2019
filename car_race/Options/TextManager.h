@@ -3,7 +3,7 @@
 
 
 #include <SFML/Graphics.hpp>
-#include "../Options/options.h"
+#include "../Options/Options.h"
 #include <iomanip>
 
 

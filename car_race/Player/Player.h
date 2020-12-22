@@ -4,7 +4,7 @@
 #include <iostream>
 #include <set>
 #include <SFML/Graphics.hpp>
-#include "../Options/options.h"
+#include "../Options/Options.h"
 
 /**
 * Class Player - handle information about player

@@ -1,4 +1,4 @@
-#include "player_camera.h"
+#include "PlayerCamera.h"
 
 PlayerCamera::PlayerCamera() {
 	this->followPlayer.setSize(1200.f, 800.f);

@@ -179,16 +179,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\Programs\Projekty\tmxlite\tmxlite\src\detail\pugixml.hpp" />
-    <ClInclude Include="Enemy\enemy.h" />
-    <ClInclude Include="FileWorker\file_worker.h" />
+    <ClInclude Include="Enemy\Enemy.h" />
+    <ClInclude Include="FileWorker\FileWorker.h" />
     <ClInclude Include="FileWorker\RouteCreator.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
-    <ClInclude Include="JsonWorker\json_worker.h" />
-    <ClInclude Include="Options\options.h" />
+    <ClInclude Include="JsonWorker\JsonWorker.h" />
+    <ClInclude Include="Options\Options.h" />
     <ClInclude Include="Options\TextManager.h" />
-    <ClInclude Include="Player\player_camera.h" />
-    <ClInclude Include="Player\player_class.h" />
-    <ClInclude Include="Sockets\api_connector.h" />
+    <ClInclude Include="Player\PlayerCamera.h" />
+    <ClInclude Include="Player\Player.h" />
+    <ClInclude Include="Sockets\ApiConnector.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\192 racetrack Divided (1).tsx" />

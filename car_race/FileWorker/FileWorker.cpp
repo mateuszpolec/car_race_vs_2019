@@ -1,7 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
-#include "file_worker.h"
+#include "FileWorker.h"
 
 
 void FileWorker::saveTokenToFile(std::string token) {

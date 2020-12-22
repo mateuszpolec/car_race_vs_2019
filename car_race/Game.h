@@ -2,9 +2,9 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
-#include "Player/player_class.h"
-#include "Player/player_camera.h"
-#include "Sockets/api_connector.h"
+#include "Player/Player.h"
+#include "Player/PlayerCamera.h"
+#include "Sockets/ApiConnector.h"
 #include "FileWorker/sfml_layer_loader.h"
 #include "Enemy/enemy.h"
 #include "FileWorker/RouteCreator.h"

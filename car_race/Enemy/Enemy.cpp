@@ -1,4 +1,4 @@
-#include "enemy.h"
+#include "Enemy.h"
 #include "../FileWorker/sfml_layer_loader.h"
 
 Enemy::Enemy(std::string name) : m_Name(name) {}

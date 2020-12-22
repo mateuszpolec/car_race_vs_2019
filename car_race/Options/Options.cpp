@@ -1,4 +1,4 @@
-#include "options.h"
+#include "Options.h"
 
 float mathDotProductCalculation(const sf::Vector2f& lv, const sf::Vector2f& rv) {
 	return lv.x * rv.x + lv.y * rv.y;

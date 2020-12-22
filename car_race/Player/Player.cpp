@@ -1,4 +1,4 @@
-#include "player_class.h"
+#include "Player.h"
 
 Player::Player(std::string authtoken) :
 	m_token(authtoken) {}

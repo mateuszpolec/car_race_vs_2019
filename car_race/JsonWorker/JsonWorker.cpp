@@ -1,4 +1,4 @@
-#include "json_worker.h";
+#include "JsonWorker.h";
 
 std::string JSONWorker::getJsonTokenFromString(const std::string rawJson) {
     Json::Value root; // root value for processing json string to structure
