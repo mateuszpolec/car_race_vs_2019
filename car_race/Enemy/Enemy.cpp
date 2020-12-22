@@ -9,8 +9,8 @@ sf::Sprite Enemy::getEnemySpriteObject() {
 	if (this->textureIsLoaded == false) {
 		this->textureIsLoaded = true;
 		short randInt = rand() % 7;
-		this->enemyTexture.loadFromFile(pathsToTextures[randInt]);
-		m_Enemy.setTexture(this->enemyTexture);
+		this->m_enemyTexture.loadFromFile(pathsToTextures[randInt]);
+		m_Enemy.setTexture(this->m_enemyTexture);
 		m_Enemy.setScale(3.0, 3.0);
 		m_Enemy.setOrigin(4.5f, 7.0f);
 		return m_Enemy;
@@ -33,7 +33,7 @@ void Enemy::moveToStartPosition() {
 }
 
 void Enemy::moveEnemy() {
-	float deltaTime = this->clock.restart().asSeconds();
+	float deltaTime = this->m_clock.restart().asSeconds();
 	this->timeCounter += deltaTime;
 	sf::Vector2f pointToGo = this->pointsToFollow[this->actualPointToGo]; //Choose point to go
 	sf::Vector2f oldPosition = this->m_Enemy.getPosition();
@@ -81,19 +81,19 @@ void Enemy::moveEnemy() {
 	//}
 
 	//The magic of moving player
-	sf::Vector2f oldVector = this->movementVector;
+	sf::Vector2f oldVector = this->m_movementVector;
 	sf::Transform transform;
 
 	transform.rotate(this->m_Enemy.getRotation());
-	this->movementVector = transform.transformPoint(this->forwardVector);
+	this->m_movementVector = transform.transformPoint(this->m_forwardVector);
 
 
-	this->m_Enemy.move(this->movementVector * this->currentSpeed * 0.05f);
+	this->m_Enemy.move(this->m_movementVector * this->currentSpeed * 0.05f);
 
 	if (r < 150) {
 		this->actualPointToGo++;
 		this->totalPointsCompleted++;
-		this->tooFar = false;
+		this->m_tooFar = false;
 		if (this->actualPointToGo > 148) {
 			this->actualPointToGo = 0;
 		}
@@ -113,25 +113,25 @@ void Enemy::checkEnemyCollision(std::uint32_t tileID) {
 	}
 
 	if (tileID == s_checkpointOneTleID) {
-		this->checkpointsReached.insert(1);
+		this->m_checkpointsReached.insert(1);
 	}
 	else if (tileID == s_checkpointTwoTileID) {
-		this->checkpointsReached.insert(2);
+		this->m_checkpointsReached.insert(2);
 	}
 	else if (tileID == s_checkpointThreeTileID) {
-		this->checkpointsReached.insert(3);
+		this->m_checkpointsReached.insert(3);
 	}
 
 	if (tileID == s_StartblockTileID) {
-		if (this->checkpointsReached.size() == 3) {
-			this->isNextLap = true;
+		if (this->m_checkpointsReached.size() == 3) {
+			this->m_isNextLap = true;
 		}
 	}
 	else {
-		if (this->isNextLap == true) {
-			this->checkpointsReached.clear();
+		if (this->m_isNextLap == true) {
+			this->m_checkpointsReached.clear();
 			this->currentLap++;
-			this->isNextLap = false;
+			this->m_isNextLap = false;
 		}
 	}
 }

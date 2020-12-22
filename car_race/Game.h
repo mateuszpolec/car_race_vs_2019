@@ -16,27 +16,26 @@
 class Game {
 
 private:
-	sf::RenderWindow* window;
-	sf::Event event;
+	sf::RenderWindow* m_window;
+	sf::Event m_event;
 
-	Player* player;
-	APIConnector* api;
-	PlayerCamera* playercamera;
+	Player* m_player;
+	APIConnector* m_api;
+	PlayerCamera* m_playercamera;
 
 	// Handling Time in Game
-	sf::Clock globalClock;
-	float globalTimeCounter;
-	bool isGameFreezed = true;
+	sf::Clock m_globalClock;
+	float m_globalTimeCounter;
+	bool m_isGameFreezed = true;
 
 
 	//Vector pointing at instances of Enemy classes
-	std::vector<Enemy*> vectorOfEnemies = {};
+	std::vector<Enemy*> m_vectorOfEnemies = {};
 
-	tmx::Map map;
-	int lapsToComplete = 3;
+	tmx::Map m_map;
 
 	// Handling text in game
-	sf::Font gameFont;
+	sf::Font m_gameFont;
 
 	// Handling the state of game
 	/**
@@ -46,11 +45,11 @@ private:
 	* stateOfGame = 3 -> Player in end screen round
 	*/
 
-	int stateOfGame = 1;
-	int timeCountdown = 0;
-	bool isEventActive = false;
-	bool isCountdownActive = false;
-	int nextState = 2;
+	int m_stateOfGame = 1;
+	int m_timeCountdown = 0;
+	bool m_isEventActive = false;
+	bool m_isCountdownActive = false;
+	int m_nextState = 2;
 
 public:
 

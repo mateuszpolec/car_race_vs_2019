@@ -22,17 +22,17 @@ public:
 
 private:
 	sf::Sprite m_Enemy;
-	sf::Texture enemyTexture;
-	sf::Clock clock;
-	sf::Vector2f movementVector;
-	sf::Vector2f forwardVector = { 0.f, 1.f };
+	sf::Texture m_enemyTexture;
+	sf::Clock m_clock;
+	sf::Vector2f m_movementVector;
+	sf::Vector2f m_forwardVector = { 0.f, 1.f };
 
 	// Section for Movement
-	bool tooFar = false;
-
+	bool m_tooFar = false;
+	
 	// Section for lap measurment
-	bool isNextLap = false;
-	std::set<int> checkpointsReached = {};
+	bool m_isNextLap = false;
+	std::set<int> m_checkpointsReached = {};
 
 
 	/**

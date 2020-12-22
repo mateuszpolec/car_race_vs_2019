@@ -26,8 +26,10 @@ sf::Text qualificationLapsText(sf::Font& gameFont, sf::Vector2f playerPosition);
 */
 sf::Text qualificationLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition);
 
+//TOOD: Documentation
 sf::Text mainRaceLapsText(sf::Font& gameFont, sf::Vector2f playerPosition);
 
+//TODO: Documentation
 sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition);
 
 /**

@@ -29,18 +29,18 @@ sf::Text mainRaceLapsText(sf::Font& gameFont, sf::Vector2f playerPosition) {
 	text.setCharacterSize(18);
 	sf::FloatRect sizeOfText = text.getGlobalBounds();
 	text.setFillColor(sf::Color::White);
-	text.setPosition(playerPosition.x - (sizeOfText.width / 2), playerPosition.y - 250);
+	text.setPosition(playerPosition.x - (sizeOfText.width / 2) - 350, playerPosition.y - 250);
 	return text;
 }
 
 sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition) {
 	sf::Text text;
 	text.setFont(gameFont);
-	text.setString("That's the main race round! You have to drive as fast as possible and complete all 10 laps to win the race.\nEveryone is starting on position that they won in qualification round. Good luck!");
+	text.setString("That's the main race round!\nYou have to drive as fast as possible\nand complete all 10 laps to win the race.\nEveryone is starting on position\nthat they won in qualification round.\nGood luck!");
 	text.setCharacterSize(14);
 	sf::FloatRect sizeOfText = text.getGlobalBounds();
 	text.setFillColor(sf::Color::White);
-	text.setPosition(playerPosition.x - (sizeOfText.width / 2), playerPosition.y - 200);
+	text.setPosition(playerPosition.x - (sizeOfText.width / 2) - 305, playerPosition.y - 200);
 	return text;
 
 }

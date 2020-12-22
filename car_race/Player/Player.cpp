@@ -1,53 +1,51 @@
 #include "player_class.h"
 
 Player::Player(std::string authtoken) :
-	m_token(authtoken), 
-	jsonWorker(new JSONWorker()) {}
+	m_token(authtoken) {}
 
 
 
 sf::Sprite Player::getPlayerSpriteObject() {
-	this->playerTexture.loadFromFile("./Assets/car_sprite_1.png");
-	this->player.setTexture(this->playerTexture);
-	this->player.setScale(3.0, 3.0);
-	this->player.setOrigin(4.5f, 7.0f);
-	return this->player;
+	this->m_playerTexture.loadFromFile("./Assets/car_sprite_1.png");
+	this->m_player.setTexture(this->m_playerTexture);
+	this->m_player.setScale(3.0, 3.0);
+	this->m_player.setOrigin(4.5f, 7.0f);
+	return this->m_player;
 }
 
 void Player::listenPlayerMove() {
-	std::cout << this->currentLap << "\n";
-	float deltaTime = this->clock.restart().asSeconds();
-	this->timeCounter += deltaTime;
+	float deltaTime = this->m_clock.restart().asSeconds();
+	this->m_timeCounter += deltaTime;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-		if (this->currentSpeed < s_maxVelocity) {
-			this->currentSpeed += s_maxAcceleration * deltaTime;
+		if (this->m_currentSpeed < s_maxVelocity) {
+			this->m_currentSpeed += s_maxAcceleration * deltaTime;
 		}
 	}
 	else {
-		this->currentSpeed -= s_frictionForce * deltaTime;
-		if (this->currentSpeed < 0.f) {
-			this->currentSpeed = 0.f;
+		this->m_currentSpeed -= s_frictionForce * deltaTime;
+		if (this->m_currentSpeed < 0.f) {
+			this->m_currentSpeed = 0.f;
 		}
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-		this->currentSpeed -= s_maxDeceleration * deltaTime;
-		if (this->currentSpeed < 0.f) {
-			this->currentSpeed = 0.f;
+		this->m_currentSpeed -= s_maxDeceleration * deltaTime;
+		if (this->m_currentSpeed < 0.f) {
+			this->m_currentSpeed = 0.f;
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-		if (this->currentSpeed > 0) {
-			this->player.rotate(-s_rotateAmmount * deltaTime);
+		if (this->m_currentSpeed > 0) {
+			this->m_player.rotate(-s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-		if (this->currentSpeed > 0) {
-			this->player.rotate(s_rotateAmmount * deltaTime);
+		if (this->m_currentSpeed > 0) {
+			this->m_player.rotate(s_rotateAmmount * deltaTime);
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-		this->isHandbrakeOn = true;
+		this->m_isHandbrakeOn = true;
 		//TODO IDEA: Create a function for drifting - hand brake
 		//Descripiton of movement:
 
@@ -57,7 +55,7 @@ void Player::listenPlayerMove() {
 		// If player is moving DOWN: +y
 	}
 	else {
-		this->isHandbrakeOn = false;
+		this->m_isHandbrakeOn = false;
 	}
 
 }
@@ -66,63 +64,67 @@ void Player::listenPlayerMove() {
 void Player::movePlayer() {
 
 
-	sf::Vector2f oldVector = this->movementVector;
+	sf::Vector2f oldVector = this->m_movementVector;
 	sf::Transform transform;
 
-	transform.rotate(this->player.getRotation());
-	this->movementVector = transform.transformPoint(this->forwardVector);
+	transform.rotate(this->m_player.getRotation());
+	this->m_movementVector = transform.transformPoint(this->m_forwardVector);
 
-	this->currentSpeed *= mathDotProductCalculation(oldVector, this->movementVector);
+	this->m_currentSpeed *= mathDotProductCalculation(oldVector, this->m_movementVector);
 
 	//std::cout << this->player.getRotation() << std::endl;
 
-	this->player.move(this->movementVector * this->currentSpeed * 0.05f);
+	this->m_player.move(this->m_movementVector * this->m_currentSpeed * 0.05f);
 	
 }
 
 sf::Vector2f Player::getPlayerPosition() {
-	return this->player.getPosition();
+	return this->m_player.getPosition();
 }
 
 //MADE A CONST FOR TILE SIZE
 int Player::getPlayerPositionX() {
-	return std::abs((int) this->player.getPosition().x / 12);
+	return std::abs((int) this->m_player.getPosition().x / 12);
 }
 
 int Player::getPlayerPositionY() {
-	return std::abs((int) this->player.getPosition().y / 12);
+	return std::abs((int) this->m_player.getPosition().y / 12);
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
 	if (tileID == s_GrassTileID) {
-		if (this->currentSpeed > 120) {
+		if (this->m_currentSpeed > 120) {
 			//this->currentSpeed -= s_Grass_frictionForce * 0.08f;
 		}
 	}
 	else {
-		if (!this->isHandbrakeOn) {}
+		if (!this->m_isHandbrakeOn) {}
 	}
 
 	if (tileID == s_checkpointOneTleID) {
 		this->checkpointsReached.insert(1);
+		std::cout << "FIRST CHECKPOINT IN" << "\n";
 	}
 	else if (tileID == s_checkpointTwoTileID) {
 		this->checkpointsReached.insert(2);
+		std::cout << "SECOND CHECKPOINT IN" << "\n";
 	}
 	else if (tileID == s_checkpointThreeTileID) {
 		this->checkpointsReached.insert(3);
+		std::cout << "THIRD CHECKPOINT IN" << "\n";
 	}
 
 	if (tileID == s_StartblockTileID) {
 		if (this->checkpointsReached.size() == 3) {
-			this->isNextLap = true;
+			this->m_isNextLap = true;
 		}
 	}
 	else {
-		if (this->isNextLap == true) {
+		if (this->m_isNextLap == true) {
+			std::cout << "NEXT LAP IN" << "\n";
 			this->checkpointsReached.clear();
 			this->currentLap++;
-			this->isNextLap = false;
+			this->m_isNextLap = false;
 		}
 	}
 }
@@ -134,7 +136,7 @@ sf::Text Player::showName(sf::Font& gameFont) {
 	text.setCharacterSize(18);
 	sf::FloatRect sizeOfText = text.getGlobalBounds();
 	text.setFillColor(sf::Color::White);
-	text.setPosition(this->player.getPosition().x - (sizeOfText.width / 2), this->player.getPosition().y - 50);
+	text.setPosition(this->m_player.getPosition().x - (sizeOfText.width / 2), this->m_player.getPosition().y - 50);
 	return text;
 }
 
@@ -143,11 +145,11 @@ std::string Player::getMyToken() {
 }
 
 void Player::moveToStart() {
-	this->player.rotate(180.f);
-	this->player.setPosition(525, 1270);
+	this->m_player.rotate(180.f);
+	this->m_player.setPosition(525, 1270);
 }
 
 void Player::moveToStartPosition() {
-	this->player.setRotation(180.f);
-	this->player.setPosition(startingPlace);
+	this->m_player.setRotation(180.f);
+	this->m_player.setPosition(startingPlace);
 }
