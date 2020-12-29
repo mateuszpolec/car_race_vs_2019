@@ -13,6 +13,7 @@
 class Player {
 public:
     int currentLap = 1;
+    int placeInRace = 0;
     sf::Vector2f startingPlace;
     std::set<int> checkpointsReached = {};
 
@@ -121,6 +122,9 @@ private:
     */
     void moveToStart();
 
+    //TODO: Documentation
+    void moveToZeroPosition();
+
 
     /**
     * showName
@@ -129,6 +133,9 @@ private:
     * @return sf::Text text - Player name with font, size, and all needed attributes
     */
     sf::Text showName(sf::Font& gameFont);
+
+    //TODO: Documentation
+    sf::Text showLap(sf::Font& gameFont, int lapsToGo);
 };
 
 #endif

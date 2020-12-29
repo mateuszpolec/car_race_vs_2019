@@ -5,8 +5,8 @@
 #include <SFML/Network/Http.hpp>
 #include <iostream>
 #include <json/json.h>
-#include "../FileWorker/file_worker.h"
-#include "../JsonWorker/json_worker.h"
+#include "../FileWorker/FileWorker.h"
+#include "../JsonWorker/JsonWorker.h"
 
 /**
 * Class APIConnector - Inherits from JSONWorker

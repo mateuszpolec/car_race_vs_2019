@@ -1,7 +1,7 @@
 #include "Game.h"
 
 void Game::createWindow() {
-	this->m_window = new sf::RenderWindow(sf::VideoMode(s_screenHeight, s_screenWidth), "My window");
+	this->m_window = new sf::RenderWindow(sf::VideoMode(s_screenWidth, s_screenHeight), "Car race 1.0.0");
 	this->m_window->setFramerateLimit(60); //TODO: Set Framelimit const
 }
 
@@ -38,6 +38,12 @@ void Game::render() {
 	this->m_window->draw(s_layerOne);
 	this->m_window->draw(this->m_player->getPlayerSpriteObject());
 	this->m_window->draw(this->m_player->showName(this->m_gameFont));
+	if (this->m_stateOfGame == 1) {
+		this->m_window->draw(this->m_player->showLap(this->m_gameFont, 4));
+	}
+	else if (this->m_stateOfGame == 2) {
+		this->m_window->draw(this->m_player->showLap(this->m_gameFont, 10));
+	}
 	for (Enemy* enemy : this->m_vectorOfEnemies) {
 		this->m_window->draw(enemy->getEnemySpriteObject());
 		this->m_window->draw(enemy->showName(this->m_gameFont));
@@ -115,6 +121,7 @@ void Game::render() {
 			enemy->actualPointToGo = 0;
 			enemy->halfOfPlot = 0;
 			enemy->currentLap = 0;
+			enemy->totalPointsCompleted = 0;
 		}
 		this->m_player->moveToStartPosition();
 		this->m_player->checkpointsReached.clear();
@@ -132,6 +139,59 @@ void Game::render() {
 			this->m_isGameFreezed = false;
 		}
 	}
+	
+	// Main race round Gameplay
+	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 3) {
+		int playerPointsCompleted = 1350;
+
+		this->m_player->moveToZeroPosition();
+
+		std::vector<int> pointsToSort = {};
+		std::set<int> placesInRace = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // What position can you get in race?
+
+		for (Enemy* enemy : this->m_vectorOfEnemies) {
+			pointsToSort.push_back(enemy->totalPointsCompleted);
+		}
+
+		pointsToSort.push_back(playerPointsCompleted);
+
+
+
+		while (isThereAnyDuplicates(pointsToSort)) {
+			removeDuplicatesFromVector(pointsToSort);
+		}
+
+		//Get back to Enemy class and change their completed points to be without any duplicates
+		for (short i = 0; i < this->m_vectorOfEnemies.size(); ++i) {
+			this->m_vectorOfEnemies[i]->totalPointsCompleted = pointsToSort[i];
+		}
+
+		std::sort(pointsToSort.begin(), pointsToSort.end());
+		std::reverse(pointsToSort.begin(), pointsToSort.end());
+
+		for (Enemy* enemy : this->m_vectorOfEnemies) {
+			std::vector<int>::iterator itr = std::find(pointsToSort.begin(), pointsToSort.end(), enemy->totalPointsCompleted);
+
+			int index = std::distance(pointsToSort.begin(), itr);
+
+			placesInRace.erase(index);
+
+			std::cout << enemy->m_Name << " took place: " << index + 1 << "\n";
+		}
+
+		int playerPlaceInRace = *std::next(placesInRace.begin(), 0);
+
+		this->m_player->placeInRace = playerPlaceInRace;
+
+		std::cout << this->m_player->placeInRace + 1 << " player place in race\n";
+
+		this->m_isGameFreezed = true;
+		this->m_isEventActive = false;
+		this->m_stateOfGame = 3;
+	}
+
+
+
 
 
 	this->m_window->display();

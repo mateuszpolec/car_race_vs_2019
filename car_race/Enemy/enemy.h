@@ -19,6 +19,7 @@ public:
 	sf::Vector2f startingPlace;
 	std::vector <sf::Vector2f> pointsToFollow = {};
 	int halfOfPlot = 0;
+	int placeInRace = 0;
 
 private:
 	sf::Sprite m_Enemy;

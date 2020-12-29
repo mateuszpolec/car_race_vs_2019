@@ -84,11 +84,11 @@ sf::Vector2f Player::getPlayerPosition() {
 
 //MADE A CONST FOR TILE SIZE
 int Player::getPlayerPositionX() {
-	return std::abs((int) this->m_player.getPosition().x / 12);
+	return std::abs((int) this->m_player.getPosition().x / s_tileSize);
 }
 
 int Player::getPlayerPositionY() {
-	return std::abs((int) this->m_player.getPosition().y / 12);
+	return std::abs((int) this->m_player.getPosition().y / s_tileSize);
 }
 
 void Player::checkPlayerCollision(std::uint32_t tileID) {
@@ -136,8 +136,21 @@ sf::Text Player::showName(sf::Font& gameFont) {
 	text.setCharacterSize(18);
 	sf::FloatRect sizeOfText = text.getGlobalBounds();
 	text.setFillColor(sf::Color::White);
+	text.setPosition(this->m_player.getPosition().x - (sizeOfText.width / 2), this->m_player.getPosition().y - 70);
+	return text;
+}
+
+sf::Text Player::showLap(sf::Font& gameFont, int lapsToGo) {
+	sf::Text text;
+	text.setFont(gameFont);
+	std::string laps = "Laps: " + std::to_string(this->currentLap) + " / " + std::to_string(lapsToGo);
+	text.setString(laps);
+	text.setCharacterSize(14);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setFillColor(sf::Color::White);
 	text.setPosition(this->m_player.getPosition().x - (sizeOfText.width / 2), this->m_player.getPosition().y - 50);
 	return text;
+
 }
 
 std::string Player::getMyToken() {
@@ -152,4 +165,8 @@ void Player::moveToStart() {
 void Player::moveToStartPosition() {
 	this->m_player.setRotation(180.f);
 	this->m_player.setPosition(startingPlace);
+}
+
+void Player::moveToZeroPosition() {
+	this->m_player.setPosition(0, 0);
 }

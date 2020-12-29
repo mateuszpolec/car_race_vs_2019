@@ -237,11 +237,11 @@ void Enemy::createTrack() {
 }
 
 int Enemy::getEnemyPositionX() {
-	return std::abs((int) this->m_Enemy.getPosition().x / 12);
+	return std::abs((int) this->m_Enemy.getPosition().x / s_tileSize);
 }
 
 int Enemy::getEnemyPositionY() {
-	return std::abs((int)this->m_Enemy.getPosition().y / 12);
+	return std::abs((int)this->m_Enemy.getPosition().y / s_tileSize);
 }
 
 sf::Text Enemy::showName(sf::Font& gameFont) {

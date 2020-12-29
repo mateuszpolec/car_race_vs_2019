@@ -7,8 +7,8 @@
 
 
 // Variables for handling screen size & tile size
-const static inline int s_screenHeight = 1200;
-const static inline int s_screenWidth = 800;
+const static inline int s_screenHeight = 800;
+const static inline int s_screenWidth = 1200;
 const static inline int s_tileSize = 12;
 
 // Variables for movement
