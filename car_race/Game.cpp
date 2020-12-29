@@ -69,7 +69,7 @@ void Game::render() {
 	}
 
 	// Qualification Round - Gameplay
-	if (this->m_isEventActive && this->m_stateOfGame == 1 && this->m_player->currentLap == 4) {
+	if (this->m_isEventActive && this->m_stateOfGame == 1 && this->m_player->currentLap == 1) {
 
 		int playerPointsCompleted = 450; // Setting the points, that player will make if he end the race.
 
@@ -141,7 +141,7 @@ void Game::render() {
 	}
 	
 	// Main race round Gameplay
-	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 3) {
+	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 1) {
 		int playerPointsCompleted = 100;
 
 		this->m_player->moveToZeroPosition();
@@ -173,21 +173,25 @@ void Game::render() {
 			std::vector<int>::iterator itr = std::find(pointsToSort.begin(), pointsToSort.end(), enemy->totalPointsCompleted);
 
 			int index = std::distance(pointsToSort.begin(), itr);
-
+			
 			placesInRace.erase(index);
 
-			std::cout << enemy->m_Name << " took place: " << index + 1 << "\n";
 		}
 
 		int playerPlaceInRace = *std::next(placesInRace.begin(), 0);
 
-		this->m_player->placeInRace = playerPlaceInRace;
-
-		std::cout << this->m_player->placeInRace + 1 << " player place in race\n";
+		this->m_player->placeInRace = playerPlaceInRace + 1;
 
 		this->m_isGameFreezed = true;
 		this->m_isEventActive = false;
 		this->m_stateOfGame = 3;
+	}
+
+	if (this->m_stateOfGame == 3) {
+		this->m_window->draw(menuEndBackground());
+		this->m_window->draw(menuEndBackground2());
+		this->m_window->draw(endRaceText(this->m_gameFont, this->m_player->placeInRace));
+		this->m_window->draw(menuEndCup());
 	}
 
 

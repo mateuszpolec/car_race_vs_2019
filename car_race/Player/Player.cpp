@@ -8,7 +8,7 @@ Player::Player(std::string authtoken) :
 sf::Sprite Player::getPlayerSpriteObject() {
 	this->m_playerTexture.loadFromFile("./Assets/car_sprite_1.png");
 	this->m_player.setTexture(this->m_playerTexture);
-	this->m_player.setScale(3.0, 3.0);
+	this->m_player.setScale(3.0f, 3.0f);
 	this->m_player.setOrigin(4.5f, 7.0f);
 	return this->m_player;
 }
@@ -168,5 +168,5 @@ void Player::moveToStartPosition() {
 }
 
 void Player::moveToZeroPosition() {
-	this->m_player.setPosition(0, 0);
+	this->m_player.setPosition(s_screenWidth / 2, s_screenHeight / 2);
 }

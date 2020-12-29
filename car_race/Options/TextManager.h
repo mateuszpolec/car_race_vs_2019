@@ -33,6 +33,8 @@ sf::Text mainRaceLapsText(sf::Font& gameFont, sf::Vector2f playerPosition);
 //TODO: Documentation
 sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition);
 
+sf::Text endRaceText(sf::Font& gameFont, int place);
+
 /**
 * timeCountdownText
 * Display the remaining time to start of an event

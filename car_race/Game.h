@@ -9,6 +9,7 @@
 #include "Enemy/enemy.h"
 #include "FileWorker/RouteCreator.h"
 #include "./Options/TextManager.h"
+#include "./Menu/MenuEnd.h"
 #include <iostream>
 #include <algorithm>
 

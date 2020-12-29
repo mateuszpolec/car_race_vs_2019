@@ -45,6 +45,17 @@ sf::Text mainRaceLapsHelpText(sf::Font& gameFont, sf::Vector2f playerPosition) {
 
 }
 
+sf::Text endRaceText(sf::Font& gameFont, int place) {
+	sf::Text text;
+	text.setFont(gameFont);
+	text.setString("You are #" + std::to_string(place));
+	text.setCharacterSize(42);
+	text.setFillColor(sf::Color::White);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setPosition((s_screenWidth / 2) - (sizeOfText.width / 2), s_screenHeight / 2);
+	return text;
+}
+
 sf::Text timeCountdownText(sf::Font& gameFont, sf::Vector2f playerPosition, float time) {
 	sf::Text text;
 	text.setFont(gameFont);
