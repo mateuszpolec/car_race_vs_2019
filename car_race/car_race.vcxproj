@@ -170,6 +170,7 @@
     <ClCompile Include="FileWorker\RouteCreator.cpp" />
     <ClCompile Include="JsonWorker\JsonWorker.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Menu\Buttons.cpp" />
     <ClCompile Include="Menu\MenuEnd.cpp" />
     <ClCompile Include="Options\Options.cpp" />
     <ClCompile Include="Options\TextManager.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="FileWorker\RouteCreator.h" />
     <ClInclude Include="FileWorker\sfml_layer_loader.h" />
     <ClInclude Include="JsonWorker\JsonWorker.h" />
+    <ClInclude Include="Menu\Buttons.h" />
     <ClInclude Include="Menu\MenuEnd.h" />
     <ClInclude Include="Options\Options.h" />
     <ClInclude Include="Options\TextManager.h" />
