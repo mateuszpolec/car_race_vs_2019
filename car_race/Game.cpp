@@ -142,7 +142,7 @@ void Game::render() {
 	
 	// Main race round Gameplay
 	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 3) {
-		int playerPointsCompleted = 1350;
+		int playerPointsCompleted = 100;
 
 		this->m_player->moveToZeroPosition();
 
