@@ -27,7 +27,7 @@ With C++ (don't know what version yet) and SFML 2.5 libary (using Networking an 
 
 RAPORT I (01.11.2020)
 
-- [*] Created an empty git repository for game
+- [x] Created an empty git repository for game
 - [*] Create an empty SFML project
 - [*] Created a basic connect with API for network playing 
 - [*] Move project from VS Code to VS 2019 enviroment
