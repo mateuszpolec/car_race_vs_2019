@@ -69,7 +69,7 @@ RAPORT III (22.11.2020)
 - [x] Extend current lap with functionality checking player chekpoints reached
 - [x] Rework the Bezier Curve to work for all enemies, not only test object
 
-RAPORT IV (20.21.2020)
+RAPORT IV (20.12.2020)
 
 - [x] Removed commented code from project
 - [x] Filled the documentation for new lines of code
