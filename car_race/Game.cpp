@@ -42,7 +42,7 @@ void Game::render() {
 		this->m_window->draw(this->m_player->showLap(this->m_gameFont, 4));
 	}
 	else if (this->m_stateOfGame == 2) {
-		this->m_window->draw(this->m_player->showLap(this->m_gameFont, 10));
+		this->m_window->draw(this->m_player->showLap(this->m_gameFont, 5));
 	}
 	for (Enemy* enemy : this->m_vectorOfEnemies) {
 		this->m_window->draw(enemy->getEnemySpriteObject());
@@ -69,7 +69,7 @@ void Game::render() {
 	}
 
 	// Qualification Round - Gameplay
-	if (this->m_isEventActive && this->m_stateOfGame == 1 && this->m_player->currentLap == 1) {
+	if (this->m_isEventActive && this->m_stateOfGame == 1 && this->m_player->currentLap == 4) {
 
 		int playerPointsCompleted = 450; // Setting the points, that player will make if he end the race.
 
@@ -141,7 +141,7 @@ void Game::render() {
 	}
 	
 	// Main race round Gameplay
-	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 1) {
+	if (this->m_isEventActive && this->m_stateOfGame == 2 && this->m_player->currentLap == 5) {
 		int playerPointsCompleted = 100;
 
 		this->m_player->moveToZeroPosition();
@@ -192,6 +192,15 @@ void Game::render() {
 		this->m_window->draw(menuEndBackground2());
 		this->m_window->draw(endRaceText(this->m_gameFont, this->m_player->placeInRace));
 		this->m_window->draw(menuEndCup());
+		sf::Text playAgain = buttonPlayAgain(this->m_gameFont);
+		this->m_window->draw(playAgain);
+		sf::IntRect rect(playAgain.getPosition().x, playAgain.getPosition().y, playAgain.getGlobalBounds().width, playAgain.getGlobalBounds().height);
+		//if (rect.contains(sf::Mouse::getPosition())) {
+		//	std::cout << "True";
+		//}
+		//else {
+		//	std::cout << "False";
+		//}
 	}
 
 

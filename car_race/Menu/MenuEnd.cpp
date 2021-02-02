@@ -26,3 +26,14 @@ sf::Sprite menuEndCup() {
 	cup.setPosition((s_screenWidth / 2) - (sizeOfCup.width / 2), (s_screenHeight / 2) - 150);
 	return cup;
 }
+
+sf::Text buttonPlayAgain(sf::Font& gameFont) {
+	sf::Text text;
+	text.setFont(gameFont);
+	text.setString("Play again");
+	text.setCharacterSize(24);
+	text.setFillColor(sf::Color::White);
+	sf::FloatRect sizeOfText = text.getGlobalBounds();
+	text.setPosition((s_screenWidth / 2) - (sizeOfText.width / 2), (s_screenHeight / 2) + 150);
+	return text;
+}

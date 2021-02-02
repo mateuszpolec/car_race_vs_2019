@@ -7,6 +7,8 @@
 sf::RectangleShape menuEndBackground();
 sf::RectangleShape menuEndBackground2();
 sf::Sprite menuEndCup();
+sf::Text buttonPlayAgain(sf::Font& gameFont);
+
 
 
 #endif
